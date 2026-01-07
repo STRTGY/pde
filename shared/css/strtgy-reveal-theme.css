@@ -108,10 +108,10 @@
     color: var(--strtgy-white);
 }
 
-.reveal h1 { font-size: 3.2em; }
-.reveal h2 { font-size: 2.4em; }
-.reveal h3 { font-size: 1.8em; }
-.reveal h4 { font-size: 1.4em; }
+.reveal h1 { font-size: 4em; }
+.reveal h2 { font-size: 3em; }
+.reveal h3 { font-size: 2.2em; }
+.reveal h4 { font-size: 1.6em; }
 
 .reveal p {
     line-height: 1.6;
@@ -204,22 +204,22 @@
 }
 
 .cover-title {
-    font-size: 4em !important;
+    font-size: 4.5em !important;
     margin-bottom: 0.3em !important;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     line-height: 1.1 !important;
 }
 
 .cover-subtitle {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: var(--strtgy-gray-500);
     margin-bottom: 2em;
     font-weight: 400;
 }
 
 .cover-logo {
-    width: 140px;
-    max-width: 140px;
+    width: 180px;
+    max-width: 180px;
     height: auto;
     opacity: 0.85;
     margin-top: 1.5em;
@@ -241,14 +241,14 @@
 
 .impact-quote p {
     font-family: var(--font-heading);
-    font-size: 2.8em;
+    font-size: 3.5em;
     font-weight: 700;
     line-height: 1.3;
     text-align: center;
 }
 
 .quote-attribution {
-    font-size: 1.3em;
+    font-size: 1.6em;
     color: var(--strtgy-gray-500);
     text-align: center;
     margin-top: 1.5em;
@@ -271,20 +271,20 @@
     background: var(--strtgy-navy-dim);
     border: 1px solid var(--strtgy-navy-solid);
     border-radius: var(--radius-lg);
-    padding: 2.5em;
+    padding: 3em;
     text-align: center;
-    min-width: 300px;
-    max-width: 400px;
+    min-width: 380px;
+    max-width: 480px;
 }
 
 .problem-icon {
-    font-size: 3em;
+    font-size: 4em;
     margin-bottom: 0.3em;
 }
 
 .problem-stat {
     font-family: var(--font-heading);
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0.2em;
@@ -296,7 +296,7 @@
 }
 
 .problem-label {
-    font-size: 1.1em;
+    font-size: 1.4em;
     color: var(--strtgy-gray-300);
     line-height: 1.4;
 }
@@ -328,10 +328,10 @@
     background: var(--strtgy-navy-dim);
     border: 1px solid var(--strtgy-navy-solid);
     border-radius: var(--radius-lg);
-    padding: 2em 2.5em;
+    padding: 2.5em 3em;
     text-align: center;
-    min-width: 280px;
-    max-width: 320px;
+    min-width: 340px;
+    max-width: 400px;
     transition: all var(--transition-normal);
 }
 
@@ -342,18 +342,18 @@
 }
 
 .diff-icon {
-    font-size: 3em;
+    font-size: 4em;
     margin-bottom: 0.4em;
 }
 
 .diff-card h3 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     letter-spacing: 0.1em;
     margin-bottom: 0.5em;
 }
 
 .diff-card p {
-    font-size: 1em;
+    font-size: 1.2em;
     color: var(--strtgy-gray-300);
     line-height: 1.5;
 }
@@ -384,19 +384,19 @@
 .comparison-old {
     flex: 1;
     text-align: right;
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: var(--strtgy-gray-500);
 }
 
 .comparison-arrow {
-    font-size: 1.5em;
+    font-size: 2em;
     color: var(--strtgy-accent);
 }
 
 .comparison-new {
     flex: 1;
     text-align: left;
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: var(--strtgy-white);
 }
 
@@ -417,7 +417,7 @@
     background: var(--strtgy-navy-dim);
     border: 1px solid var(--strtgy-navy-solid);
     border-radius: var(--radius-md);
-    padding: 1.5em;
+    padding: 2em;
     text-align: left;
     transition: all var(--transition-normal);
 }
@@ -428,23 +428,23 @@
 }
 
 .service-icon {
-    font-size: 2em;
+    font-size: 2.8em;
     margin-bottom: 0.4em;
 }
 
 .service-card h4 {
-    font-size: 1.1em;
+    font-size: 1.4em;
     margin-bottom: 0.3em;
 }
 
 .service-card p {
-    font-size: 0.95em;
+    font-size: 1.15em;
     color: var(--strtgy-gray-500);
     margin-bottom: 0.8em;
 }
 
 .service-price {
-    font-size: 0.85em;
+    font-size: 1.1em;
     color: var(--strtgy-accent);
     font-weight: 600;
 }
@@ -497,7 +497,7 @@
 
 .case-stat {
     font-family: var(--font-heading);
-    font-size: 5em;
+    font-size: 6em;
     font-weight: 700;
     color: var(--strtgy-accent);
     text-shadow: var(--shadow-accent);
@@ -505,7 +505,7 @@
 }
 
 .case-stat-label {
-    font-size: 1.1em;
+    font-size: 1.4em;
     color: var(--strtgy-gray-300);
     margin-top: 0.5em;
     line-height: 1.4;
@@ -520,14 +520,14 @@
 }
 
 .case-section h4 {
-    font-size: 1em;
+    font-size: 1.2em;
     color: var(--strtgy-accent);
     margin-bottom: 0.3em;
     letter-spacing: 0.05em;
 }
 
 .case-section p {
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: var(--strtgy-white);
     line-height: 1.5;
 }
@@ -549,11 +549,11 @@
     background: var(--strtgy-navy-dim);
     border: 1px solid var(--strtgy-navy-solid);
     border-radius: var(--radius-md);
-    padding: 1.5em;
+    padding: 1.8em;
     text-align: center;
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 0.9em;
+    font-size: 1.1em;
     color: var(--strtgy-gray-300);
     transition: all var(--transition-fast);
 }
@@ -587,9 +587,9 @@
     background: var(--strtgy-navy-dim);
     border: 1px solid var(--strtgy-navy-solid);
     border-radius: var(--radius-lg);
-    padding: 2em 2.5em;
+    padding: 2.5em 3em;
     text-align: center;
-    min-width: 220px;
+    min-width: 260px;
     transition: all var(--transition-normal);
 }
 
@@ -601,7 +601,7 @@
 
 .metric-value {
     font-family: var(--font-heading);
-    font-size: 4em;
+    font-size: 5em;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0.2em;
@@ -613,7 +613,7 @@
 }
 
 .metric-label {
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: var(--strtgy-white);
     line-height: 1.4;
 }
@@ -639,8 +639,8 @@
 }
 
 .step-circle {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     background: var(--strtgy-navy-dim);
     border: 3px solid var(--strtgy-navy);
     border-radius: 50%;
@@ -648,7 +648,7 @@
     align-items: center;
     justify-content: center;
     font-family: var(--font-heading);
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 700;
     color: var(--strtgy-white);
     margin: 0 auto 1em;
@@ -662,12 +662,12 @@
 }
 
 .process-step h4 {
-    font-size: 1.1em;
+    font-size: 1.4em;
     margin-bottom: 0.3em;
 }
 
 .process-step p {
-    font-size: 0.95em;
+    font-size: 1.15em;
     color: var(--strtgy-gray-500);
     line-height: 1.4;
 }
@@ -676,7 +676,7 @@
     width: 80px;
     height: 3px;
     background: linear-gradient(90deg, var(--strtgy-navy) 0%, var(--strtgy-accent) 100%);
-    margin-top: 35px;
+    margin-top: 45px;
     flex-shrink: 0;
 }
 
@@ -710,8 +710,8 @@
 }
 
 .cta-logo {
-    width: 160px;
-    max-width: 160px;
+    width: 200px;
+    max-width: 200px;
     height: auto;
     margin-bottom: 1.5em;
     filter: drop-shadow(var(--shadow-glow));
@@ -724,12 +724,12 @@
 }
 
 .cta-title {
-    font-size: 3.5em !important;
+    font-size: 4em !important;
     margin-bottom: 0.3em !important;
 }
 
 .cta-subtitle {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: var(--strtgy-gray-300);
     font-style: italic;
     margin-bottom: 2em;
@@ -741,11 +741,11 @@
 
 .cta-button {
     display: inline-block;
-    padding: 1em 2.5em;
+    padding: 1.2em 3em;
     background: var(--gradient-accent);
     color: var(--strtgy-dark);
     font-family: var(--font-heading);
-    font-size: 1.2em;
+    font-size: 1.4em;
     font-weight: 700;
     text-decoration: none;
     border-radius: var(--radius-md);
