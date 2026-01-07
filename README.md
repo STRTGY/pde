@@ -1,0 +1,213 @@
+# STRTGY - Sistema de Presentaciones Reveal.js
+## Guía Rápida de Uso
+
+---
+
+## 📁 Estructura de Carpetas
+
+```
+presentaciones/
+├── shared/
+│   └── css/
+│       └── strtgy-reveal-theme.css    # Tema STRTGY para todos los decks
+├── pitch-deck-ejecutivo/
+│   └── index.html                      # Deck principal de ventas (12 slides)
+├── deck-analisis-vocacion/
+│   └── index.html                      # Deck producto geoestadístico (14 slides)
+├── deck-softlanding/
+│   └── index.html                      # Deck producto internacional (14 slides)
+└── plan2026/
+    ├── index.html                      # Kick-off interno 2026
+    ├── reveal.js/                      # Framework Reveal.js
+    ├── assets/
+    │   ├── logo-strtgy-white.png
+    │   └── logo-strtgy-black.png
+    └── css/
+        └── strtgy-theme.css            # Tema original plan2026
+```
+
+---
+
+## 🚀 Cómo Usar las Presentaciones
+
+### Opción 1: Abrir Directamente
+Abre el archivo `index.html` de cualquier deck en tu navegador.
+
+### Opción 2: Servidor Local (Recomendado)
+```bash
+# Desde la carpeta presentaciones/
+npx live-server pitch-deck-ejecutivo/
+```
+
+### Opción 3: VS Code Live Server
+1. Instala la extensión "Live Server"
+2. Click derecho en `index.html` → "Open with Live Server"
+
+---
+
+## ⌨️ Atajos de Teclado
+
+| Tecla | Acción |
+|-------|--------|
+| `→` / `Space` | Siguiente slide |
+| `←` | Slide anterior |
+| `S` | **Abrir Speaker Notes** (¡Importante!) |
+| `O` | Vista general (overview) |
+| `F` | Pantalla completa |
+| `B` | Pantalla negra (blackout) |
+| `Esc` | Salir de modo especial |
+| `?` | Ver todos los atajos |
+
+---
+
+## 📊 Decks Disponibles
+
+### 1. Pitch Deck Ejecutivo
+**Archivo:** `pitch-deck-ejecutivo/index.html`
+**Slides:** 12
+**Duración:** 15-20 minutos
+**Uso:** Primera reunión con prospectos enterprise
+
+**Estructura:**
+1. Portada Hero
+2. Declaración de marca
+3. El problema (stats de impacto)
+4. Diferenciadores VCA
+5. Comparativa STRTGY vs Tradicional
+6. Portafolio de servicios
+7. Caso: Pastes Kikos
+8. Caso: GWM México
+9. Logos de clientes
+10. Métricas de impacto
+11. Próximos pasos
+12. CTA final
+
+---
+
+### 2. Deck Análisis de Vocación
+**Archivo:** `deck-analisis-vocacion/index.html`
+**Slides:** 14
+**Duración:** 20-25 minutos
+**Uso:** Venta específica de análisis geoestadístico
+
+**Estructura:**
+1. Portada
+2. El problema (costo de equivocarse)
+3. La promesa
+4. Diferenciadores VCA
+5. Motor de inteligencia
+6. Metodología (4 componentes)
+7. Entregables
+8. Caso: Pastes Kikos
+9. Caso: Retail Enterprise
+10. Paquetes y precios
+11. Comparativa
+12. Clientes
+13. Próximos pasos
+14. CTA final
+
+---
+
+### 3. Deck Softlanding Internacional
+**Archivo:** `deck-softlanding/index.html`
+**Slides:** 14
+**Duración:** 20-25 minutos
+**Uso:** Venta de servicios de expansión internacional
+
+**Estructura:**
+1. Portada
+2. El problema (riesgo de expansión)
+3. Quote de impacto
+4. 4 componentes overview
+5. Componente 1: Blindaje Regulatorio
+6. Componente 2: Ubicación Alto Potencial
+7. Componente 3: Radar de Competencia
+8. Componente 4: Protocolo de Despliegue
+9. Caso: Pastes Kikos Houston
+10. Caso: Wellness Club El Paso
+11. Mercados destino
+12. Inversión y timeline
+13. Próximos pasos
+14. CTA final
+
+---
+
+## 🎨 Sistema de Diseño
+
+### Colores Principales
+```css
+--strtgy-navy:    #1E3A5F    /* Confianza */
+--strtgy-dark:    #0A0F1C    /* Fondos */
+--strtgy-accent:  #00D4AA    /* CTAs, highlights */
+--strtgy-danger:  #FF6B6B    /* Alertas, dolor */
+```
+
+### Framework VCA (Diferenciadores)
+Usar en TODOS los decks:
+- ⚡ **Velocidad Radical** - "Horas, no meses"
+- 🎯 **Certeza** - "Datos, no opiniones"
+- 🛠️ **Activos** - "Sistemas, no PDFs"
+
+### Stats Hero de Marca
+Usar consistentemente:
+- **500M+** data points procesados
+- **15+** marcas enterprise
+- **9,000+** competidores analizados por proyecto
+- **2-4** semanas de entrega
+
+---
+
+## 📤 Exportar a PDF
+
+1. Abrir la presentación con `?print-pdf` en la URL:
+   ```
+   file:///ruta/pitch-deck-ejecutivo/index.html?print-pdf
+   ```
+
+2. Presionar `Ctrl+P` (o `Cmd+P` en Mac)
+
+3. Configurar:
+   - Layout: Landscape
+   - Margins: None
+   - Background graphics: ON
+
+4. Guardar como PDF
+
+---
+
+## 🛠️ Personalización
+
+### Modificar Tema Global
+Editar: `shared/css/strtgy-reveal-theme.css`
+
+### Agregar Nuevo Deck
+1. Crear carpeta en `presentaciones/`
+2. Copiar estructura de `pitch-deck-ejecutivo/`
+3. Modificar contenido en `index.html`
+4. Actualizar rutas a reveal.js y CSS
+
+---
+
+## 📝 Speaker Notes
+
+Cada slide tiene notas del presentador con:
+- Puntos clave a mencionar
+- Preguntas para hacer al prospecto
+- Objeciones comunes y respuestas
+
+Para ver las notas: Presionar **S** durante la presentación.
+
+---
+
+## 🔗 Documentación Relacionada
+
+- `09-Materiales-Visuales-RevealJS.md` - Especificaciones completas
+- `04-Productos-Playbook-Procesos.md` - Contenido de productos
+- `01-Plan-Estrategico-2026.md` - Contexto estratégico
+
+---
+
+**Versión:** 2.0  
+**Framework:** Reveal.js 5.x  
+**Última actualización:** Enero 2026
+

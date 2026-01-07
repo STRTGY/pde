@@ -1,0 +1,18 @@
+# Exclude unnecessary reveal.js files to keep repository clean
+plan2026/reveal.js/test/
+plan2026/reveal.js/examples/
+plan2026/reveal.js/css/
+plan2026/reveal.js/js/
+plan2026/reveal.js/*.json
+plan2026/reveal.js/*.js
+plan2026/reveal.js/*.md
+plan2026/reveal.js/LICENSE
+plan2026/reveal.js/gulpfile.js
+plan2026/reveal.js/demo.html
+plan2026/reveal.js/index.html
+
+# Exclude other presentation decks that aren't needed
+deck-analisis-vocacion/
+deck-softlanding/
+plan2026/index.html
+
