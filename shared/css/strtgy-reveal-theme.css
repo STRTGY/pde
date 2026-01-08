@@ -102,19 +102,24 @@ body,
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
 }
 
-/* Allow pointer events only when not presenting */
-body:not(.reveal-full-page) #tsparticles {
-    pointer-events: auto;
+/* Make slide backgrounds semi-transparent to show particles */
+.reveal .slide-background {
+    opacity: 0.85 !important;
 }
 
-/* Ensure particles stay behind reveal content */
+/* Ensure reveal content stays on top */
 .reveal {
     position: relative;
     z-index: 1;
+}
+
+.reveal .slides {
+    position: relative;
+    z-index: 2;
 }
 
 .reveal {
