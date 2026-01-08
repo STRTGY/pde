@@ -87,6 +87,11 @@
    GLOBAL REVEAL.JS OVERRIDES
    ═══════════════════════════════════════════════════════════════ */
 
+body,
+.reveal-viewport {
+    background-color: var(--strtgy-dark) !important;
+}
+
 .reveal {
     font-family: var(--font-body);
     font-weight: 400;
