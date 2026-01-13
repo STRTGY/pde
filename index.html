@@ -2,13 +2,206 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=pitch-deck-ejecutivo/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STRTGY - Redirecting...</title>
+    <title>STRTGY | Presentaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --strtgy-navy: #1E3A5F;
+            --strtgy-dark: #0A0F1C;
+            --strtgy-accent: #00D4AA;
+            --strtgy-white: #FFFFFF;
+            --strtgy-gray: #64748B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--strtgy-dark) 0%, var(--strtgy-navy) 100%);
+            min-height: 100vh;
+            color: var(--strtgy-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1.5rem;
+        }
+        
+        .logo {
+            width: 180px;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        
+        .subtitle {
+            color: var(--strtgy-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .accent {
+            color: var(--strtgy-accent);
+        }
+        
+        .decks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .deck-card {
+            background: rgba(30, 58, 95, 0.3);
+            border: 1px solid rgba(30, 58, 95, 0.5);
+            border-radius: 16px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--strtgy-white);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .deck-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--strtgy-accent);
+            box-shadow: 0 10px 40px rgba(0, 212, 170, 0.15);
+        }
+        
+        .deck-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .deck-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .deck-desc {
+            color: var(--strtgy-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .deck-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--strtgy-gray);
+        }
+        
+        .deck-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(0, 212, 170, 0.15);
+            border: 1px solid var(--strtgy-accent);
+            color: var(--strtgy-accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .badge.internal {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: #3B82F6;
+            color: #3B82F6;
+        }
+        
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: var(--strtgy-gray);
+            font-size: 0.85rem;
+        }
+        
+        .footer a {
+            color: var(--strtgy-accent);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .decks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to pitch deck...</p>
-    <p>If you are not redirected automatically, <a href="pitch-deck-ejecutivo/">click here</a>.</p>
+    <img src="plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="logo">
+    <h1>Presentaciones <span class="accent">STRTGY</span></h1>
+    <p class="subtitle">Decks ejecutivos y materiales de venta</p>
+    
+    <div class="decks-grid">
+        <a href="pitch-deck-ejecutivo/" class="deck-card">
+            <span class="badge">Ventas</span>
+            <div class="deck-icon">🎯</div>
+            <div class="deck-title">Pitch Deck Ejecutivo</div>
+            <div class="deck-desc">
+                Presentación principal de ventas para primera reunión con prospectos enterprise. 
+                Incluye diferenciadores VCA, casos de éxito y CTA.
+            </div>
+            <div class="deck-meta">
+                <span>📊 12 slides</span>
+                <span>⏱️ 15-20 min</span>
+            </div>
+        </a>
+        
+        <a href="deck-content-engine/" class="deck-card">
+            <span class="badge internal">Interno</span>
+            <div class="deck-icon">🤖</div>
+            <div class="deck-title">Content Engine</div>
+            <div class="deck-desc">
+                Sistema multiagente de generación de contenido con IA. 
+                Para Mariana, Arturo y Jacky: flujo de trabajo, roles y operación 2026.
+            </div>
+            <div class="deck-meta">
+                <span>📊 15 slides</span>
+                <span>⏱️ 15-20 min</span>
+            </div>
+        </a>
+    </div>
+    
+    <footer class="footer">
+        <p>STRTGY © 2026 | <a href="https://strtgy.com">strtgy.com</a></p>
+        <p style="margin-top: 0.5rem;">Presiona <strong>S</strong> durante la presentación para ver Speaker Notes</p>
+    </footer>
 </body>
 </html>
-

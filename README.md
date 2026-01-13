@@ -16,6 +16,8 @@ presentaciones/
 │   └── index.html                      # Deck producto geoestadístico (14 slides)
 ├── deck-softlanding/
 │   └── index.html                      # Deck producto internacional (14 slides)
+├── deck-content-engine/
+│   └── index.html                      # Deck Content Engine IA (15 slides)
 └── plan2026/
     ├── index.html                      # Kick-off interno 2026
     ├── reveal.js/                      # Framework Reveal.js
@@ -129,6 +131,38 @@ npx live-server pitch-deck-ejecutivo/
 12. Inversión y timeline
 13. Próximos pasos
 14. CTA final
+
+---
+
+### 4. Deck Content Engine (NUEVO)
+**Archivo:** `deck-content-engine/index.html`
+**Slides:** 15
+**Duración:** 15-20 minutos
+**Uso:** Presentación interna del sistema de generación de contenido IA
+**Audiencia:** Mariana (Marketing), Arturo (CEO), Jacky (Sales Ops)
+
+**Estructura:**
+1. Portada Hero
+2. El problema (volumen de contenido 2026)
+3. La solución Content Engine
+4. Flujo de trabajo (Engine → Mariana → HubSpot)
+5. Arquitectura multiagente
+6. Ciclo iterativo (Plan → Generate → Critique → Refine)
+7. Tech stack (Gemini 3, Imagen 4.0)
+8. Ejemplo de output
+9. Roles del equipo
+10. Semana típica
+11. Carpeta /publicar/
+12. Comparativa tiempo (antes vs ahora)
+13. Loop de mejora (feedback)
+14. Próximos pasos
+15. CTA final
+
+**Features especiales:**
+- Partículas de red neural animadas (tema IA)
+- Diagramas de flujo interactivos
+- Cards de roles con responsabilidades
+- Timeline semanal visual
 
 ---
 

@@ -1,0 +1,1147 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>STRTGY Content Engine | Motor de Contenido IA</title>
+    <meta name="description" content="Sistema multiagente de generación de contenido para STRTGY 2026">
+    <meta name="author" content="STRTGY">
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reveal.css">
+    
+    <!-- Highlight.js Theme -->
+    <link rel="stylesheet" href="../plan2026/reveal.js/plugin/highlight/monokai.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- STRTGY Theme -->
+    <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
+    
+    <!-- Custom Content Engine Styles -->
+    <style>
+        /* Flow Diagram */
+        .flow-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5em;
+            margin: 2em auto;
+            flex-wrap: wrap;
+        }
+        
+        .flow-node {
+            background: var(--strtgy-navy-dim);
+            border: 2px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 1.8em 2.5em;
+            text-align: center;
+            min-width: 200px;
+            transition: all var(--transition-normal);
+        }
+        
+        .flow-node.active {
+            border-color: var(--strtgy-accent);
+            box-shadow: 0 0 30px var(--strtgy-accent-dim);
+        }
+        
+        .flow-node.human {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.15) 0%, rgba(30, 58, 95, 0.3) 100%);
+            border-color: var(--strtgy-accent);
+        }
+        
+        .flow-icon {
+            font-size: 3em;
+            margin-bottom: 0.3em;
+        }
+        
+        .flow-label {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .flow-sublabel {
+            font-size: 0.9em;
+            color: var(--strtgy-gray-500);
+            margin-top: 0.3em;
+        }
+        
+        .flow-arrow {
+            font-size: 2.5em;
+            color: var(--strtgy-accent);
+        }
+        
+        /* Agent Cards */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
+            max-width: 1100px;
+            margin: 1.5em auto;
+        }
+        
+        .agent-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 2em;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .agent-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--strtgy-accent);
+        }
+        
+        .agent-icon {
+            font-size: 3.5em;
+            margin-bottom: 0.4em;
+        }
+        
+        .agent-name {
+            font-family: var(--font-heading);
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 0.3em;
+        }
+        
+        .agent-desc {
+            font-size: 1em;
+            color: var(--strtgy-gray-500);
+            line-height: 1.4;
+        }
+        
+        /* Role Cards */
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2em;
+            max-width: 1200px;
+            margin: 2em auto;
+        }
+        
+        .role-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 2em;
+            text-align: left;
+        }
+        
+        .role-avatar {
+            font-size: 4em;
+            margin-bottom: 0.3em;
+        }
+        
+        .role-name {
+            font-family: var(--font-heading);
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 0.2em;
+        }
+        
+        .role-title {
+            font-size: 1em;
+            color: var(--strtgy-accent);
+            margin-bottom: 1em;
+            font-weight: 500;
+        }
+        
+        .role-tasks {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .role-tasks li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 0.6em;
+            font-size: 1em;
+            color: var(--strtgy-gray-300);
+        }
+        
+        .role-tasks li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--strtgy-accent);
+        }
+        
+        /* Output Preview */
+        .output-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            max-width: 1000px;
+            margin: 1.5em auto;
+            align-items: start;
+        }
+        
+        .output-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .output-header {
+            background: var(--strtgy-navy);
+            padding: 1em 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+        
+        .output-header-icon {
+            font-size: 1.5em;
+        }
+        
+        .output-header-text {
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+        
+        .output-body {
+            padding: 1.5em;
+        }
+        
+        .output-body pre {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: var(--radius-sm);
+            padding: 1em;
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            color: var(--strtgy-gray-300);
+            overflow-x: auto;
+            margin: 0;
+        }
+        
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            justify-content: center;
+            gap: 3em;
+            margin: 2em auto;
+            flex-wrap: wrap;
+        }
+        
+        .tech-item {
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .tech-icon {
+            font-size: 3em;
+            margin-bottom: 0.4em;
+        }
+        
+        .tech-name {
+            font-family: var(--font-heading);
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .tech-desc {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        /* Weekly Flow */
+        .weekly-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1em;
+            max-width: 1100px;
+            margin: 2em auto;
+        }
+        
+        .week-day {
+            flex: 1;
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1.5em;
+            text-align: center;
+        }
+        
+        .week-day.highlight {
+            border-color: var(--strtgy-accent);
+            background: linear-gradient(180deg, rgba(0, 212, 170, 0.1) 0%, transparent 100%);
+        }
+        
+        .day-name {
+            font-family: var(--font-heading);
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--strtgy-accent);
+            margin-bottom: 0.8em;
+        }
+        
+        .day-task {
+            font-size: 0.95em;
+            color: var(--strtgy-white);
+            line-height: 1.4;
+        }
+        
+        .day-owner {
+            font-size: 0.8em;
+            color: var(--strtgy-gray-500);
+            margin-top: 0.5em;
+        }
+        
+        /* Cost Comparison */
+        .cost-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3em;
+            max-width: 900px;
+            margin: 2em auto;
+        }
+        
+        .cost-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 2.5em;
+            text-align: center;
+        }
+        
+        .cost-card.old {
+            opacity: 0.7;
+        }
+        
+        .cost-card.new {
+            border-color: var(--strtgy-accent);
+            box-shadow: 0 0 40px var(--strtgy-accent-dim);
+        }
+        
+        .cost-label {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--strtgy-gray-500);
+            margin-bottom: 0.5em;
+        }
+        
+        .cost-value {
+            font-family: var(--font-heading);
+            font-size: 4em;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.2em;
+        }
+        
+        .cost-card.old .cost-value {
+            color: var(--strtgy-danger);
+            text-decoration: line-through;
+        }
+        
+        .cost-card.new .cost-value {
+            color: var(--strtgy-accent);
+        }
+        
+        .cost-detail {
+            font-size: 1em;
+            color: var(--strtgy-gray-500);
+        }
+    </style>
+</head>
+<body>
+    <!-- tsParticles Container - Data Network Background -->
+    <div id="tsparticles"></div>
+    
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 1: PORTADA HERO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cover" data-background-gradient="radial-gradient(ellipse at center, #1E3A5F 0%, #0A0F1C 70%)">
+                <div class="cover-content">
+                    <div class="cover-badge">MOTOR DE CONTENIDO IA</div>
+                    <h1 class="cover-title">STRTGY <span class="accent">CONTENT ENGINE</span></h1>
+                    <p class="cover-subtitle">Genera en horas lo que tomaría semanas crear manualmente.</p>
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cover-logo">
+                </div>
+                <div class="grid-background"></div>
+                <aside class="notes">
+                    <strong>APERTURA:</strong><br>
+                    "Hoy les presento el sistema que va a transformar cómo producimos contenido en STRTGY."<br><br>
+                    El Content Engine es nuestra fábrica de contenido automatizada.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 2: EL PROBLEMA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="problem" data-background-color="#0A0F1C">
+                <h2>EL RETO DE <span class="danger">CONTENIDO 2026</span></h2>
+                
+                <div class="problem-grid">
+                    <div class="problem-card fragment zoom-in">
+                        <div class="problem-icon">📝</div>
+                        <div class="problem-stat danger">80-100</div>
+                        <div class="problem-label">Piezas de contenido<br>mensuales requeridas</div>
+                    </div>
+                    <div class="problem-card fragment zoom-in">
+                        <div class="problem-icon">🌎</div>
+                        <div class="problem-stat danger">3</div>
+                        <div class="problem-label">Mercados diferentes<br>MX • USA • LATAM</div>
+                    </div>
+                </div>
+                
+                <blockquote class="problem-quote fragment fade-up">
+                    "Crear contenido de calidad manualmente es insostenible y limita el crecimiento."
+                </blockquote>
+                
+                <aside class="notes">
+                    <strong>AGITAR EL DOLOR:</strong><br>
+                    "Para cumplir el plan 2026, necesitamos producir mucho más contenido que antes."<br>
+                    "3 blogs semanales, 12 posts en redes, newsletters... en 3 mercados diferentes."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 3: LA SOLUCIÓN
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="solution" data-background-color="#0A0F1C">
+                <h2>LA SOLUCIÓN: <span class="accent">CONTENT ENGINE</span></h2>
+                <p class="slide-subtitle">Un sistema multiagente que genera borradores de contenido con IA</p>
+                
+                <div class="differentiators-grid">
+                    <div class="diff-card fragment fade-up" data-fragment-index="1">
+                        <div class="diff-icon">🤖</div>
+                        <h3>IA MULTIAGENTE</h3>
+                        <p>Agentes especializados: Planner, Writer, Critic, Visual</p>
+                    </div>
+                    <div class="diff-card fragment fade-up" data-fragment-index="2">
+                        <div class="diff-icon">⚡</div>
+                        <h3>VELOCIDAD</h3>
+                        <p>Borradores completos en <strong>minutos</strong>, no horas</p>
+                    </div>
+                    <div class="diff-card fragment fade-up" data-fragment-index="3">
+                        <div class="diff-icon">🎨</div>
+                        <h3>VISUAL + TEXTO</h3>
+                        <p>Genera contenido <strong>e imágenes</strong> con Imagen 4.0</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>KEY POINT:</strong><br>
+                    "No reemplaza a Mariana - la potencia."<br>
+                    "El Engine genera borradores que Mar edita y publica."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 4: FLUJO DE TRABAJO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="workflow" data-background-color="#0A0F1C">
+                <h2>EL FLUJO <span class="accent">SEMANAL</span></h2>
+                
+                <div class="flow-diagram">
+                    <div class="flow-node fragment fade-right">
+                        <div class="flow-icon">🤖</div>
+                        <div class="flow-label">Content Engine</div>
+                        <div class="flow-sublabel">Genera borradores</div>
+                    </div>
+                    
+                    <div class="flow-arrow fragment fade-in">→</div>
+                    
+                    <div class="flow-node human fragment fade-up">
+                        <div class="flow-icon">👩‍💼</div>
+                        <div class="flow-label">Mariana</div>
+                        <div class="flow-sublabel">AI Editor + QA</div>
+                    </div>
+                    
+                    <div class="flow-arrow fragment fade-in">→</div>
+                    
+                    <div class="flow-node active fragment fade-left">
+                        <div class="flow-icon">🚀</div>
+                        <div class="flow-label">HubSpot</div>
+                        <div class="flow-sublabel">Publicación</div>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p>Mariana es la <strong>editora final</strong>. El Engine genera, ella aprueba.</p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>IMPORTANTE:</strong><br>
+                    "El rol de Mar es CRÍTICO - ella es quien garantiza calidad."<br>
+                    "El Engine reduce su carga de escritura, no su responsabilidad."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 5: ARQUITECTURA DE AGENTES
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="agents" data-background-color="#0A0F1C">
+                <h2>ARQUITECTURA <span class="accent">MULTIAGENTE</span></h2>
+                <p class="slide-subtitle">Equipo de agentes especializados orquestados por LangGraph</p>
+                
+                <div class="agents-grid">
+                    <div class="agent-card fragment fade-up">
+                        <div class="agent-icon">🎯</div>
+                        <div class="agent-name">Orchestrator</div>
+                        <div class="agent-desc">Coordina el flujo y asigna tareas a cada equipo</div>
+                    </div>
+                    <div class="agent-card fragment fade-up">
+                        <div class="agent-icon">📋</div>
+                        <div class="agent-name">Planner</div>
+                        <div class="agent-desc">Crea la estructura y outline del contenido</div>
+                    </div>
+                    <div class="agent-card fragment fade-up">
+                        <div class="agent-icon">✍️</div>
+                        <div class="agent-name">Writer</div>
+                        <div class="agent-desc">Genera el contenido siguiendo el plan</div>
+                    </div>
+                    <div class="agent-card fragment fade-up">
+                        <div class="agent-icon">🔍</div>
+                        <div class="agent-name">Critic</div>
+                        <div class="agent-desc">Evalúa calidad y sugiere mejoras</div>
+                    </div>
+                    <div class="agent-card fragment fade-up">
+                        <div class="agent-icon">🎨</div>
+                        <div class="agent-name">Visual</div>
+                        <div class="agent-desc">Crea prompts y genera imágenes</div>
+                    </div>
+                    <div class="agent-card fragment fade-up">
+                        <div class="agent-icon">📊</div>
+                        <div class="agent-name">Strategy</div>
+                        <div class="agent-desc">Research y contexto de mercado</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>TÉCNICO:</strong><br>
+                    "Cada agente tiene su especialidad - como un equipo de marketing real."<br>
+                    "El Critic revisa el trabajo del Writer, como lo haría un editor humano."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 6: CICLO ITERATIVO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="iterative" data-background-color="#0A0F1C">
+                <h2>CICLO <span class="accent">ITERATIVO</span></h2>
+                <p class="slide-subtitle">El contenido mejora automáticamente hasta alcanzar calidad</p>
+                
+                <div class="methodology-flow">
+                    <div class="method-step fragment fade-up">
+                        <div class="method-number">01</div>
+                        <div class="method-icon">📋</div>
+                        <div class="method-title">PLAN</div>
+                        <div class="method-desc">Estructura y outline</div>
+                    </div>
+                    <div class="method-arrow fragment fade-in">→</div>
+                    <div class="method-step fragment fade-up">
+                        <div class="method-number">02</div>
+                        <div class="method-icon">✍️</div>
+                        <div class="method-title">GENERATE</div>
+                        <div class="method-desc">Primer borrador</div>
+                    </div>
+                    <div class="method-arrow fragment fade-in">→</div>
+                    <div class="method-step fragment fade-up">
+                        <div class="method-number">03</div>
+                        <div class="method-icon">🔍</div>
+                        <div class="method-title">CRITIQUE</div>
+                        <div class="method-desc">Evaluación 0-10</div>
+                    </div>
+                    <div class="method-arrow fragment fade-in">→</div>
+                    <div class="method-step fragment fade-up">
+                        <div class="method-number">04</div>
+                        <div class="method-icon">🔄</div>
+                        <div class="method-title">REFINE</div>
+                        <div class="method-desc">Mejoras iterativas</div>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p>Score mínimo de <strong>8.5/10</strong> antes de entregar a Mariana</p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>CALIDAD:</strong><br>
+                    "El sistema no entrega basura - tiene estándares."<br>
+                    "Si no pasa el 8.5, sigue iterando hasta 3 veces."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 7: TECH STACK
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="tech" data-background-color="#0A0F1C">
+                <h2>TECNOLOGÍA <span class="accent">ENERO 2026</span></h2>
+                <p class="slide-subtitle">Modelos de última generación de Google</p>
+                
+                <div class="tech-stack">
+                    <div class="tech-item fragment fade-up">
+                        <div class="tech-icon">🧠</div>
+                        <div class="tech-name">Gemini 3 Pro</div>
+                        <div class="tech-desc">Contenido complejo</div>
+                    </div>
+                    <div class="tech-item fragment fade-up">
+                        <div class="tech-icon">⚡</div>
+                        <div class="tech-name">Gemini 3 Flash</div>
+                        <div class="tech-desc">Planificación rápida</div>
+                    </div>
+                    <div class="tech-item fragment fade-up">
+                        <div class="tech-icon">🎨</div>
+                        <div class="tech-name">Imagen 4.0</div>
+                        <div class="tech-desc">Fotografía editorial</div>
+                    </div>
+                    <div class="tech-item fragment fade-up">
+                        <div class="tech-icon">🖼️</div>
+                        <div class="tech-name">Gemini 3 Image</div>
+                        <div class="tech-desc">Ilustraciones</div>
+                    </div>
+                </div>
+                
+                <div class="metrics-grid" style="margin-top: 2em;">
+                    <div class="metric-card fragment zoom-in">
+                        <div class="metric-value accent">$0.02</div>
+                        <div class="metric-label">costo promedio<br><span class="sublabel">por pieza texto</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value">$0.08</div>
+                        <div class="metric-label">costo promedio<br><span class="sublabel">por imagen</span></div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>COSTOS:</strong><br>
+                    "Una pieza completa (texto + imagen) cuesta ~$0.10 USD"<br>
+                    "100 piezas al mes = ~$10 USD en API calls"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 8: OUTPUT EJEMPLO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="output" data-background-color="#0A0F1C">
+                <h2>EJEMPLO DE <span class="accent">OUTPUT</span></h2>
+                <p class="slide-subtitle">Lo que genera el Engine para cada pieza</p>
+                
+                <div class="output-preview">
+                    <div class="output-card fragment fade-right">
+                        <div class="output-header">
+                            <div class="output-header-icon">📝</div>
+                            <div class="output-header-text">linkedin_softlanding.md</div>
+                        </div>
+                        <div class="output-body">
+                            <pre>🇺🇸 9,000 restaurantes del área 
+de Houston analizados en solo 
+3 semanas.
+
+🔍 El reto: Pastes Kikos quería
+abrir en Houston...
+
+💡 El método STRTGY: Computer 
+Vision + NLP para analizar...
+
+🎯 ¿Planeas expandir a USA?
+Agenda 15 min → 🚀</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="output-card fragment fade-left">
+                        <div class="output-header">
+                            <div class="output-header-icon">🎨</div>
+                            <div class="output-header-text">imagen_generada.png</div>
+                        </div>
+                        <div class="output-body" style="text-align: center;">
+                            <div style="background: linear-gradient(135deg, #1E3A5F 0%, #00D4AA 100%); height: 180px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                <span style="font-size: 4em;">🏙️</span>
+                            </div>
+                            <p style="font-size: 0.9em; color: var(--strtgy-gray-500); margin-top: 0.8em;">
+                                Imagen 4.0 • 16:9 • Colores STRTGY
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>DEMO:</strong><br>
+                    "Esto es output real del sistema - no mockup."<br>
+                    "El archivo MD va directo a HubSpot, la imagen a media library."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 9: ROLES DEL EQUIPO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="roles" data-background-color="#0A0F1C">
+                <h2>ROLES DEL <span class="accent">EQUIPO</span></h2>
+                
+                <div class="roles-grid">
+                    <div class="role-card fragment fade-up">
+                        <div class="role-avatar">👩‍💼</div>
+                        <div class="role-name">Mariana</div>
+                        <div class="role-title">Marketing Content Manager + AI Editor</div>
+                        <ul class="role-tasks">
+                            <li>Revisar borradores del Engine</li>
+                            <li>Editar y aprobar contenido</li>
+                            <li>Publicar en HubSpot</li>
+                            <li>Dar feedback semanal</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="role-card fragment fade-up">
+                        <div class="role-avatar">👨‍💼</div>
+                        <div class="role-name">Jacky</div>
+                        <div class="role-title">Sales Ops + Marketing Support</div>
+                        <ul class="role-tasks">
+                            <li>Revisar contenido de ventas</li>
+                            <li>Validar mensajes comerciales</li>
+                            <li>Coordinar con Arturo</li>
+                            <li>Soporte en campañas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="role-card fragment fade-up">
+                        <div class="role-avatar">👨‍💻</div>
+                        <div class="role-name">Fabián</div>
+                        <div class="role-title">CTO + Engine Maintainer</div>
+                        <ul class="role-tasks">
+                            <li>Ejecutar el Engine</li>
+                            <li>Ajustar prompts y config</li>
+                            <li>Incorporar feedback</li>
+                            <li>Resolver bugs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>CLARIDAD:</strong><br>
+                    "Cada quien tiene su responsabilidad clara."<br>
+                    "Mariana: calidad. Jacky: alineación comercial. Fabián: sistema."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 10: SEMANA TÍPICA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="week" data-background-color="#0A0F1C">
+                <h2>SEMANA <span class="accent">TÍPICA</span></h2>
+                
+                <div class="weekly-flow">
+                    <div class="week-day highlight fragment fade-up">
+                        <div class="day-name">LUNES</div>
+                        <div class="day-task">Fabián ejecuta<br>Content Engine</div>
+                        <div class="day-owner">🤖 Automático</div>
+                    </div>
+                    <div class="week-day fragment fade-up">
+                        <div class="day-name">MAR-MIÉ</div>
+                        <div class="day-task">Mariana revisa<br>y edita borradores</div>
+                        <div class="day-owner">👩‍💼 2-3 hrs total</div>
+                    </div>
+                    <div class="week-day fragment fade-up">
+                        <div class="day-name">JUEVES</div>
+                        <div class="day-task">Publicación en<br>HubSpot</div>
+                        <div class="day-owner">🚀 Scheduled</div>
+                    </div>
+                    <div class="week-day fragment fade-up">
+                        <div class="day-name">VIERNES</div>
+                        <div class="day-task">Feedback para<br>próxima semana</div>
+                        <div class="day-owner">📝 15 min</div>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p>Tiempo total de Mariana: <strong>~3 horas/semana</strong> (vs 15+ hrs manual)</p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>EFICIENCIA:</strong><br>
+                    "Mar pasa de escribir a editar - menos carga, más estrategia."<br>
+                    "El feedback del viernes mejora el sistema cada semana."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 11: CARPETA PUBLICAR
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="publicar" data-background-color="#0A0F1C">
+                <h2>ARCHIVOS <span class="accent">LISTOS</span></h2>
+                <p class="slide-subtitle">Carpeta /publicar/ con contenido limpio para HubSpot</p>
+                
+                <div class="output-preview">
+                    <div class="output-card fragment fade-right">
+                        <div class="output-header">
+                            <div class="output-header-icon">📁</div>
+                            <div class="output-header-text">publicar/</div>
+                        </div>
+                        <div class="output-body">
+                            <pre>📝 blog_w1_vocacion.md
+📝 linkedin_w1_softlanding.md
+📝 twitter_w1_lanzamiento.md
+🖼️ blog_w1_vocacion.png
+🖼️ linkedin_w1_softlanding.png
+📋 INDICE_REVISION.md</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="output-card fragment fade-left">
+                        <div class="output-header">
+                            <div class="output-header-icon">✅</div>
+                            <div class="output-header-text">INDICE_REVISION.md</div>
+                        </div>
+                        <div class="output-body">
+                            <pre>## Blog Post - Vocación
+Score AI: 9.1/10
+- [ ] ✅ Aprobado
+- [ ] ✏️ Editar
+- [ ] 🔄 Regenerar
+
+Notas: _____________</pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>UX MARIANA:</strong><br>
+                    "Todo limpio, sin metadata técnica."<br>
+                    "Checkboxes para marcar status - muy simple."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 12: COMPARATIVA TIEMPO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="comparison" data-background-color="#0A0F1C">
+                <h2>ANTES vs <span class="accent">AHORA</span></h2>
+                
+                <div class="cost-compare">
+                    <div class="cost-card old fragment fade-right">
+                        <div class="cost-label">MANUAL</div>
+                        <div class="cost-value">15+</div>
+                        <div class="cost-detail">horas/semana escribiendo</div>
+                    </div>
+                    
+                    <div class="cost-card new fragment fade-left">
+                        <div class="cost-label">CON ENGINE</div>
+                        <div class="cost-value">3</div>
+                        <div class="cost-detail">horas/semana editando</div>
+                    </div>
+                </div>
+                
+                <div class="differentiators-grid fragment fade-up" style="margin-top: 2em;">
+                    <div class="diff-card">
+                        <div class="diff-icon">📈</div>
+                        <h3>5X MÁS CONTENIDO</h3>
+                        <p>Mismo tiempo, más output</p>
+                    </div>
+                    <div class="diff-card">
+                        <div class="diff-icon">🎯</div>
+                        <h3>CONSISTENCIA</h3>
+                        <p>Tono STRTGY siempre</p>
+                    </div>
+                    <div class="diff-card">
+                        <div class="diff-icon">🔄</div>
+                        <h3>ESCALABLE</h3>
+                        <p>Crece sin contratar</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>ROI:</strong><br>
+                    "El tiempo ahorrado se puede invertir en estrategia."<br>
+                    "Mar puede enfocarse en calidad, no en volumen."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 13: FEEDBACK LOOP
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="feedback" data-background-color="#0A0F1C">
+                <h2>LOOP DE <span class="accent">MEJORA</span></h2>
+                <p class="slide-subtitle">El Engine aprende de tu feedback cada semana</p>
+                
+                <div class="flow-diagram">
+                    <div class="flow-node fragment fade-up">
+                        <div class="flow-icon">📝</div>
+                        <div class="flow-label">Mar da feedback</div>
+                        <div class="flow-sublabel">"Más datos, menos fluff"</div>
+                    </div>
+                    
+                    <div class="flow-arrow fragment fade-in">→</div>
+                    
+                    <div class="flow-node fragment fade-up">
+                        <div class="flow-icon">⚙️</div>
+                        <div class="flow-label">Fabián ajusta</div>
+                        <div class="flow-sublabel">Prompts y config</div>
+                    </div>
+                    
+                    <div class="flow-arrow fragment fade-in">→</div>
+                    
+                    <div class="flow-node active fragment fade-up">
+                        <div class="flow-icon">📈</div>
+                        <div class="flow-label">Siguiente semana</div>
+                        <div class="flow-sublabel">Mejor calidad</div>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p>Template de feedback semanal: <strong>15 minutos cada viernes</strong></p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>MEJORA CONTINUA:</strong><br>
+                    "El sistema mejora cada semana con el feedback de Mar."<br>
+                    "No es estático - aprende de lo que funciona."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 14: PRÓXIMOS PASOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="next-steps" data-background-color="#0A0F1C">
+                <h2>¿CÓMO <span class="accent">EMPEZAMOS</span>?</h2>
+                
+                <div class="process-timeline">
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle">1</div>
+                        <h4>Esta Semana</h4>
+                        <p>Prueba piloto con<br>contenido Semana 2</p>
+                    </div>
+                    <div class="process-connector fragment"></div>
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle accent-bg">2</div>
+                        <h4>Feedback</h4>
+                        <p>Mar revisa y ajustamos<br>según su criterio</p>
+                    </div>
+                    <div class="process-connector fragment"></div>
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle">3</div>
+                        <h4>Operación</h4>
+                        <p>Flujo semanal<br>establecido para Q1</p>
+                    </div>
+                </div>
+                
+                <div class="action-list fragment fade-up" style="max-width: 600px; margin: 2em auto;">
+                    <div class="action-item">
+                        <span class="action-check">☐</span>
+                        <span class="action-text">Mar revisa carpeta <code>/publicar/</code> de Semana 1</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">☐</span>
+                        <span class="action-text">Dar feedback en el INDICE_REVISION.md</span>
+                    </div>
+                    <div class="action-item">
+                        <span class="action-check">☐</span>
+                        <span class="action-text">Publicar contenido aprobado en HubSpot</span>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>ACCIÓN:</strong><br>
+                    "El contenido de Semana 1 ya está listo para revisión."<br>
+                    "Mar: ¿puedes revisar esta semana y darnos feedback?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 15: CTA FINAL
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cta" data-background-gradient="radial-gradient(ellipse at center, rgba(0,212,170,0.15) 0%, #0A0F1C 70%)">
+                <div class="cta-slide">
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cta-logo">
+                    <h1 class="cta-title">¿LISTOS PARA <span class="accent">ESCALAR</span>?</h1>
+                    <p class="cta-subtitle">"El Content Engine es tu equipo de contenido que nunca duerme."</p>
+                    
+                    <div class="differentiators-grid fragment fade-up" style="margin-top: 2em;">
+                        <div class="diff-card" style="padding: 1.5em;">
+                            <div class="diff-icon">🤖</div>
+                            <h3>BORRADORES IA</h3>
+                        </div>
+                        <div class="diff-card" style="padding: 1.5em;">
+                            <div class="diff-icon">👩‍💼</div>
+                            <h3>EDICIÓN HUMANA</h3>
+                        </div>
+                        <div class="diff-card" style="padding: 1.5em;">
+                            <div class="diff-icon">🚀</div>
+                            <h3>PUBLICACIÓN</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-background"></div>
+                
+                <aside class="notes">
+                    <strong>CIERRE:</strong><br>
+                    "El Engine + Mar = superpoder de contenido."<br>
+                    "¿Preguntas? ¿Inquietudes? Hablemos."
+                </aside>
+            </section>
+
+        </div><!-- /slides -->
+    </div><!-- /reveal -->
+
+    <!-- Reveal.js Core -->
+    <script src="../plan2026/reveal.js/dist/reveal.js"></script>
+    
+    <!-- Reveal.js Plugins -->
+    <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
+    
+    <!-- tsParticles - Data Network Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // STRTGY Data Network Particles - AI Theme
+        // ═══════════════════════════════════════════════════════════════
+        tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1
+            },
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        area: 900
+                    }
+                },
+                color: {
+                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: {
+                        min: 0.2,
+                        max: 0.6
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 0.5,
+                        minimumValue: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: {
+                        min: 1,
+                        max: 3
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 150,
+                    color: "#00D4AA",
+                    opacity: 0.2,
+                    width: 1,
+                    triangles: {
+                        enable: true,
+                        opacity: 0.03
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 0.4,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: "out"
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: "grab",
+                        parallax: {
+                            enable: true,
+                            force: 20,
+                            smooth: 15
+                        }
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 180,
+                        links: {
+                            opacity: 0.4,
+                            color: "#00D4AA"
+                        }
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent"
+            }
+        });
+    </script>
+
+    <script>
+        Reveal.initialize({
+            // Presentation Settings
+            hash: true,
+            history: true,
+            center: true,
+            
+            // Display Settings
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'speaker',
+            
+            // Transition Settings
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            // Auto-Animate Settings
+            autoAnimate: true,
+            autoAnimateEasing: 'ease-in-out',
+            autoAnimateDuration: 0.8,
+            autoAnimateUnmatched: false,
+            
+            // View Settings
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            
+            // Touch & Navigation
+            touch: true,
+            loop: false,
+            rtl: false,
+            shuffle: false,
+            
+            // Fragment Settings
+            fragments: true,
+            fragmentInURL: true,
+            
+            // Plugins
+            plugins: [RevealNotes, RevealZoom]
+        });
+
+        // Custom keyboard shortcuts
+        Reveal.addKeyBinding({ keyCode: 66, key: 'B' }, () => {
+            document.body.classList.toggle('blackout');
+        });
+    </script>
+</body>
+</html>
+
