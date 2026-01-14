@@ -134,12 +134,43 @@ npx live-server pitch-deck-ejecutivo/
 
 ---
 
-### 4. Deck Content Engine (NUEVO)
+### 4. Deck Content Engine
 **Archivo:** `deck-content-engine/index.html`
 **Slides:** 15
 **Duración:** 15-20 minutos
 **Uso:** Presentación interna del sistema de generación de contenido IA
 **Audiencia:** Mariana (Marketing), Arturo (CEO), Jacky (Sales Ops)
+
+---
+
+### 5. Deck FCarnes - Censo Estratégico Nacional (NUEVO)
+**Archivo:** `deck-fcarnes/index.html`
+**Slides:** 14
+**Duración:** 25-30 minutos
+**Uso:** Presentación de resultados del proyecto de inteligencia geoespacial
+**Audiencia:** Dueño de FCarnes, Encargado de Inteligencia de Negocios
+
+**Estructura:**
+1. Portada Hero (Censo Estratégico Nacional)
+2. El Reto (79K establecimientos, 4.2% penetración)
+3. La Solución (Pipeline de 8 etapas)
+4. Fuentes de Datos Integradas (DENUE, Google, HERE, GPT-4o)
+5. Resultados del Análisis (8,761 verificados, 3,690 cadenas)
+6. Filtros de Calidad (7 criterios)
+7. Scoring Diferenciado por Zona
+8. Cadenas Detectadas (El Florido, Las Nenas, Omerca)
+9. Oportunidad por Macro-Región (recomendación BAJÍO)
+10. Costos Logísticos (semáforo de rentabilidad)
+11. Dashboard Interactivo (preview de features)
+12. Análisis GPT-4o Vision
+13. Próximos Pasos
+14. CTA Final
+
+**Features especiales:**
+- Colores FCarnes integrados (rojo corporativo)
+- Speaker notes para cada slide
+- Métricas reales del proyecto
+- Recomendaciones estratégicas
 
 **Estructura:**
 1. Portada Hero

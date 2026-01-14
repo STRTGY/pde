@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>FCarnes | Censo Estratégico Nacional - STRTGY</title>
+    <meta name="description" content="Inteligencia Geoespacial para la Expansión Nacional de FCarnes">
+    <meta name="author" content="STRTGY">
+
+    <!-- Reveal.js CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    
+    <!-- Highlight.js Theme (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- STRTGY Theme (Local) -->
+    <link rel="stylesheet" href="strtgy-reveal-theme.css">
+
+    <!-- FCarnes Custom Styles -->
+    <style>
+        :root {
+            --fcarnes-red: #C41E3A;
+            --fcarnes-red-dim: rgba(196, 30, 58, 0.15);
+        }
+        
+        .fcarnes-accent {
+            color: var(--fcarnes-red) !important;
+        }
+        
+        .badge-fcarnes {
+            background: var(--fcarnes-red-dim);
+            border: 1px solid var(--fcarnes-red);
+            color: var(--fcarnes-red);
+        }
+        
+        .pipeline-flow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .pipeline-step {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            min-width: 140px;
+        }
+        
+        .pipeline-step.active {
+            background: var(--strtgy-accent-dim);
+            border-color: var(--strtgy-accent);
+        }
+        
+        .pipeline-step h5 {
+            margin: 0 0 0.3rem 0;
+            font-size: 0.85rem;
+            color: var(--strtgy-accent);
+        }
+        
+        .pipeline-step p {
+            margin: 0;
+            font-size: 0.75rem;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .pipeline-arrow {
+            color: var(--strtgy-accent);
+            font-size: 1.5rem;
+        }
+        
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 1.5rem auto;
+        }
+        
+        .source-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .source-card .source-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .source-card h4 {
+            margin: 0 0 0.3rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .source-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .scoring-table {
+            max-width: 900px;
+            margin: 1.5rem auto;
+        }
+        
+        .scoring-row {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.5rem;
+            background: var(--strtgy-navy-dim);
+            border-radius: var(--radius-md);
+            border-left: 4px solid transparent;
+        }
+        
+        .scoring-row.priority {
+            border-left-color: var(--strtgy-accent);
+        }
+        
+        .scoring-row.exclude {
+            border-left-color: var(--strtgy-danger);
+        }
+        
+        .scoring-zone {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            min-width: 180px;
+        }
+        
+        .scoring-rule {
+            flex: 1;
+            font-size: 0.95rem;
+            color: var(--strtgy-gray-300);
+        }
+        
+        .scoring-bonus {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--strtgy-accent);
+            min-width: 100px;
+            text-align: right;
+        }
+        
+        .chain-logos {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .chain-badge {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            min-width: 150px;
+        }
+        
+        .chain-badge h5 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--strtgy-white);
+        }
+        
+        .chain-badge p {
+            margin: 0.3rem 0 0;
+            font-size: 0.8rem;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 1.5rem auto;
+        }
+        
+        .region-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1.2rem;
+            text-align: center;
+        }
+        
+        .region-card.highlight {
+            background: var(--strtgy-accent-dim);
+            border-color: var(--strtgy-accent);
+        }
+        
+        .region-card h5 {
+            margin: 0 0 0.3rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .region-card .region-value {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            margin: 0.3rem 0;
+        }
+        
+        .region-card p {
+            margin: 0;
+            font-size: 0.75rem;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .dashboard-preview {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 1.5rem auto;
+            max-width: 1000px;
+        }
+        
+        .dashboard-preview h4 {
+            margin: 0 0 1rem 0;
+            text-align: center;
+        }
+        
+        .dashboard-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        .dashboard-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: var(--radius-sm);
+        }
+        
+        .dashboard-feature .feature-icon {
+            font-size: 1.5rem;
+        }
+        
+        .dashboard-feature .feature-text {
+            font-size: 0.9rem;
+        }
+        
+        .next-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+        
+        .next-step-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .next-step-card.priority {
+            background: var(--strtgy-accent-dim);
+            border-color: var(--strtgy-accent);
+        }
+        
+        .next-step-card .step-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .next-step-card h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .next-step-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--strtgy-gray-500);
+        }
+    </style>
+</head>
+<body>
+    <!-- tsParticles Container - Data Network Background -->
+    <div id="tsparticles"></div>
+    
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 1: PORTADA HERO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cover" data-background-gradient="radial-gradient(ellipse at center, #1E3A5F 0%, #0A0F1C 70%)">
+                <div class="cover-content">
+                    <div class="cover-badge badge-fcarnes">INTELIGENCIA GEOESPACIAL</div>
+                    <h1 class="cover-title">CENSO ESTRATÉGICO<br><span class="fcarnes-accent">NACIONAL</span></h1>
+                    <p class="cover-subtitle">Expansión FCarnes | Canal Tradicional (Carnicerías y Obradores)</p>
+                    <img src="logo-strtgy-white.png" alt="STRTGY" class="cover-logo">
+                </div>
+                <div class="grid-background"></div>
+                <aside class="notes">
+                    <strong>APERTURA:</strong><br>
+                    "Buenos días. Hoy les presentamos el resultado del Censo Estratégico Nacional para FCarnes."<br><br>
+                    <strong>CONTEXTO:</strong> Este proyecto identifica y prioriza las mejores oportunidades de expansión en el canal tradicional a nivel nacional.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 2: EL RETO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="challenge" data-background-color="#0A0F1C">
+                <h2>EL <span class="danger">RETO</span></h2>
+                <p class="slide-subtitle">¿Dónde están las mejores oportunidades de expansión?</p>
+                
+                <div class="problem-grid">
+                    <div class="problem-card fragment zoom-in">
+                        <div class="problem-icon">🗺️</div>
+                        <div class="problem-stat danger">79,620</div>
+                        <div class="problem-label">Establecimientos de carnes<br>en México (DENUE)</div>
+                    </div>
+                    <div class="problem-card fragment zoom-in">
+                        <div class="problem-icon">🎯</div>
+                        <div class="problem-stat">3,368</div>
+                        <div class="problem-label">Clientes actuales FCarnes<br>(4.2% penetración)</div>
+                    </div>
+                </div>
+                
+                <blockquote class="problem-quote fragment fade-up">
+                    "¿Cómo priorizar 76,000+ prospectos sin contactarlos uno por uno?"
+                </blockquote>
+                
+                <aside class="notes">
+                    <strong>AGITAR EL PROBLEMA:</strong><br>
+                    "El mercado es enorme: casi 80 mil establecimientos. ¿Cómo sabemos a quién contactar primero?"<br>
+                    "Con el método tradicional, tomaría años prospectar todo el mercado."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 3: LA SOLUCIÓN
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="solution" data-background-color="#0A0F1C">
+                <h2>LA <span class="accent">SOLUCIÓN</span></h2>
+                <p class="slide-subtitle">Pipeline de Inteligencia Geoespacial con IA</p>
+                
+                <div class="pipeline-flow">
+                    <div class="pipeline-step fragment fade-up">
+                        <h5>1. EXTRACCIÓN</h5>
+                        <p>DENUE INEGI</p>
+                    </div>
+                    <div class="pipeline-arrow fragment">→</div>
+                    <div class="pipeline-step fragment fade-up">
+                        <h5>2. LIMPIEZA</h5>
+                        <p>Dedupe + Normalización</p>
+                    </div>
+                    <div class="pipeline-arrow fragment">→</div>
+                    <div class="pipeline-step fragment fade-up">
+                        <h5>3. ENRIQUECIMIENTO</h5>
+                        <p>Google Maps API</p>
+                    </div>
+                    <div class="pipeline-arrow fragment">→</div>
+                    <div class="pipeline-step active fragment fade-up">
+                        <h5>4. ANÁLISIS IA</h5>
+                        <p>GPT-4o Vision</p>
+                    </div>
+                </div>
+                
+                <div class="pipeline-flow">
+                    <div class="pipeline-step fragment fade-up">
+                        <h5>5. LOGÍSTICA</h5>
+                        <p>HERE + Sakbe</p>
+                    </div>
+                    <div class="pipeline-arrow fragment">→</div>
+                    <div class="pipeline-step fragment fade-up">
+                        <h5>6. CADENAS</h5>
+                        <p>Detección Multi-Suc</p>
+                    </div>
+                    <div class="pipeline-arrow fragment">→</div>
+                    <div class="pipeline-step fragment fade-up">
+                        <h5>7. SCORING</h5>
+                        <p>Priorización por Zona</p>
+                    </div>
+                    <div class="pipeline-arrow fragment">→</div>
+                    <div class="pipeline-step active fragment fade-up">
+                        <h5>8. DASHBOARD</h5>
+                        <p>Interactivo + Export</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>EXPLICAR EL PROCESO:</strong><br>
+                    "Construimos un pipeline automatizado de 8 etapas que procesa todos los datos."<br>
+                    "Lo más importante: la IA analiza las fachadas y detectamos cadenas automáticamente."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 4: FUENTES DE DATOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="sources" data-background-color="#0A0F1C">
+                <h2>FUENTES DE <span class="accent">DATOS INTEGRADAS</span></h2>
+                
+                <div class="source-grid">
+                    <div class="source-card fragment fade-up">
+                        <div class="source-icon">🏛️</div>
+                        <h4>DENUE INEGI</h4>
+                        <p>79,620 unidades económicas<br>Códigos SCIAN de carnes</p>
+                    </div>
+                    <div class="source-card fragment fade-up">
+                        <div class="source-icon">📍</div>
+                        <h4>Google Places API</h4>
+                        <p>Rating, reseñas, horarios<br>Teléfonos verificados</p>
+                    </div>
+                    <div class="source-card fragment fade-up">
+                        <div class="source-icon">🚛</div>
+                        <h4>HERE + Sakbe</h4>
+                        <p>Rutas, tiempos, casetas<br>Costos logísticos reales</p>
+                    </div>
+                    <div class="source-card fragment fade-up">
+                        <div class="source-icon">🤖</div>
+                        <h4>GPT-4o Vision</h4>
+                        <p>22,286 fachadas analizadas<br>Vitalidad comercial</p>
+                    </div>
+                    <div class="source-card fragment fade-up">
+                        <div class="source-icon">🏪</div>
+                        <h4>Street View</h4>
+                        <p>Links directos a fachada<br>Validación visual</p>
+                    </div>
+                    <div class="source-card fragment fade-up">
+                        <div class="source-icon">📊</div>
+                        <h4>Base Clientes</h4>
+                        <p>3,059 clientes actuales<br>129 ciudades</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>DESTACAR INTEGRACIÓN:</strong><br>
+                    "No es solo un directorio. Cruzamos 5 fuentes de datos diferentes."<br>
+                    "La IA analizó más de 22 mil fachadas para identificar negocios viables."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 5: MÉTRICAS CLAVE
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="metrics" data-background-color="#0A0F1C">
+                <h2>RESULTADOS <span class="accent">DEL ANÁLISIS</span></h2>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card fragment zoom-in">
+                        <div class="metric-value">79,620</div>
+                        <div class="metric-label">TAM Bruto<br><span class="sublabel">Mercado Total</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value accent">8,761</div>
+                        <div class="metric-label">Verificados<br><span class="sublabel">11% pasó filtros</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value">3,690</div>
+                        <div class="metric-label">Cadenas<br><span class="sublabel">4+ sucursales</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value accent">4,001</div>
+                        <div class="metric-label">Prioritarios<br><span class="sublabel">45.7% del total</span></div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>ENFATIZAR FILTRADO:</strong><br>
+                    "De casi 80 mil registros, solo 8,761 pasaron los 7 filtros de calidad."<br>
+                    "Esto significa que cada prospecto en el dashboard tiene teléfono, coordenadas precisas y es un negocio activo."<br>
+                    "Detectamos 3,690 cadenas con 4 o más sucursales."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 6: FILTROS DE CALIDAD
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="quality-filters" data-background-color="#0A0F1C">
+                <h2>FILTROS DE <span class="accent">CALIDAD APLICADOS</span></h2>
+                <p class="slide-subtitle">7 criterios para garantizar prospectos verificables</p>
+                
+                <div class="comparison-table">
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">📊 Score mínimo ≥50</div>
+                        <div class="comparison-arrow">✓</div>
+                        <div class="comparison-new">Relevancia por canal, tamaño, ubicación</div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">📞 Datos de contacto</div>
+                        <div class="comparison-arrow">✓</div>
+                        <div class="comparison-new">Teléfono, email, web o reseñas</div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">📍 Coordenadas precisas</div>
+                        <div class="comparison-arrow">✓</div>
+                        <div class="comparison-new">Mínimo 4 decimales (~11 metros)</div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">🏷️ Nombre específico</div>
+                        <div class="comparison-arrow">✓</div>
+                        <div class="comparison-new">Excluye genéricos (CARNICERIA, etc.)</div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">✅ Negocio activo</div>
+                        <div class="comparison-arrow">✓</div>
+                        <div class="comparison-new">No cerrado en Google Maps</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>CREDIBILIDAD:</strong><br>
+                    "No entregamos una lista de nombres. Cada prospecto cumple estos 7 criterios."<br>
+                    "Por eso pasamos de 79K a 8.7K — solo lo que realmente vale la pena contactar."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 7: SCORING DIFERENCIADO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="scoring" data-background-color="#0A0F1C">
+                <h2>SCORING <span class="accent">DIFERENCIADO</span> POR ZONA</h2>
+                <p class="slide-subtitle">Priorización estratégica según criterios de FCarnes</p>
+                
+                <div class="scoring-table">
+                    <div class="scoring-row priority fragment fade-in">
+                        <div class="scoring-zone">🏙️ ZM MONTERREY</div>
+                        <div class="scoring-rule">Bodegones, Retailers medianos/grandes → <strong>Prioridad ALTA</strong></div>
+                        <div class="scoring-bonus">+15 pts</div>
+                    </div>
+                    <div class="scoring-row exclude fragment fade-in">
+                        <div class="scoring-zone">❌ ZM MONTERREY</div>
+                        <div class="scoring-rule">Procesadoras de carne → <strong>Excluidas</strong></div>
+                        <div class="scoring-bonus">N/A</div>
+                    </div>
+                    <div class="scoring-row priority fragment fade-in">
+                        <div class="scoring-zone">🌎 EXTERIOR NL</div>
+                        <div class="scoring-rule">Cadenas con 4+ sucursales → <strong>Prioridad ALTA</strong></div>
+                        <div class="scoring-bonus">+20 pts</div>
+                    </div>
+                    <div class="scoring-row fragment fade-in">
+                        <div class="scoring-zone">📍 RESTO NL</div>
+                        <div class="scoring-rule">Sin priorización especial → Scoring estándar</div>
+                        <div class="scoring-bonus">+0 pts</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>PERSONALIZACIÓN:</strong><br>
+                    "Este scoring fue diseñado según los criterios que nos compartieron."<br>
+                    "En ZM Monterrey priorizamos bodegones por volumen de compra."<br>
+                    "Fuera de NL, buscamos cadenas porque representan alto potencial de pedidos recurrentes."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 8: CADENAS DETECTADAS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="chains" data-background-color="#0A0F1C">
+                <h2>CADENAS <span class="accent">DETECTADAS</span></h2>
+                <p class="slide-subtitle">3,690 negocios con 4+ sucursales identificadas</p>
+                
+                <div class="chain-logos fragment fade-up">
+                    <div class="chain-badge">
+                        <h5>🔵 El Florido</h5>
+                        <p>Baja California | 6+ suc</p>
+                    </div>
+                    <div class="chain-badge">
+                        <h5>🔵 Las Nenas</h5>
+                        <p>Baja California | 4+ suc</p>
+                    </div>
+                    <div class="chain-badge">
+                        <h5>🔵 Bodegas Omerca</h5>
+                        <p>Coahuila | 4+ suc</p>
+                    </div>
+                    <div class="chain-badge">
+                        <h5>🔵 La Cabaña</h5>
+                        <p>Coahuila | 4+ suc</p>
+                    </div>
+                </div>
+                
+                <div class="chain-logos fragment fade-up">
+                    <div class="chain-badge">
+                        <h5>🔵 Carnes JC</h5>
+                        <p>Sonora | 3+ suc</p>
+                    </div>
+                    <div class="chain-badge">
+                        <h5>🔵 Alicarnes</h5>
+                        <p>Querétaro | 4+ suc</p>
+                    </div>
+                    <div class="chain-badge">
+                        <h5>🔵 Mi Granja</h5>
+                        <p>6 estados | 10+ suc</p>
+                    </div>
+                    <div class="chain-badge">
+                        <h5>🔵 Carnes Finas SJ</h5>
+                        <p>Nuevo León | 14 suc</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>OPORTUNIDADES:</strong><br>
+                    "Estas son algunas de las cadenas que detectamos automáticamente."<br>
+                    "El algoritmo usa dos métodos: patrones conocidos y conteo por nombre similar."<br>
+                    "Una sola venta a una cadena puede representar múltiples puntos de entrega."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 9: OPORTUNIDAD POR REGIÓN
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="regions" data-background-color="#0A0F1C">
+                <h2>OPORTUNIDAD POR <span class="accent">MACRO-REGIÓN</span></h2>
+                
+                <div class="region-grid">
+                    <div class="region-card fragment fade-up">
+                        <h5>CENTRO</h5>
+                        <div class="region-value">3,200+</div>
+                        <p>Mayor TAM | CDMX, EdoMéx</p>
+                    </div>
+                    <div class="region-card fragment fade-up">
+                        <h5>GOLFO_SURESTE</h5>
+                        <div class="region-value">1,800+</div>
+                        <p>Mercado emergente</p>
+                    </div>
+                    <div class="region-card highlight fragment fade-up">
+                        <h5>⭐ BAJÍO</h5>
+                        <div class="region-value">1,200+</div>
+                        <p>Mejor ROI logístico</p>
+                    </div>
+                    <div class="region-card fragment fade-up">
+                        <h5>OCCIDENTE</h5>
+                        <div class="region-value">900+</div>
+                        <p>Jalisco, Michoacán</p>
+                    </div>
+                    <div class="region-card fragment fade-up">
+                        <h5>NORESTE</h5>
+                        <div class="region-value">800+</div>
+                        <p>Mercado maduro | 53% pen.</p>
+                    </div>
+                    <div class="region-card fragment fade-up">
+                        <h5>FRONTERA_NORTE</h5>
+                        <div class="region-value">600+</div>
+                        <p>BC, Chihuahua, Sonora</p>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p><strong>Recomendación:</strong> Iniciar con <span class="accent">BAJÍO</span> (Querétaro, León) — Alto TAM + Costo logístico moderado</p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>PRIORIZACIÓN:</strong><br>
+                    "El Centro tiene el mayor volumen, pero el costo logístico es alto."<br>
+                    "Recomendamos empezar con Bajío: alto potencial con costos moderados."<br>
+                    "En NORESTE ya tienen 53% de penetración — es consolidación, no expansión."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 10: COSTOS LOGÍSTICOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="logistics" data-background-color="#0A0F1C">
+                <h2>COSTOS <span class="accent">LOGÍSTICOS</span> POR RUTA</h2>
+                <p class="slide-subtitle">Calculados con INEGI Sakbe (rutas reales + casetas)</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card fragment zoom-in">
+                        <div class="metric-value accent">16</div>
+                        <div class="metric-label">Rutas<br><span class="sublabel">calculadas</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value">2,600</div>
+                        <div class="metric-label">km máx.<br><span class="sublabel">Tijuana</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value">$12K</div>
+                        <div class="metric-label">Costo máx.<br><span class="sublabel">viaje completo</span></div>
+                    </div>
+                </div>
+                
+                <div class="comparison-table fragment fade-up">
+                    <div class="comparison-row">
+                        <div class="comparison-old">🟢 &lt;$4,000/viaje</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">NORESTE, BAJÍO — <span class="accent">Alta rentabilidad</span></div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-old">🟡 $4-7K/viaje</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">OCCIDENTE, NOROESTE — Requiere volumen</div>
+                    </div>
+                    <div class="comparison-row">
+                        <div class="comparison-old">🔴 &gt;$7,000/viaje</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">CENTRO, GOLFO — Evaluar CEDIS regional</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>LOGÍSTICA:</strong><br>
+                    "Cada prospecto tiene calculado su costo logístico real."<br>
+                    "Esto permite evaluar rentabilidad antes de contactar."<br>
+                    "Zona roja: el alto TAM justifica evaluar un CEDIS en Querétaro."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 11: DASHBOARD
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="dashboard" data-background-color="#0A0F1C">
+                <h2>DASHBOARD <span class="accent">INTERACTIVO</span></h2>
+                <p class="slide-subtitle">Herramienta lista para el equipo comercial</p>
+                
+                <div class="dashboard-preview">
+                    <h4>🗺️ Explorador de Prospectos</h4>
+                    <div class="dashboard-features">
+                        <div class="dashboard-feature fragment fade-up">
+                            <div class="feature-icon">📍</div>
+                            <div class="feature-text">Mapa interactivo con <strong>8,761</strong> prospectos verificados</div>
+                        </div>
+                        <div class="dashboard-feature fragment fade-up">
+                            <div class="feature-icon">🔍</div>
+                            <div class="feature-text">Filtros por región, tier, canal y scoring</div>
+                        </div>
+                        <div class="dashboard-feature fragment fade-up">
+                            <div class="feature-icon">⭐</div>
+                            <div class="feature-text">Toggle "Solo Prioritarios" y "Solo Cadenas"</div>
+                        </div>
+                        <div class="dashboard-feature fragment fade-up">
+                            <div class="feature-icon">📸</div>
+                            <div class="feature-text">Link directo a Street View de cada prospecto</div>
+                        </div>
+                        <div class="dashboard-feature fragment fade-up">
+                            <div class="feature-icon">🤖</div>
+                            <div class="feature-text">Análisis IA de fachada (vitalidad comercial)</div>
+                        </div>
+                        <div class="dashboard-feature fragment fade-up">
+                            <div class="feature-icon">📥</div>
+                            <div class="feature-text">Export a CSV/Excel para CRM</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>DEMO:</strong><br>
+                    "Este es el dashboard que les entregamos. Vamos a hacer una demo en vivo."<br>
+                    "Cada punto en el mapa tiene teléfono, dirección, score y link a Street View."<br>
+                    "Pueden exportar cualquier selección a Excel para su equipo de ventas."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 12: ANÁLISIS IA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="ai-analysis" data-background-color="#0A0F1C">
+                <h2>ANÁLISIS <span class="accent">GPT-4o VISION</span></h2>
+                <p class="slide-subtitle">22,286 prospectos analizados con inteligencia artificial</p>
+                
+                <div class="differentiators-grid">
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon">👁️</div>
+                        <h3>VITALIDAD COMERCIAL</h3>
+                        <p>Score 1-10 de actividad en la zona basado en imagen Street View</p>
+                    </div>
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon">🏪</div>
+                        <h3>CONDICIÓN DE FACHADA</h3>
+                        <p>Estado del local, visibilidad, accesibilidad para clientes</p>
+                    </div>
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon">✅</div>
+                        <h3>TARGET ENCONTRADO</h3>
+                        <p>Confirmación visual de que es una carnicería/obrador real</p>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p><strong>Cobertura:</strong> 99.4% de prospectos Tier A y B tienen análisis IA</p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>DIFERENCIADOR:</strong><br>
+                    "No solo tenemos datos, la IA 'vio' cada negocio."<br>
+                    "Esto elimina falsos positivos: sabemos si realmente existe."<br>
+                    "El score de vitalidad ayuda a priorizar zonas activas."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 13: PRÓXIMOS PASOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="next-steps" data-background-color="#0A0F1C">
+                <h2>PRÓXIMOS <span class="accent">PASOS</span></h2>
+                
+                <div class="next-steps-grid">
+                    <div class="next-step-card priority fragment fade-up">
+                        <div class="step-number">1</div>
+                        <h4>Demo del Dashboard</h4>
+                        <p>Exploración interactiva del mapa y funcionalidades</p>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-number">2</div>
+                        <h4>Validación de Prospectos</h4>
+                        <p>Revisión conjunta de prioritarios en regiones clave</p>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-number">3</div>
+                        <h4>Plan de Ataque</h4>
+                        <p>Definir regiones, rutas y equipos para prospección</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>LLAMADO A ACCIÓN:</strong><br>
+                    "Propongo que hagamos la demo ahora mismo."<br>
+                    "Luego podemos revisar juntos los prospectos prioritarios en las regiones que más les interesen."<br>
+                    "¿Con qué región les gustaría empezar?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 14: CTA FINAL
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cta" data-background-color="#0A0F1C">
+                <div class="cta-slide">
+                    <img src="logo-strtgy-white.png" alt="STRTGY" class="cta-logo">
+                    <h1 class="cta-title">DE <span class="accent">79,620</span> A <span class="accent">4,001</span> PRIORITARIOS</h1>
+                    <p class="cta-subtitle">"Inteligencia geoespacial que convierte datos en decisiones"</p>
+                    
+                    <div class="metrics-grid fragment fade-up" style="margin-top: 2rem;">
+                        <div class="metric-card">
+                            <div class="metric-value accent">8,761</div>
+                            <div class="metric-label">Prospectos<br><span class="sublabel">verificados</span></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">3,690</div>
+                            <div class="metric-label">Cadenas<br><span class="sublabel">detectadas</span></div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value accent">4,001</div>
+                            <div class="metric-label">Prioritarios<br><span class="sublabel">para contactar</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-contact fragment fade-up">
+                        <p class="cta-email">STRTGY | Transformando complejidad en certeza</p>
+                    </div>
+                </div>
+                <div class="grid-background"></div>
+                
+                <aside class="notes">
+                    <strong>CIERRE:</strong><br>
+                    "Resumiendo: tomamos un mercado de casi 80 mil y lo convertimos en 4 mil prospectos prioritarios."<br>
+                    "Todo verificado, con teléfono, coordenadas y análisis de IA."<br>
+                    "¿Pasamos a la demo del dashboard?"
+                </aside>
+            </section>
+
+        </div><!-- /slides -->
+    </div><!-- /reveal -->
+
+    <!-- Reveal.js Core (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    
+    <!-- Reveal.js Plugins (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+    
+    <!-- tsParticles - Data Network Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // STRTGY Data Network Particles - Elegant Background Effect
+        // ═══════════════════════════════════════════════════════════════
+        tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1
+            },
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        area: 900
+                    }
+                },
+                color: {
+                    value: ["#00D4AA", "#1E3A5F", "#C41E3A", "#00ffcc"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: {
+                        min: 0.2,
+                        max: 0.6
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 0.8,
+                        minimumValue: 0.15,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: {
+                        min: 1,
+                        max: 3
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 0.5,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 160,
+                    color: "#00D4AA",
+                    opacity: 0.2,
+                    width: 1,
+                    triangles: {
+                        enable: true,
+                        opacity: 0.04
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 0.5,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: "out"
+                    },
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: ["grab"],
+                        parallax: {
+                            enable: true,
+                            force: 20,
+                            smooth: 20
+                        }
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 180,
+                        links: {
+                            opacity: 0.4,
+                            color: "#00D4AA"
+                        }
+                    },
+                    push: {
+                        quantity: 3
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent"
+            }
+        });
+    </script>
+
+    <script>
+        Reveal.initialize({
+            // Presentation Settings
+            hash: true,
+            history: true,
+            center: true,
+            
+            // Display Settings
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'speaker',
+            
+            // Transition Settings
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            // Auto-Animate Settings
+            autoAnimate: true,
+            autoAnimateEasing: 'ease-in-out',
+            autoAnimateDuration: 0.8,
+            autoAnimateUnmatched: false,
+            
+            // View Settings
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            
+            // Touch & Navigation
+            touch: true,
+            loop: false,
+            rtl: false,
+            shuffle: false,
+            
+            // Fragment Settings
+            fragments: true,
+            fragmentInURL: true,
+            
+            // Plugins
+            plugins: [RevealNotes, RevealZoom]
+        });
+
+        // Custom keyboard shortcuts
+        Reveal.addKeyBinding({ keyCode: 66, key: 'B' }, () => {
+            document.body.classList.toggle('blackout');
+        });
+    </script>
+</body>
+</html>
