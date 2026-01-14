@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>QUALITY OUTDOOR | Kick-off - Plan Maestro de Expansión 2026</title>
+    <meta name="description" content="Sesión de arranque del proyecto QLT-2026-GROWTH-IMP">
+    <meta name="author" content="STRTGY AI">
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reveal.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- STRTGY Theme -->
+    <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
+    
+    <style>
+        /* Custom styles for this presentation */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+        
+        .module-card {
+            background: rgba(30, 58, 95, 0.3);
+            border: 1px solid rgba(30, 58, 95, 0.5);
+            border-radius: 16px;
+            padding: 1.5em;
+            text-align: left;
+        }
+        
+        .module-card.critical {
+            border-color: var(--strtgy-accent);
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.1);
+        }
+        
+        .module-letter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            opacity: 0.5;
+            line-height: 1;
+        }
+        
+        .module-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0.3em 0;
+        }
+        
+        .module-desc {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+            line-height: 1.4;
+        }
+        
+        .timeline-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+            margin: 2em 0;
+            flex-wrap: wrap;
+        }
+        
+        .week-block {
+            background: rgba(30, 58, 95, 0.3);
+            border: 1px solid rgba(30, 58, 95, 0.5);
+            border-radius: 12px;
+            padding: 1em 1.5em;
+            text-align: center;
+            min-width: 140px;
+        }
+        
+        .week-block.active {
+            border-color: var(--strtgy-accent);
+            background: rgba(0, 212, 170, 0.1);
+        }
+        
+        .week-block.delivery {
+            border-color: var(--strtgy-success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .week-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+        
+        .week-label {
+            font-size: 0.8em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2em;
+            margin-top: 1.5em;
+        }
+        
+        .payment-card {
+            background: rgba(30, 58, 95, 0.2);
+            border: 1px solid rgba(30, 58, 95, 0.4);
+            border-radius: 16px;
+            padding: 1.5em;
+            text-align: center;
+        }
+        
+        .payment-card.received {
+            border-color: var(--strtgy-success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .payment-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+        }
+        
+        .payment-label {
+            font-size: 0.9em;
+            color: var(--strtgy-gray-300);
+            margin-top: 0.3em;
+        }
+        
+        .payment-status {
+            display: inline-block;
+            margin-top: 0.8em;
+            padding: 0.3em 1em;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+        
+        .payment-status.received {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--strtgy-success);
+        }
+        
+        .payment-status.pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--strtgy-warning);
+        }
+        
+        .deliverable-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1em;
+            margin-top: 1em;
+            text-align: left;
+        }
+        
+        .deliverable-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8em;
+            padding: 1em;
+            background: rgba(30, 58, 95, 0.2);
+            border-radius: 12px;
+        }
+        
+        .deliverable-icon {
+            font-size: 1.5em;
+        }
+        
+        .deliverable-text h4 {
+            font-size: 1em;
+            margin: 0 0 0.3em 0;
+        }
+        
+        .deliverable-text p {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+            margin: 0;
+        }
+        
+        .data-requirements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2em;
+            margin-top: 1.5em;
+        }
+        
+        .data-column {
+            text-align: left;
+        }
+        
+        .data-column h4 {
+            color: var(--strtgy-accent);
+            font-size: 1em;
+            margin-bottom: 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        
+        .data-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .data-column li {
+            padding: 0.5em 0;
+            padding-left: 1.5em;
+            position: relative;
+            font-size: 0.95em;
+            border-bottom: 1px solid rgba(30, 58, 95, 0.3);
+        }
+        
+        .data-column li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--strtgy-accent);
+        }
+        
+        .geo-visual {
+            display: flex;
+            justify-content: center;
+            gap: 3em;
+            margin-top: 1.5em;
+        }
+        
+        .geo-zone {
+            text-align: center;
+            padding: 1.5em;
+            background: rgba(30, 58, 95, 0.2);
+            border-radius: 16px;
+            min-width: 200px;
+        }
+        
+        .geo-zone.primary {
+            border: 2px solid var(--strtgy-accent);
+        }
+        
+        .geo-zone-icon {
+            font-size: 2.5em;
+            margin-bottom: 0.3em;
+        }
+        
+        .geo-zone-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .geo-zone-focus {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .agenda-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5em;
+            margin-top: 1em;
+            text-align: left;
+        }
+        
+        .agenda-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1em;
+            padding: 1em;
+            background: rgba(30, 58, 95, 0.2);
+            border-radius: 12px;
+            border-left: 3px solid var(--strtgy-accent);
+        }
+        
+        .agenda-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            opacity: 0.7;
+        }
+        
+        .agenda-content h4 {
+            font-size: 1em;
+            margin: 0 0 0.2em 0;
+        }
+        
+        .agenda-content p {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+            margin: 0;
+        }
+        
+        .next-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+        
+        .next-step-card {
+            background: rgba(30, 58, 95, 0.3);
+            border: 1px solid rgba(30, 58, 95, 0.5);
+            border-radius: 16px;
+            padding: 1.5em;
+            text-align: center;
+        }
+        
+        .next-step-card.urgent {
+            border-color: var(--strtgy-danger);
+            background: rgba(255, 107, 107, 0.1);
+        }
+        
+        .step-emoji {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 0.3em;
+        }
+        
+        .step-desc {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .step-owner {
+            display: inline-block;
+            margin-top: 0.8em;
+            padding: 0.3em 0.8em;
+            background: rgba(0, 212, 170, 0.2);
+            border-radius: 20px;
+            font-size: 0.75em;
+            color: var(--strtgy-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 1: PORTADA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cover" data-background-gradient="radial-gradient(ellipse at center, #1E3A5F 0%, #0A0F1C 70%)">
+                <div class="cover-content">
+                    <div class="cover-badge">SESIÓN DE KICK-OFF</div>
+                    <h1 class="cover-title">QUALITY <span class="accent">OUTDOOR</span></h1>
+                    <p class="cover-subtitle">Plan Maestro de Expansión Nacional & Inteligencia de Importaciones 2026</p>
+                    <p style="font-size: 1.1em; color: var(--strtgy-gray-500); margin-top: 1em;">
+                        <strong>QLT-2026-GROWTH-IMP</strong> | 14 de enero de 2026
+                    </p>
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cover-logo">
+                </div>
+                <div class="grid-background"></div>
+                <aside class="notes">
+                    Bienvenida al kick-off. Agradecer la confianza y el anticipo recibido.
+                    Objetivo de la sesión: alinear expectativas y definir próximos pasos.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 2: AGENDA DE LA SESIÓN
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="agenda" data-background-color="#0A0F1C">
+                <h2>AGENDA DE <span class="accent">HOY</span></h2>
+                
+                <div class="agenda-grid">
+                    <div class="agenda-item fragment fade-up">
+                        <div class="agenda-number">01</div>
+                        <div class="agenda-content">
+                            <h4>Objetivos del Proyecto</h4>
+                            <p>Alcances y entregables contratados</p>
+                        </div>
+                    </div>
+                    <div class="agenda-item fragment fade-up">
+                        <div class="agenda-number">02</div>
+                        <div class="agenda-content">
+                            <h4>Los 3 Módulos</h4>
+                            <p>A: Tijuana, B: Mérida/Tier2, C: Importaciones</p>
+                        </div>
+                    </div>
+                    <div class="agenda-item fragment fade-up">
+                        <div class="agenda-number">03</div>
+                        <div class="agenda-content">
+                            <h4>Cronograma y Pagos</h4>
+                            <p>6 semanas de ejecución + hitos</p>
+                        </div>
+                    </div>
+                    <div class="agenda-item fragment fade-up">
+                        <div class="agenda-number">04</div>
+                        <div class="agenda-content">
+                            <h4>Datos Requeridos</h4>
+                            <p>Lo que necesitamos de Quality Outdoor</p>
+                        </div>
+                    </div>
+                    <div class="agenda-item fragment fade-up">
+                        <div class="agenda-number">05</div>
+                        <div class="agenda-content">
+                            <h4>Próximos Pasos</h4>
+                            <p>Acciones inmediatas para arrancar</p>
+                        </div>
+                    </div>
+                    <div class="agenda-item fragment fade-up">
+                        <div class="agenda-number">06</div>
+                        <div class="agenda-content">
+                            <h4>Q&A</h4>
+                            <p>Preguntas y aclaraciones</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Duración estimada: 45-60 minutos.
+                    Preguntar si hay algún tema adicional que quieran agregar.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 3: OBJETIVO DEL PROYECTO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="objective" data-background-color="#0A0F1C">
+                <h2>OBJETIVO DEL <span class="accent">PROYECTO</span></h2>
+                
+                <blockquote class="impact-quote" style="margin: 1em 0;">
+                    <p class="fragment fade-in" style="font-size: 1.8em;">
+                        Desarrollar la <span class="accent">Estrategia de Expansión 2026</span><br>
+                        integrando validación de nuevos mercados,<br>
+                        optimización logística e inteligencia de importaciones.
+                    </p>
+                </blockquote>
+                
+                <div class="metrics-grid fragment fade-up" style="margin-top: 2em;">
+                    <div class="metric-card">
+                        <div class="metric-value">3</div>
+                        <div class="metric-label">Módulos<br><span class="sublabel">de análisis</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value accent">6</div>
+                        <div class="metric-label">Semanas<br><span class="sublabel">de ejecución</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">5</div>
+                        <div class="metric-label">Business Cases<br><span class="sublabel">nacionales</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value accent">12</div>
+                        <div class="metric-label">Meses<br><span class="sublabel">Dashboard Pro</span></div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Enfatizar el alcance integral: no solo análisis, sino entregables accionables.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 4: CONFIGURACIÓN CONTRATADA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="configuration" data-background-color="#0A0F1C">
+                <h2>CONFIGURACIÓN <span class="accent">GROWTH</span> + IMPORTACIONES</h2>
+                
+                <div class="module-grid">
+                    <div class="module-card critical fragment fade-up">
+                        <div class="module-letter">A</div>
+                        <div class="module-title">Validación Táctica y Desembarque</div>
+                        <div class="module-desc">
+                            • Macro-Análisis Nacional<br>
+                            • Micro-Targeting <strong>Tijuana</strong><br>
+                            • CEDIS → Puerto Ensenada<br>
+                            • Scorecard de Prioridad
+                        </div>
+                    </div>
+                    <div class="module-card critical fragment fade-up">
+                        <div class="module-letter">B</div>
+                        <div class="module-title">Expansión Ofensiva y Logística</div>
+                        <div class="module-desc">
+                            • Logística <strong>Mérida</strong> → Puerto Progreso<br>
+                            • Ofensiva en Tier 2<br>
+                            • Modelado de Gravedad<br>
+                            • <strong>5 Business Cases</strong>
+                        </div>
+                    </div>
+                    <div class="module-card fragment fade-up">
+                        <div class="module-letter">C</div>
+                        <div class="module-title">Inteligencia de Importaciones</div>
+                        <div class="module-desc">
+                            • Competidores importadores<br>
+                            • Categoría "Acabados/Outdoor"<br>
+                            • Capacidad de inventario<br>
+                            • Dossier confidencial
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Módulos A y B son críticos (entregables core).
+                    Módulo C es diferenciador competitivo (inteligencia de importaciones).
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 5: MÓDULO A - TIJUANA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="module-a" data-background-color="#0A0F1C">
+                <h2>MÓDULO A: <span class="accent">TIJUANA</span></h2>
+                <p class="slide-subtitle">Validación Táctica y Desembarque</p>
+                
+                <div class="geo-visual">
+                    <div class="geo-zone primary fragment zoom-in">
+                        <div class="geo-zone-icon">🏗️</div>
+                        <div class="geo-zone-name">TIJUANA</div>
+                        <div class="geo-zone-focus">Micro-Targeting</div>
+                        <p style="font-size: 0.8em; margin-top: 0.5em;">Top 5 manzanas por licencias de construcción</p>
+                    </div>
+                    <div class="geo-zone primary fragment zoom-in">
+                        <div class="geo-zone-icon">🚢</div>
+                        <div class="geo-zone-name">PUERTO ENSENADA</div>
+                        <div class="geo-zone-focus">Conexión Logística</div>
+                        <p style="font-size: 0.8em; margin-top: 0.5em;">CEDIS óptimo para importaciones</p>
+                    </div>
+                </div>
+                
+                <div class="deliverable-list fragment fade-up" style="margin-top: 2em;">
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🗺️</div>
+                        <div class="deliverable-text">
+                            <h4>A1. Heatmap Nacional</h4>
+                            <p>Demanda insatisfecha de acabados residenciales</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">📍</div>
+                        <div class="deliverable-text">
+                            <h4>A2. Top 5 Manzanas</h4>
+                            <p>Micro-targeting basado en licencias activas</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">📦</div>
+                        <div class="deliverable-text">
+                            <h4>A3. Ubicación CEDIS</h4>
+                            <p>Polígono logístico óptimo</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">📊</div>
+                        <div class="deliverable-text">
+                            <h4>A4. Scorecard</h4>
+                            <p>Matriz de calificación de zonas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Tijuana es el foco de micro-targeting.
+                    Puerto Ensenada es clave para la estrategia de importaciones.
+                    Pregunta: ¿Ya tienen contacto con algún distribuidor en Tijuana?
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 6: MÓDULO B - MÉRIDA Y TIER 2
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="module-b" data-background-color="#0A0F1C">
+                <h2>MÓDULO B: <span class="accent">MÉRIDA</span> & TIER 2</h2>
+                <p class="slide-subtitle">Expansión Ofensiva y Logística</p>
+                
+                <div class="geo-visual">
+                    <div class="geo-zone primary fragment zoom-in">
+                        <div class="geo-zone-icon">🌴</div>
+                        <div class="geo-zone-name">MÉRIDA</div>
+                        <div class="geo-zone-focus">CEDIS Sureste</div>
+                        <p style="font-size: 0.8em; margin-top: 0.5em;">Conexión a Puerto Progreso</p>
+                    </div>
+                    <div class="geo-zone fragment zoom-in">
+                        <div class="geo-zone-icon">🎯</div>
+                        <div class="geo-zone-name">TIER 2</div>
+                        <div class="geo-zone-focus">Ofensiva Competitiva</div>
+                        <p style="font-size: 0.8em; margin-top: 0.5em;">Vulnerabilidad de competencia</p>
+                    </div>
+                </div>
+                
+                <div class="deliverable-list fragment fade-up" style="margin-top: 2em;">
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🚛</div>
+                        <div class="deliverable-text">
+                            <h4>B1. Factibilidad Mérida</h4>
+                            <p>Estudio logístico vía Puerto Progreso</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">⚔️</div>
+                        <div class="deliverable-text">
+                            <h4>B2. Ofensiva Tier 2</h4>
+                            <p>Análisis de vulnerabilidad competitiva</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">🧲</div>
+                        <div class="deliverable-text">
+                            <h4>B3. Modelo de Gravedad</h4>
+                            <p>Radios de atracción de clientes</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item">
+                        <div class="deliverable-icon">💼</div>
+                        <div class="deliverable-text">
+                            <h4>B4. 5 Business Cases</h4>
+                            <p>Documentos de defensa de inversión</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Mérida conecta al sureste (Yucatán, Q.Roo, Campeche).
+                    Los 5 Business Cases son el entregable más valioso para presentar a directivos.
+                    Pregunta: ¿Cuáles mercados Tier 2 les interesan más?
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 7: MÓDULO C - IMPORTACIONES
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="module-c" data-background-color="#0A0F1C">
+                <h2>MÓDULO C: <span class="accent">INTELIGENCIA</span> DE IMPORTACIONES</h2>
+                <p class="slide-subtitle">Competencia que importa "Acabados/Outdoor"</p>
+                
+                <div class="metrics-grid fragment fade-up">
+                    <div class="metric-card">
+                        <div class="metric-value">📦</div>
+                        <div class="metric-label">Identificación<br><span class="sublabel">de importadores</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value accent">🔍</div>
+                        <div class="metric-label">Volúmenes<br><span class="sublabel">de importación</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">🌍</div>
+                        <div class="metric-label">Orígenes<br><span class="sublabel">China, USA, Europa</span></div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value accent">📊</div>
+                        <div class="metric-label">Capacidad<br><span class="sublabel">de inventario</span></div>
+                    </div>
+                </div>
+                
+                <div class="fragment fade-up" style="margin-top: 2em; padding: 1.5em; background: rgba(30, 58, 95, 0.3); border-radius: 16px; border-left: 4px solid var(--strtgy-accent);">
+                    <h4 style="color: var(--strtgy-accent); margin-bottom: 0.5em;">🔒 CONFIDENCIAL</h4>
+                    <p style="font-size: 1em; color: var(--strtgy-gray-300);">
+                        El Dossier de Importaciones contiene inteligencia competitiva sensible.<br>
+                        No será divulgado a terceros según cláusula de confidencialidad del contrato.
+                    </p>
+                </div>
+                
+                <aside class="notes">
+                    Este módulo es diferenciador - pocos competidores tienen esta inteligencia.
+                    Pregunta: ¿Hay competidores específicos que les interese analizar?
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 8: ENTREGABLES FINALES
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="deliverables" data-background-color="#0A0F1C">
+                <h2>ENTREGABLES <span class="accent">FINALES</span></h2>
+                
+                <div class="deliverable-list">
+                    <div class="deliverable-item fragment fade-up">
+                        <div class="deliverable-icon">🖥️</div>
+                        <div class="deliverable-text">
+                            <h4>Dashboard Web Pro</h4>
+                            <p>Plataforma SaaS con licencia de 12 meses<br>
+                            Densidad poblacional, tráfico, isocronas, NSE</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item fragment fade-up">
+                        <div class="deliverable-icon">📄</div>
+                        <div class="deliverable-text">
+                            <h4>Reporte Maestro</h4>
+                            <p>PDF + versión editable<br>
+                            Integración de los 3 módulos</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item fragment fade-up">
+                        <div class="deliverable-icon">🔐</div>
+                        <div class="deliverable-text">
+                            <h4>Dossier de Importaciones</h4>
+                            <p>Análisis de competidores importadores<br>
+                            Documento confidencial</p>
+                        </div>
+                    </div>
+                    <div class="deliverable-item fragment fade-up">
+                        <div class="deliverable-icon">💼</div>
+                        <div class="deliverable-text">
+                            <h4>5 Business Cases</h4>
+                            <p>Documentos de defensa de inversión<br>
+                            Para presentación a directivos</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Todos los entregables se entregan en Semana 4.
+                    El Dashboard requiere capacitación que se dará en semanas 5-6.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 9: CRONOGRAMA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="timeline" data-background-color="#0A0F1C">
+                <h2>CRONOGRAMA DE <span class="accent">6 SEMANAS</span></h2>
+                
+                <div class="timeline-visual">
+                    <div class="week-block active fragment fade-up">
+                        <div class="week-number" style="color: var(--strtgy-accent);">1</div>
+                        <div class="week-label">ARRANQUE</div>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Kick-off<br>Extracción datos</p>
+                    </div>
+                    <div class="week-block fragment fade-up">
+                        <div class="week-number">2</div>
+                        <div class="week-label">DESARROLLO</div>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Tijuana<br>Mérida</p>
+                    </div>
+                    <div class="week-block fragment fade-up">
+                        <div class="week-number">3</div>
+                        <div class="week-label">DESARROLLO</div>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Tier 2<br>Importaciones</p>
+                    </div>
+                    <div class="week-block delivery fragment fade-up">
+                        <div class="week-number" style="color: var(--strtgy-success);">4</div>
+                        <div class="week-label">ENTREGA</div>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Presentación<br>Dashboard</p>
+                    </div>
+                    <div class="week-block fragment fade-up">
+                        <div class="week-number">5</div>
+                        <div class="week-label">SOPORTE</div>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Capacitación<br>Ajustes</p>
+                    </div>
+                    <div class="week-block fragment fade-up">
+                        <div class="week-number">6</div>
+                        <div class="week-label">CIERRE</div>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Soporte<br>Cierre admin</p>
+                    </div>
+                </div>
+                
+                <p class="fragment fade-up" style="text-align: center; margin-top: 1.5em; font-size: 1.1em;">
+                    📅 <strong>Entrega Final:</strong> Semana 4 | 
+                    📞 <strong>Checkpoints:</strong> Semanales
+                </p>
+                
+                <aside class="notes">
+                    Semana 1: Estamos aquí. Foco en obtener datos.
+                    Semana 4: Entrega de TODO + PAGO 2.
+                    Semanas 5-6: Soporte y PAGO 3 al cierre.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 10: ESQUEMA DE PAGOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="payments" data-background-color="#0A0F1C">
+                <h2>ESQUEMA DE <span class="accent">PAGOS</span></h2>
+                <p class="slide-subtitle">$345,000 MXN + IVA | Pago diferido</p>
+                
+                <div class="payment-grid">
+                    <div class="payment-card received fragment zoom-in">
+                        <div class="payment-amount">$115K</div>
+                        <div class="payment-label">PAGO 1 - Anticipo</div>
+                        <div class="payment-status received">✓ RECIBIDO</div>
+                        <p style="font-size: 0.8em; color: var(--strtgy-gray-500); margin-top: 0.5em;">Firma del contrato</p>
+                    </div>
+                    <div class="payment-card fragment zoom-in">
+                        <div class="payment-amount">$115K</div>
+                        <div class="payment-label">PAGO 2 - Entrega</div>
+                        <div class="payment-status pending">SEMANA 4</div>
+                        <p style="font-size: 0.8em; color: var(--strtgy-gray-500); margin-top: 0.5em;">Contra entrega</p>
+                    </div>
+                    <div class="payment-card fragment zoom-in">
+                        <div class="payment-amount">$115K</div>
+                        <div class="payment-label">PAGO 3 - Cierre</div>
+                        <div class="payment-status pending">SEMANA 6</div>
+                        <p style="font-size: 0.8em; color: var(--strtgy-gray-500); margin-top: 0.5em;">15 días post-entrega</p>
+                    </div>
+                </div>
+                
+                <div class="fragment fade-up" style="margin-top: 2em; padding: 1em; background: rgba(30, 58, 95, 0.3); border-radius: 12px; text-align: center;">
+                    <p style="font-size: 0.9em; color: var(--strtgy-gray-300);">
+                        ⚠️ <strong>Reserva de Dominio:</strong> Licencia y derechos de PI bajo dominio de STRTGY AI hasta liquidación de PAGO 3
+                    </p>
+                </div>
+                
+                <aside class="notes">
+                    Agradecer el PAGO 1 recibido.
+                    Recordar la reserva de dominio - es protección para ambas partes.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 11: DATOS REQUERIDOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="data-requirements" data-background-color="#0A0F1C">
+                <h2>DATOS <span class="accent">REQUERIDOS</span></h2>
+                <p class="slide-subtitle">Lo que necesitamos para arrancar</p>
+                
+                <div class="data-requirements">
+                    <div class="data-column fragment fade-right">
+                        <h4>🔴 CRÍTICOS (Semana 1)</h4>
+                        <ul>
+                            <li><strong>Licencias de construcción Tijuana</strong><br>
+                                <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">STRTGY obtiene de fuentes gubernamentales</span></li>
+                            <li><strong>Datos de importaciones</strong><br>
+                                <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">STRTGY obtiene de SAT/Panjiva</span></li>
+                            <li><strong>CEDIS actuales Quality Outdoor</strong><br>
+                                <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">Ubicaciones Monterrey, CDMX</span></li>
+                        </ul>
+                    </div>
+                    <div class="data-column fragment fade-left">
+                        <h4>🟡 DESEABLES (Semana 2)</h4>
+                        <ul>
+                            <li><strong>Clientes actuales por zona</strong><br>
+                                <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">Para calibrar modelo de gravedad</span></li>
+                            <li><strong>Competidores conocidos</strong><br>
+                                <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">Validación del análisis</span></li>
+                            <li><strong>Mercados Tier 2 de interés</strong><br>
+                                <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">Priorización de análisis</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Los datos críticos los obtiene STRTGY de fuentes externas.
+                    Los datos deseables vienen del cliente.
+                    Pregunta: ¿Pueden compartir ubicación de sus CEDIS actuales?
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 12: PRÓXIMOS PASOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="next-steps" data-background-color="#0A0F1C">
+                <h2>PRÓXIMOS <span class="accent">PASOS</span></h2>
+                <p class="slide-subtitle">Acciones inmediatas para arrancar</p>
+                
+                <div class="next-steps-grid">
+                    <div class="next-step-card urgent fragment fade-up">
+                        <div class="step-emoji">📍</div>
+                        <div class="step-title">CEDIS Actuales</div>
+                        <div class="step-desc">Enviar ubicaciones de Monterrey y CDMX con coordenadas</div>
+                        <div class="step-owner">Quality Outdoor</div>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-emoji">🗺️</div>
+                        <div class="step-title">Licencias Tijuana</div>
+                        <div class="step-desc">Extracción de datos de construcción activa</div>
+                        <div class="step-owner">STRTGY</div>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-emoji">📦</div>
+                        <div class="step-title">Datos Importaciones</div>
+                        <div class="step-desc">Configurar acceso a SAT/Panjiva</div>
+                        <div class="step-owner">STRTGY</div>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-emoji">🎯</div>
+                        <div class="step-title">Mercados Tier 2</div>
+                        <div class="step-desc">Definir ciudades prioritarias</div>
+                        <div class="step-owner">Quality Outdoor</div>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-emoji">👥</div>
+                        <div class="step-title">Competidores</div>
+                        <div class="step-desc">Lista de competidores conocidos</div>
+                        <div class="step-owner">Quality Outdoor</div>
+                    </div>
+                    <div class="next-step-card fragment fade-up">
+                        <div class="step-emoji">📅</div>
+                        <div class="step-title">Checkpoint Sem 2</div>
+                        <div class="step-desc">Agendar revisión de avance</div>
+                        <div class="step-owner">Ambos</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Foco en lo urgente: CEDIS actuales y mercados Tier 2.
+                    STRTGY se encarga de licencias e importaciones.
+                    Confirmar fecha del checkpoint de semana 2.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 13: CONTACTOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="contacts" data-background-color="#0A0F1C">
+                <h2>EQUIPO <span class="accent">DEL PROYECTO</span></h2>
+                
+                <div class="metrics-grid" style="margin-top: 2em;">
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value" style="font-size: 2em;">👤</div>
+                        <div class="metric-label" style="font-size: 1.2em;">Arturo Salazar Bazúa<br>
+                            <span class="sublabel">Director General - STRTGY</span><br>
+                            <span style="color: var(--strtgy-accent);">arturo@strtgy.com</span>
+                        </div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value" style="font-size: 2em;">👤</div>
+                        <div class="metric-label" style="font-size: 1.2em;">Quality Outdoor<br>
+                            <span class="sublabel">Representante Legal</span><br>
+                            <span style="color: var(--strtgy-accent);">[Por confirmar]</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fragment fade-up" style="margin-top: 2em; padding: 1.5em; background: rgba(0, 212, 170, 0.1); border-radius: 16px; border: 1px solid var(--strtgy-accent);">
+                    <p style="text-align: center; font-size: 1.1em;">
+                        📧 Comunicación principal: Email + WhatsApp<br>
+                        📅 Checkpoints: Semanales (día a definir)<br>
+                        📁 Documentos: Carpeta compartida (a configurar)
+                    </p>
+                </div>
+                
+                <aside class="notes">
+                    Confirmar contacto principal de Quality Outdoor.
+                    Definir día preferido para checkpoints semanales.
+                    Configurar carpeta compartida para entregables.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 14: CTA FINAL
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cta" data-background-gradient="radial-gradient(ellipse at center, rgba(0,212,170,0.15) 0%, #0A0F1C 70%)">
+                <div class="cta-slide">
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cta-logo">
+                    <h1 class="cta-title">¿<span class="accent">PREGUNTAS</span>?</h1>
+                    <p class="cta-subtitle">"En STRTGY, no adivinamos. Predecimos."</p>
+                    
+                    <div class="cta-contact fragment fade-up">
+                        <p style="font-size: 1.3em; margin-bottom: 1em;">
+                            ¡Gracias por la confianza!<br>
+                            Arrancamos <span class="accent">hoy</span>.
+                        </p>
+                        <p class="cta-email">arturo@strtgy.com | strtgy.com</p>
+                    </div>
+                </div>
+                <div class="grid-background"></div>
+                
+                <aside class="notes">
+                    Abrir a preguntas.
+                    Confirmar próximos pasos antes de cerrar.
+                    Agradecer nuevamente la confianza.
+                </aside>
+            </section>
+
+        </div><!-- /slides -->
+    </div><!-- /reveal -->
+
+    <!-- Reveal.js Core -->
+    <script src="../plan2026/reveal.js/dist/reveal.js"></script>
+    <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            history: true,
+            center: true,
+            
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'speaker',
+            
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            autoAnimate: true,
+            autoAnimateEasing: 'ease-in-out',
+            autoAnimateDuration: 0.8,
+            
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            
+            plugins: [RevealNotes, RevealZoom]
+        });
+    </script>
+</body>
+</html>
