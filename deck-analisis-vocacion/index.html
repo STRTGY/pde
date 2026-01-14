@@ -19,6 +19,101 @@
     
     <!-- STRTGY Theme -->
     <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
+    
+    <!-- Demo Map Styles -->
+    <style>
+        /* Demo Container */
+        .demo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+        
+        .demo-header {
+            text-align: center;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.2rem;
+            color: var(--strtgy-text-secondary, rgba(255,255,255,0.7));
+            margin-top: 0.5rem;
+        }
+        
+        /* Map Wrapper */
+        .demo-map-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 1600px;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 212, 170, 0.15),
+                        0 0 0 1px rgba(0, 212, 170, 0.2);
+            background: #1a1a2e;
+        }
+        
+        .demo-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #0a0f1c;
+        }
+        
+        /* Overlay with fullscreen button */
+        .demo-overlay {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 10;
+        }
+        
+        .demo-fullscreen-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(0, 212, 170, 0.9);
+            color: #0A0F1C;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+        
+        .demo-fullscreen-btn:hover {
+            background: #00d4aa;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+        }
+        
+        /* Feature badges */
+        .demo-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .demo-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+        }
+        
+        .demo-icon {
+            font-size: 1.2rem;
+        }
+    </style>
 </head>
 <body>
     <div class="reveal">
@@ -281,6 +376,62 @@
                     <strong>CASO ESTRELLA:</strong><br>
                     "¿Cuántos competidores analizaron en su último estudio de mercado?"<br>
                     Nosotros analizamos 9,000 en semanas.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 8B: DEMO MAPA PASTES KIKOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="demo-kikos-map" data-background-color="#0A0F1C">
+                <div class="demo-container">
+                    <div class="demo-header">
+                        <div class="case-badge">DEMO EN VIVO</div>
+                        <h2>MAPA DE <span class="accent">SELECCIÓN DE UBICACIONES</span></h2>
+                        <p class="demo-subtitle">Top 5 zonas óptimas para Pastes Kikos en Houston, TX</p>
+                    </div>
+                    
+                    <div class="demo-map-wrapper fragment fade-in">
+                        <iframe 
+                            src="https://strtgy.github.io/pastes-kikos-soft-landing-in-houston/pages/seleccion-ubicacion/map"
+                            class="demo-iframe"
+                            title="Mapa de Selección de Ubicaciones - Pastes Kikos"
+                            loading="lazy"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="demo-overlay">
+                            <a href="https://strtgy.github.io/pastes-kikos-soft-landing-in-houston/pages/seleccion-ubicacion/map" 
+                               target="_blank" 
+                               class="demo-fullscreen-btn">
+                                🔗 Ver mapa completo
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-features fragment fade-up">
+                        <div class="demo-feature">
+                            <span class="demo-icon">🎯</span>
+                            <span>Análisis multicriterio</span>
+                        </div>
+                        <div class="demo-feature">
+                            <span class="demo-icon">📊</span>
+                            <span>Scoring 1-100</span>
+                        </div>
+                        <div class="demo-feature">
+                            <span class="demo-icon">🗺️</span>
+                            <span>Capas interactivas</span>
+                        </div>
+                        <div class="demo-feature">
+                            <span class="demo-icon">📍</span>
+                            <span>5 zonas óptimas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>DEMO EN VIVO:</strong><br>
+                    "Esto es lo que entregamos. No un PDF. Un mapa interactivo con scoring real."<br>
+                    Click en el mapa para mostrar interactividad si hay tiempo.<br>
+                    Link disponible para compartir después de la llamada.
                 </aside>
             </section>
 
