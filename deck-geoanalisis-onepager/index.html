@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>STRTGY | Inteligencia Geoestadística para tu Expansión</title>
+    <meta name="description" content="Análisis de ubicación con datos masivos para retailers, franquicias e inmobiliarias">
+    <meta name="author" content="STRTGY">
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reveal.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- STRTGY Theme -->
+    <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
+    
+    <!-- Onepager Specific Styles -->
+    <style>
+        /* ═══════════════════════════════════════════════════════════════
+           ONEPAGER SPECIFIC STYLES
+           ═══════════════════════════════════════════════════════════════ */
+        
+        /* Hero Section */
+        .hero-stat-row {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 2.5rem 0;
+        }
+        
+        .hero-stat {
+            text-align: center;
+        }
+        
+        .hero-stat-value {
+            font-family: var(--font-heading);
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            line-height: 1;
+            text-shadow: 0 0 40px rgba(0, 212, 170, 0.3);
+        }
+        
+        .hero-stat-label {
+            font-size: 1.1em;
+            color: var(--strtgy-gray-500);
+            margin-top: 0.3em;
+        }
+        
+        /* Use Cases Grid */
+        .usecases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 1.5rem auto;
+        }
+        
+        .usecase-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1.8rem;
+            text-align: left;
+            transition: all var(--transition-normal);
+        }
+        
+        .usecase-card:hover {
+            border-color: var(--strtgy-accent);
+            transform: translateY(-3px);
+        }
+        
+        .usecase-icon {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .usecase-industry {
+            font-family: var(--font-heading);
+            font-size: 0.85em;
+            color: var(--strtgy-accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+        
+        .usecase-title {
+            font-family: var(--font-heading);
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        
+        .usecase-desc {
+            font-size: 1em;
+            color: var(--strtgy-gray-500);
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+        }
+        
+        .usecase-result {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.95em;
+            color: var(--strtgy-accent);
+            font-weight: 500;
+        }
+        
+        /* Question Cards */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 2rem auto;
+        }
+        
+        .question-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .question-card:hover {
+            border-color: var(--strtgy-accent);
+        }
+        
+        .question-icon {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .question-text {
+            font-size: 1.4em;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        /* Data Sources Flow */
+        .datasources-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1400px;
+        }
+        
+        .datasources-left {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            flex: 1;
+        }
+        
+        .datasource-item {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all var(--transition-fast);
+        }
+        
+        .datasource-item:hover {
+            border-color: var(--strtgy-accent);
+        }
+        
+        .datasource-icon {
+            font-size: 1.4em;
+        }
+        
+        .datasource-name {
+            font-size: 1em;
+            font-weight: 500;
+        }
+        
+        .datasources-arrow {
+            font-size: 3em;
+            color: var(--strtgy-accent);
+        }
+        
+        .datasources-center {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.2) 0%, rgba(30, 58, 95, 0.5) 100%);
+            border: 2px solid var(--strtgy-accent);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 3rem;
+            text-align: center;
+            box-shadow: 0 0 60px rgba(0, 212, 170, 0.2);
+        }
+        
+        .engine-icon {
+            font-size: 4em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .engine-title {
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        
+        .engine-subtitle {
+            font-size: 0.95em;
+            color: var(--strtgy-gray-500);
+            margin-top: 0.3rem;
+        }
+        
+        .datasources-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            flex: 1;
+        }
+        
+        .output-item {
+            background: var(--strtgy-accent-dim);
+            border: 1px solid var(--strtgy-accent);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .output-icon {
+            font-size: 1.4em;
+        }
+        
+        .output-name {
+            font-size: 1em;
+            font-weight: 500;
+            color: var(--strtgy-white);
+        }
+        
+        /* Methodology Visual */
+        .methodology-visual {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+        
+        .method-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            width: 220px;
+            transition: all var(--transition-normal);
+        }
+        
+        .method-card:hover {
+            border-color: var(--strtgy-accent);
+            transform: translateY(-5px);
+        }
+        
+        .method-card-number {
+            font-family: var(--font-heading);
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            opacity: 0.4;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        
+        .method-card-icon {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .method-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        
+        .method-card-desc {
+            font-size: 0.9em;
+            color: var(--strtgy-gray-500);
+            line-height: 1.4;
+        }
+        
+        .method-connector {
+            display: flex;
+            align-items: center;
+            font-size: 2em;
+            color: var(--strtgy-accent);
+            padding: 0 0.5rem;
+        }
+        
+        /* Demo CTA */
+        .demo-cta-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1300px;
+            margin: 2rem auto;
+        }
+        
+        .demo-preview {
+            flex: 1.2;
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 212, 170, 0.15),
+                        0 0 0 1px rgba(0, 212, 170, 0.2);
+            background: #1a1a2e;
+            height: 400px;
+        }
+        
+        .demo-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #0a0f1c;
+        }
+        
+        .demo-preview-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10, 15, 28, 0.95));
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .demo-preview-label {
+            font-size: 1em;
+            color: var(--strtgy-gray-300);
+        }
+        
+        .demo-preview-link {
+            color: var(--strtgy-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .demo-info {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .demo-info-badge {
+            display: inline-block;
+            padding: 0.4em 1em;
+            background: var(--strtgy-accent-dim);
+            border: 1px solid var(--strtgy-accent);
+            border-radius: var(--radius-full);
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--strtgy-accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-info h3 {
+            font-size: 2em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .demo-info p {
+            font-size: 1.2em;
+            color: var(--strtgy-gray-300);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .demo-features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .demo-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem 0;
+            font-size: 1.1em;
+            border-bottom: 1px solid rgba(30, 58, 95, 0.3);
+        }
+        
+        .demo-features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .demo-features-list .check {
+            color: var(--strtgy-accent);
+            font-size: 1.2em;
+        }
+        
+        /* Contact CTA */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        
+        .contact-info {
+            text-align: left;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.8em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-tagline {
+            font-size: 1.4em;
+            color: var(--strtgy-gray-500);
+            margin-bottom: 2rem;
+        }
+        
+        .contact-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        
+        .contact-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 0;
+            font-size: 1.2em;
+        }
+        
+        .contact-benefits .icon {
+            font-size: 1.3em;
+        }
+        
+        .contact-cta {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.15) 0%, rgba(30, 58, 95, 0.3) 100%);
+            border: 1px solid var(--strtgy-accent);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .contact-logo {
+            width: 140px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+        }
+        
+        .contact-button {
+            display: inline-block;
+            padding: 1.2em 2.5em;
+            background: var(--gradient-accent);
+            color: var(--strtgy-dark);
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+            box-shadow: var(--shadow-glow);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 212, 170, 0.4);
+        }
+        
+        .contact-email {
+            font-size: 1.1em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        .contact-email a {
+            color: var(--strtgy-accent);
+            text-decoration: none;
+        }
+        
+        /* Pricing Quick */
+        .pricing-quick {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+        
+        .pricing-card {
+            background: var(--strtgy-navy-dim);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-align: center;
+            flex: 1;
+            max-width: 350px;
+            transition: all var(--transition-normal);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--strtgy-accent);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--strtgy-accent);
+        }
+        
+        .pricing-tier {
+            font-family: var(--font-heading);
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+        
+        .pricing-scope {
+            font-size: 1em;
+            color: var(--strtgy-gray-500);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-amount {
+            font-family: var(--font-heading);
+            font-size: 2.2em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+            margin-bottom: 0.3rem;
+        }
+        
+        .pricing-timeline {
+            font-size: 0.95em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        /* Trust Logos */
+        .trust-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .trust-label {
+            font-size: 1em;
+            color: var(--strtgy-gray-500);
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-logo {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            padding: 0.8rem 1.5rem;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.9em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 1200px) {
+            .usecases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .datasources-container {
+                flex-direction: column;
+            }
+            
+            .datasources-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .demo-cta-container {
+                flex-direction: column;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .methodology-visual {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .method-connector {
+                display: none;
+            }
+        }
+        
+        @media screen and (max-width: 800px) {
+            .usecases-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .questions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stat-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .pricing-quick {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 1: HERO / PORTADA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="hero" data-background-gradient="radial-gradient(ellipse at center, #1E3A5F 0%, #0A0F1C 70%)">
+                <div class="cover-content">
+                    <div class="cover-badge">INTELIGENCIA GEOESTADÍSTICA</div>
+                    <h1 class="cover-title">ELIGE TU PRÓXIMA UBICACIÓN<br><span class="accent">CON DATOS, NO INTUICIÓN</span></h1>
+                    <p class="cover-subtitle">Análisis de ubicación para retailers, franquicias e inmobiliarias</p>
+                    
+                    <div class="hero-stat-row">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">500M+</div>
+                            <div class="hero-stat-label">Data points analizados</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">2-6</div>
+                            <div class="hero-stat-label">Semanas de entrega</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">15+</div>
+                            <div class="hero-stat-label">Marcas confían en nosotros</div>
+                        </div>
+                    </div>
+                    
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cover-logo">
+                </div>
+                <div class="grid-background"></div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 2: EL RETO - PREGUNTAS QUE RESPONDEMOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="challenge" data-background-color="#0A0F1C">
+                <h2>¿TE HACES ESTAS <span class="accent">PREGUNTAS</span>?</h2>
+                <p class="slide-subtitle">Nosotros las respondemos con datos</p>
+                
+                <div class="questions-grid">
+                    <div class="question-card">
+                        <div class="question-icon">📍</div>
+                        <div class="question-text">¿Cuál es la <span class="accent">mejor zona</span> para mi próxima sucursal?</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-icon">👥</div>
+                        <div class="question-text">¿Hay suficientes <span class="accent">clientes potenciales</span> en esta ubicación?</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-icon">🏪</div>
+                        <div class="question-text">¿Cuánta <span class="accent">competencia</span> existe en un radio de 15 minutos?</div>
+                    </div>
+                    <div class="question-card">
+                        <div class="question-icon">💰</div>
+                        <div class="question-text">¿Esta propiedad <span class="accent">vale la inversión</span> de $2-5M?</div>
+                    </div>
+                </div>
+                
+                <p class="quote-attribution" style="margin-top: 2rem;">
+                    <span class="accent">70%</span> de las nuevas ubicaciones no alcanzan sus proyecciones.<br>
+                    La diferencia entre éxito y fracaso puede ser de <span class="accent">500 metros</span>.
+                </p>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 3: CASOS DE USO POR INDUSTRIA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="usecases" data-background-color="#0A0F1C">
+                <h2>CASOS DE USO POR <span class="accent">INDUSTRIA</span></h2>
+                <p class="slide-subtitle">Soluciones probadas para diferentes necesidades</p>
+                
+                <div class="usecases-grid">
+                    <div class="usecase-card">
+                        <div class="usecase-icon">🍔</div>
+                        <div class="usecase-industry">QSR / RESTAURANTES</div>
+                        <div class="usecase-title">Expansión de Franquicia</div>
+                        <div class="usecase-desc">Identifica las mejores zonas para crecer basándote en tráfico, competencia y demografía de tu cliente ideal.</div>
+                        <div class="usecase-result">✓ Top 5 ubicaciones óptimas con scoring</div>
+                    </div>
+                    
+                    <div class="usecase-card">
+                        <div class="usecase-icon">🛒</div>
+                        <div class="usecase-industry">RETAIL</div>
+                        <div class="usecase-title">Evaluación de Red</div>
+                        <div class="usecase-desc">Analiza múltiples propiedades potenciales y prioriza inversión con certeza financiera y análisis de canibalización.</div>
+                        <div class="usecase-result">✓ Matriz comparativa + what-if scenarios</div>
+                    </div>
+                    
+                    <div class="usecase-card">
+                        <div class="usecase-icon">🏢</div>
+                        <div class="usecase-industry">INMOBILIARIO</div>
+                        <div class="usecase-title">Due Diligence de Terrenos</div>
+                        <div class="usecase-desc">Valida el potencial comercial de terrenos o propiedades antes de invertir con análisis de vocación de la zona.</div>
+                        <div class="usecase-result">✓ ADN comercial + proyección de demanda</div>
+                    </div>
+                    
+                    <div class="usecase-card">
+                        <div class="usecase-icon">✈️</div>
+                        <div class="usecase-industry">SOFT LANDING</div>
+                        <div class="usecase-title">Entrada a Nuevo Mercado</div>
+                        <div class="usecase-desc">Entiende un mercado desconocido (ej. Houston, CDMX) con análisis de competencia, precios y preferencias locales.</div>
+                        <div class="usecase-result">✓ 9,000+ competidores analizados con IA</div>
+                    </div>
+                    
+                    <div class="usecase-card">
+                        <div class="usecase-icon">🏪</div>
+                        <div class="usecase-industry">TIENDAS DE CONVENIENCIA</div>
+                        <div class="usecase-title">Selección de Sitio</div>
+                        <div class="usecase-desc">Encuentra ubicaciones con alto tráfico peatonal, vehicular y densidad poblacional óptima para tu formato.</div>
+                        <div class="usecase-result">✓ Isócronas + análisis de flujo</div>
+                    </div>
+                    
+                    <div class="usecase-card">
+                        <div class="usecase-icon">💊</div>
+                        <div class="usecase-industry">FARMACIAS / SERVICIOS</div>
+                        <div class="usecase-title">Cobertura Territorial</div>
+                        <div class="usecase-desc">Optimiza tu red de puntos de venta para maximizar cobertura sin canibalizar tus propias ubicaciones.</div>
+                        <div class="usecase-result">✓ Modelo de canibalización + gaps</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 4: MOTOR DE INTELIGENCIA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="engine" data-background-color="#0A0F1C">
+                <h2>NUESTRO MOTOR DE <span class="accent">INTELIGENCIA</span></h2>
+                <p class="slide-subtitle">Integramos fuentes de datos que sería imposible procesar manualmente</p>
+                
+                <div class="datasources-container">
+                    <div class="datasources-left">
+                        <div class="datasource-item">
+                            <span class="datasource-icon">🏢</span>
+                            <span class="datasource-name">INEGI + DENUE</span>
+                        </div>
+                        <div class="datasource-item">
+                            <span class="datasource-icon">🗺️</span>
+                            <span class="datasource-name">HERE API</span>
+                        </div>
+                        <div class="datasource-item">
+                            <span class="datasource-icon">📍</span>
+                            <span class="datasource-name">Google Maps</span>
+                        </div>
+                        <div class="datasource-item">
+                            <span class="datasource-icon">🛰️</span>
+                            <span class="datasource-name">LandSat / Sentinel</span>
+                        </div>
+                        <div class="datasource-item">
+                            <span class="datasource-icon">📊</span>
+                            <span class="datasource-name">Census Data (US)</span>
+                        </div>
+                        <div class="datasource-item">
+                            <span class="datasource-icon">🚗</span>
+                            <span class="datasource-name">Datos de Tráfico</span>
+                        </div>
+                    </div>
+                    
+                    <div class="datasources-arrow">→</div>
+                    
+                    <div class="datasources-center">
+                        <div class="engine-icon">🧠</div>
+                        <div class="engine-title">MOTOR STRTGY</div>
+                        <div class="engine-subtitle">Procesamiento con IA<br>+ Computer Vision</div>
+                    </div>
+                    
+                    <div class="datasources-arrow">→</div>
+                    
+                    <div class="datasources-right">
+                        <div class="output-item">
+                            <span class="output-icon">🗺️</span>
+                            <span class="output-name">Mapas Interactivos</span>
+                        </div>
+                        <div class="output-item">
+                            <span class="output-icon">📊</span>
+                            <span class="output-name">Scoring 1-100</span>
+                        </div>
+                        <div class="output-item">
+                            <span class="output-icon">🔥</span>
+                            <span class="output-name">Mapas de Calor</span>
+                        </div>
+                        <div class="output-item">
+                            <span class="output-icon">📈</span>
+                            <span class="output-name">Matriz Comparativa</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 5: METODOLOGÍA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="methodology" data-background-color="#0A0F1C">
+                <h2>NUESTRA <span class="accent">METODOLOGÍA</span></h2>
+                <p class="slide-subtitle">4 componentes que garantizan decisiones con certeza</p>
+                
+                <div class="methodology-visual">
+                    <div class="method-card">
+                        <div class="method-card-number">01</div>
+                        <div class="method-card-icon">🧬</div>
+                        <div class="method-card-title">ADN Comercial</div>
+                        <div class="method-card-desc">Perfil demográfico, poder adquisitivo y actividad económica de cada zona</div>
+                    </div>
+                    
+                    <div class="method-connector">→</div>
+                    
+                    <div class="method-card">
+                        <div class="method-card-number">02</div>
+                        <div class="method-card-icon">⏱️</div>
+                        <div class="method-card-title">Isócronas</div>
+                        <div class="method-card-desc">Áreas de influencia por tiempo de traslado (5, 10, 15 min) en auto o a pie</div>
+                    </div>
+                    
+                    <div class="method-connector">→</div>
+                    
+                    <div class="method-card">
+                        <div class="method-card-number">03</div>
+                        <div class="method-card-icon">🎯</div>
+                        <div class="method-card-title">Precision Audience</div>
+                        <div class="method-card-desc">Segmentos específicos de clientes potenciales basados en tu perfil ideal</div>
+                    </div>
+                    
+                    <div class="method-connector">→</div>
+                    
+                    <div class="method-card">
+                        <div class="method-card-number">04</div>
+                        <div class="method-card-icon">📊</div>
+                        <div class="method-card-title">Matriz Oportunidad</div>
+                        <div class="method-card-desc">Scoring vs saturación competitiva para identificar "sweet spots"</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 6: DEMO EN VIVO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="demo" data-background-color="#0A0F1C">
+                <h2>EJEMPLO DE <span class="accent">ENTREGABLE</span></h2>
+                
+                <div class="demo-cta-container">
+                    <div class="demo-preview">
+                        <iframe 
+                            src="https://strtgy.github.io/pastes-kikos-soft-landing-in-houston/pages/seleccion-ubicacion/map"
+                            title="Mapa de Selección de Ubicaciones"
+                            loading="lazy">
+                        </iframe>
+                        <div class="demo-preview-overlay">
+                            <div class="demo-preview-label">
+                                <a href="https://strtgy.github.io/pastes-kikos-soft-landing-in-houston/pages/seleccion-ubicacion/map" target="_blank" class="demo-preview-link">🔗 Ver mapa completo en nueva ventana</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-info">
+                        <div class="demo-info-badge">CASO REAL</div>
+                        <h3>Pastes Kikos - Houston</h3>
+                        <p>Análisis de soft landing para franquicia mexicana entrando al mercado de Texas con ubicación óptima validada.</p>
+                        
+                        <ul class="demo-features-list">
+                            <li><span class="check">✓</span> 9,000+ restaurantes analizados con Computer Vision</li>
+                            <li><span class="check">✓</span> Top 5 zonas con scoring multicriterio</li>
+                            <li><span class="check">✓</span> Análisis de competencia y precios locales</li>
+                            <li><span class="check">✓</span> Mapa interactivo con capas de datos</li>
+                            <li><span class="check">✓</span> Recomendación de sabores y pricing</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 7: PAQUETES Y PRECIOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="pricing" data-background-color="#0A0F1C">
+                <h2>PAQUETES <span class="accent">TRANSPARENTES</span></h2>
+                <p class="slide-subtitle">Sin sorpresas. Alcance claro desde el inicio.</p>
+                
+                <div class="pricing-quick">
+                    <div class="pricing-card">
+                        <div class="pricing-tier">📍 ESTÁNDAR</div>
+                        <div class="pricing-scope">1 ubicación</div>
+                        <div class="pricing-amount">$40K - $60K</div>
+                        <div class="pricing-timeline">Entrega: 2-3 semanas</div>
+                    </div>
+                    
+                    <div class="pricing-card featured">
+                        <div class="pricing-tier">📊 PRO</div>
+                        <div class="pricing-scope">3-5 ubicaciones</div>
+                        <div class="pricing-amount">$80K - $120K</div>
+                        <div class="pricing-timeline">Entrega: 3-4 semanas</div>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="pricing-tier">🏢 ENTERPRISE</div>
+                        <div class="pricing-scope">10+ ubicaciones</div>
+                        <div class="pricing-amount">$150K - $250K</div>
+                        <div class="pricing-timeline">Entrega: 4-6 semanas</div>
+                    </div>
+                </div>
+                
+                <div class="trust-section">
+                    <div class="trust-label">EMPRESAS QUE CONFÍAN EN NOSOTROS</div>
+                    <div class="trust-logos">
+                        <div class="trust-logo">GAMESA</div>
+                        <div class="trust-logo">HEINZ</div>
+                        <div class="trust-logo">UNILEVER</div>
+                        <div class="trust-logo">GRUPO ALÉN</div>
+                        <div class="trust-logo">MODELORAMA</div>
+                        <div class="trust-logo">PASTES KIKOS</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 8: CTA FINAL
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cta" data-background-gradient="radial-gradient(ellipse at center, rgba(0,212,170,0.12) 0%, #0A0F1C 70%)">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>¿LISTO PARA <span class="accent">EXPANDIR CON CERTEZA</span>?</h2>
+                        <p class="contact-tagline">El siguiente paso es una conversación de 30 minutos</p>
+                        
+                        <ul class="contact-benefits">
+                            <li><span class="icon">📞</span> Brief inicial gratuito para entender tu necesidad</li>
+                            <li><span class="icon">📄</span> Propuesta detallada en 48 horas</li>
+                            <li><span class="icon">🚀</span> Kick-off inmediato tras aprobación</li>
+                            <li><span class="icon">🎯</span> Entrega en 2-6 semanas según alcance</li>
+                            <li><span class="icon">💡</span> 30 días de soporte post-entrega incluidos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-cta">
+                        <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="contact-logo">
+                        <a href="mailto:arturo@strtgy.com?subject=Consulta%20An%C3%A1lisis%20Geoestad%C3%ADstico" class="contact-button">AGENDAR BRIEF GRATUITO</a>
+                        <p class="contact-email">
+                            <a href="mailto:arturo@strtgy.com">arturo@strtgy.com</a><br>
+                            <a href="https://strtgy.com" target="_blank">strtgy.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="grid-background"></div>
+            </section>
+
+        </div><!-- /slides -->
+    </div><!-- /reveal -->
+
+    <!-- Reveal.js Core -->
+    <script src="../plan2026/reveal.js/dist/reveal.js"></script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            history: true,
+            center: true,
+            
+            // Configuración para onepager autonavegable
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            
+            // Transiciones suaves
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            
+            // Auto-animate para transiciones elegantes
+            autoAnimate: true,
+            autoAnimateEasing: 'ease-in-out',
+            autoAnimateDuration: 0.8,
+            
+            // Dimensiones
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            
+            // Sin fragmentos - todo visible desde el inicio para lectura autónoma
+            // Cada slide es autocontenido
+            
+            // Habilitar vista de impresión
+            pdfMaxPagesPerSlide: 1,
+            pdfSeparateFragments: false
+        });
+    </script>
+</body>
+</html>
