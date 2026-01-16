@@ -8,8 +8,10 @@
 ```
 presentaciones/
 ├── shared/
-│   └── css/
-│       └── strtgy-reveal-theme.css    # Tema STRTGY para todos los decks
+│   ├── css/
+│   │   └── strtgy-reveal-theme.css    # Tema STRTGY para todos los decks
+│   └── js/
+│       └── strtgy-particles.js        # Controlador de partículas optimizado
 ├── pitch-deck-ejecutivo/
 │   └── index.html                      # Deck principal de ventas (12 slides)
 ├── deck-analisis-vocacion/
@@ -59,6 +61,59 @@ npx live-server pitch-deck-ejecutivo/
 | `B` | Pantalla negra (blackout) |
 | `Esc` | Salir de modo especial |
 | `?` | Ver todos los atajos |
+| **`P`** | **Pausar/reanudar partículas** ⚡ |
+| **`Shift+P`** | **Ciclar modos** (lite → full → static) |
+
+---
+
+## ⚡ Modo de Rendimiento (Partículas)
+
+Las presentaciones incluyen un fondo animado de partículas que puede afectar el rendimiento cuando:
+- Compartes pantalla en videollamadas (Google Meet, Zoom, Teams)
+- Usas Brave/Chrome con muchas extensiones
+- Tu PC tiene recursos limitados
+
+### Controles de Partículas
+
+| Control | Descripción |
+|---------|-------------|
+| **Tecla `P`** | Pausa/reanuda la animación de partículas |
+| **Tecla `Shift+P`** | Cicla entre modos: lite → full → static |
+
+### Modos Disponibles
+
+1. **`lite`** (por defecto) - Optimizado para presentaciones:
+   - 25 partículas (vs 100)
+   - Sin triángulos mesh
+   - Sin animaciones de opacidad/tamaño
+   - Sin interactividad hover
+   - 30 FPS (vs 60)
+
+2. **`full`** - Todos los efectos activados:
+   - 80 partículas con animaciones
+   - Triángulos mesh
+   - Interactividad completa
+   - 60 FPS
+   
+3. **`static`** - Sin partículas:
+   - Solo gradiente CSS
+   - Rendimiento máximo
+
+### Forzar Modo via URL
+
+Puedes abrir la presentación en un modo específico:
+
+```
+index.html?particles=lite    # Modo ligero (recomendado para Meet)
+index.html?particles=full    # Todos los efectos
+index.html?particles=off     # Sin partículas
+```
+
+### Recomendación para Videollamadas
+
+1. Abre la presentación con `?particles=lite` o `?particles=off`
+2. O presiona **`P`** para pausar las partículas antes de compartir pantalla
+3. El indicador mostrará el modo actual brevemente
 
 ---
 

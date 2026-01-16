@@ -994,132 +994,13 @@ Notas: _____________</pre>
     <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
     <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
     
-    <!-- tsParticles - Data Network Effect -->
+    <!-- tsParticles - Data Network Effect (Optimized) -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-
-    <script>
-        // ═══════════════════════════════════════════════════════════════
-        // STRTGY Data Network Particles - Elegant Background Effect
-        // ═══════════════════════════════════════════════════════════════
-        tsParticles.load("tsparticles", {
-            fullScreen: {
-                enable: true,
-                zIndex: -1
-            },
-            fpsLimit: 60,
-            particles: {
-                number: {
-                    value: 100,
-                    density: {
-                        enable: true,
-                        area: 900
-                    }
-                },
-                color: {
-                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
-                },
-                shape: {
-                    type: "circle"
-                },
-                opacity: {
-                    value: {
-                        min: 0.2,
-                        max: 0.7
-                    },
-                    animation: {
-                        enable: true,
-                        speed: 0.8,
-                        minimumValue: 0.15,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: {
-                        min: 1,
-                        max: 4
-                    },
-                    animation: {
-                        enable: true,
-                        speed: 2,
-                        minimumValue: 0.5,
-                        sync: false
-                    }
-                },
-                links: {
-                    enable: true,
-                    distance: 180,
-                    color: "#00D4AA",
-                    opacity: 0.25,
-                    width: 1,
-                    triangles: {
-                        enable: true,
-                        opacity: 0.05
-                    }
-                },
-                move: {
-                    enable: true,
-                    speed: 0.6,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    outModes: {
-                        default: "out"
-                    },
-                    attract: {
-                        enable: true,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detectsOn: "window",
-                events: {
-                    onHover: {
-                        enable: true,
-                        mode: ["grab", "connect"],
-                        parallax: {
-                            enable: true,
-                            force: 30,
-                            smooth: 20
-                        }
-                    },
-                    onClick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 200,
-                        links: {
-                            opacity: 0.5,
-                            color: "#00D4AA"
-                        }
-                    },
-                    connect: {
-                        distance: 100,
-                        links: {
-                            opacity: 0.3
-                        },
-                        radius: 150
-                    },
-                    push: {
-                        quantity: 4
-                    },
-                    repulse: {
-                        distance: 120,
-                        duration: 0.4
-                    }
-                }
-            },
-            detectRetina: true,
-            background: {
-                color: "transparent"
-            }
-        });
-    </script>
+    
+    <!-- STRTGY Particles Controller - Optimized for Presentations -->
+    <!-- Controls: P = pause/resume, Shift+P = cycle modes (lite/full/static) -->
+    <!-- URL params: ?particles=lite | ?particles=full | ?particles=off -->
+    <script src="../shared/js/strtgy-particles.js"></script>
 
     <script>
         Reveal.initialize({
