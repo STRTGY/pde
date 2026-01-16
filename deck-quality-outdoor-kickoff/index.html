@@ -1119,9 +1119,15 @@
             autoAnimateEasing: 'ease-in-out',
             autoAnimateDuration: 0.8,
             
+            // ═══════════════════════════════════════════════════════════════
+            // SCALING CONFIGURATION - Best Practice for Content Fit
+            // ═══════════════════════════════════════════════════════════════
             width: 1920,
             height: 1080,
-            margin: 0.04,
+            margin: 0.08,
+            minScale: 0.5,
+            maxScale: 1.2,
+            disableLayout: false,
             
             plugins: [RevealNotes, RevealZoom]
         });

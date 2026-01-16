@@ -357,10 +357,10 @@
             <section id="cover" data-background-gradient="radial-gradient(ellipse at center, #1E3A5F 0%, #0A0F1C 70%)">
                 <div class="cover-content">
                     <div class="cover-badge">SESIÓN DE KICK-OFF</div>
-                    <h1 class="cover-title">QUALITY <span class="accent">OUTDOOR</span></h1>
+                    <h1 class="cover-title">DAIRY <span class="accent">QUEEN</span></h1>
                     <p class="cover-subtitle">Kick-off del Proyecto</p>
                     <p style="font-size: 1.1em; color: var(--strtgy-gray-500); margin-top: 1em;">
-                        <strong>DQ-2026-PROYECTO</strong> | [FECHA KICK-OFF]
+                        <strong>DQ-2026-PROYECTO</strong> | 16 de enero de 2025 · 10:00 AM
                     </p>
                     <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cover-logo">
                 </div>
@@ -403,7 +403,7 @@
                         <div class="agenda-number">04</div>
                         <div class="agenda-content">
                             <h4>Datos Requeridos</h4>
-                            <p>Lo que necesitamos de Quality Outdoor</p>
+                            <p>Lo que necesitamos de Dairy Queen</p>
                         </div>
                     </div>
                     <div class="agenda-item fragment fade-up">
@@ -824,7 +824,7 @@
                                 <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">STRTGY obtiene de fuentes gubernamentales</span></li>
                             <li><strong>Datos de importaciones</strong><br>
                                 <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">STRTGY obtiene de SAT/Panjiva</span></li>
-                            <li><strong>[INFRAESTRUCTURA/UBICACIÓN] actuales Quality Outdoor</strong><br>
+                            <li><strong>[INFRAESTRUCTURA/UBICACIÓN] actuales Dairy Queen</strong><br>
                                 <span style="font-size: 0.85em; color: var(--strtgy-gray-500);">Ubicaciones Monterrey, CDMX</span></li>
                         </ul>
                     </div>
@@ -860,7 +860,7 @@
                         <div class="step-emoji">📍</div>
                         <div class="step-title">[INFRAESTRUCTURA/UBICACIÓN] Actuales</div>
                         <div class="step-desc">Enviar ubicaciones de Monterrey y CDMX con coordenadas</div>
-                        <div class="step-owner">Quality Outdoor</div>
+                        <div class="step-owner">Dairy Queen</div>
                     </div>
                     <div class="next-step-card fragment fade-up">
                         <div class="step-emoji">🗺️</div>
@@ -878,13 +878,13 @@
                         <div class="step-emoji">🎯</div>
                         <div class="step-title">Mercados Tier 2</div>
                         <div class="step-desc">Definir ciudades prioritarias</div>
-                        <div class="step-owner">Quality Outdoor</div>
+                        <div class="step-owner">Dairy Queen</div>
                     </div>
                     <div class="next-step-card fragment fade-up">
                         <div class="step-emoji">👥</div>
                         <div class="step-title">Competidores</div>
                         <div class="step-desc">Lista de competidores conocidos</div>
-                        <div class="step-owner">Quality Outdoor</div>
+                        <div class="step-owner">Dairy Queen</div>
                     </div>
                     <div class="next-step-card fragment fade-up">
                         <div class="step-emoji">📅</div>
@@ -917,7 +917,7 @@
                     </div>
                     <div class="metric-card fragment fade-up">
                         <div class="metric-value" style="font-size: 2em;">👤</div>
-                        <div class="metric-label" style="font-size: 1.2em;">Quality Outdoor<br>
+                        <div class="metric-label" style="font-size: 1.2em;">Dairy Queen<br>
                             <span class="sublabel">Representante Legal</span><br>
                             <span style="color: var(--strtgy-accent);">[Por confirmar]</span>
                         </div>
@@ -933,7 +933,7 @@
                 </div>
                 
                 <aside class="notes">
-                    Confirmar contacto principal de Quality Outdoor.
+                    Confirmar contacto principal de Dairy Queen.
                     Definir día preferido para checkpoints semanales.
                     Configurar carpeta compartida para entregables.
                 </aside>
@@ -1119,9 +1119,24 @@
             autoAnimateEasing: 'ease-in-out',
             autoAnimateDuration: 0.8,
             
+            // ═══════════════════════════════════════════════════════════════
+            // SCALING CONFIGURATION - Best Practice for Content Fit
+            // ═══════════════════════════════════════════════════════════════
+            // Authoring dimensions (16:9 aspect ratio)
             width: 1920,
             height: 1080,
-            margin: 0.04,
+            
+            // Margin around slides for breathing room (8%)
+            margin: 0.08,
+            
+            // Scale bounds - ensures content always fits
+            // minScale: 0.5 = content can shrink to 50% to fit small screens
+            // maxScale: 1.2 = content won't grow beyond 120% on large screens
+            minScale: 0.5,
+            maxScale: 1.2,
+            
+            // disableLayout: false ensures Reveal.js handles scaling automatically
+            disableLayout: false,
             
             plugins: [RevealNotes, RevealZoom]
         });
