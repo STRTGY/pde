@@ -20,6 +20,9 @@
     <!-- STRTGY Theme -->
     <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
     
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
     <style>
         /* Custom styles for this presentation */
         .module-grid {
@@ -343,6 +346,107 @@
             font-size: 0.75em;
             color: var(--strtgy-accent);
         }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           LEAFLET MAP STYLES
+           ═══════════════════════════════════════════════════════════════ */
+        .map-container {
+            display: flex;
+            gap: 2em;
+            align-items: stretch;
+            margin-top: 1em;
+            height: 520px;
+        }
+        
+        #expansion-map {
+            flex: 2;
+            border-radius: 16px;
+            border: 2px solid var(--strtgy-navy);
+            z-index: 10;
+        }
+        
+        .map-legend {
+            flex: 1;
+            background: rgba(30, 58, 95, 0.3);
+            border: 1px solid rgba(30, 58, 95, 0.5);
+            border-radius: 16px;
+            padding: 1.5em;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+            padding: 0.6em 0;
+            border-bottom: 1px solid rgba(30, 58, 95, 0.3);
+        }
+        
+        .legend-item:last-child {
+            border-bottom: none;
+        }
+        
+        .legend-marker {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .legend-marker.primary {
+            background: var(--strtgy-accent);
+            box-shadow: 0 0 10px rgba(0, 212, 170, 0.5);
+        }
+        
+        .legend-marker.port {
+            background: #3B82F6;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+        .legend-marker.tier2 {
+            background: #F59E0B;
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+        }
+        
+        .legend-text {
+            font-size: 0.9em;
+        }
+        
+        .legend-text strong {
+            color: var(--strtgy-white);
+        }
+        
+        /* Custom Leaflet Popup Styling */
+        .leaflet-popup-content-wrapper {
+            background: rgba(10, 15, 28, 0.95);
+            color: var(--strtgy-white);
+            border-radius: 12px;
+            border: 1px solid var(--strtgy-accent);
+        }
+        
+        .leaflet-popup-tip {
+            background: rgba(10, 15, 28, 0.95);
+        }
+        
+        .leaflet-popup-content {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+        }
+        
+        .popup-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            color: var(--strtgy-accent);
+            margin-bottom: 4px;
+        }
+        
+        .popup-module {
+            font-size: 0.85em;
+            color: var(--strtgy-gray-500);
+        }
     </style>
 </head>
 <body>
@@ -512,7 +616,54 @@
             </section>
 
             <!-- ═══════════════════════════════════════════════════════════════
-                 SLIDE 5: MÓDULO A - TIJUANA
+                 SLIDE 5: MAPA DE ALCANCE GEOGRÁFICO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="geographic-scope" data-background-color="#0A0F1C">
+                <h2>ALCANCE <span class="accent">GEOGRÁFICO</span></h2>
+                <p class="slide-subtitle">Mercados objetivo del Plan de Expansión 2026</p>
+                
+                <div class="map-container">
+                    <div id="expansion-map"></div>
+                    <div class="map-legend">
+                        <div class="legend-item">
+                            <div class="legend-marker primary"></div>
+                            <div class="legend-text">
+                                <strong>Mercados Primarios</strong><br>
+                                <span class="muted">Tijuana, Mérida</span>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-marker port"></div>
+                            <div class="legend-text">
+                                <strong>Puertos Estratégicos</strong><br>
+                                <span class="muted">Ensenada, Progreso</span>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-marker tier2"></div>
+                            <div class="legend-text">
+                                <strong>Ciudades Tier 2</strong><br>
+                                <span class="muted">Análisis de vulnerabilidad</span>
+                            </div>
+                        </div>
+                        <div class="legend-item" style="margin-top: 1em; padding-top: 1em; border-top: 1px solid rgba(30, 58, 95, 0.5);">
+                            <div class="legend-text" style="font-size: 0.85em;">
+                                <span class="accent">🎯 Objetivo:</span><br>
+                                Identificar oportunidades de expansión con análisis geoestratégico
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    Este mapa muestra el alcance geográfico del proyecto.
+                    Dos focos principales: Tijuana (noroeste) y Mérida (sureste).
+                    Los puertos son clave para la estrategia de importaciones.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 6: MÓDULO A - TIJUANA
                  ═══════════════════════════════════════════════════════════════ -->
             <section id="module-a" data-background-color="#0A0F1C">
                 <h2>MÓDULO A: <span class="accent">TIJUANA</span></h2>
@@ -1097,6 +1248,110 @@
             background: {
                 color: "transparent"
             }
+        });
+    </script>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // LEAFLET MAP - Alcance Geográfico del Proyecto
+        // ═══════════════════════════════════════════════════════════════
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize map centered on Mexico
+            const map = L.map('expansion-map', {
+                zoomControl: true,
+                scrollWheelZoom: false,
+                dragging: true
+            }).setView([23.6345, -102.5528], 5);
+
+            // Dark theme tile layer (CartoDB Dark Matter)
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Custom marker icons
+            const primaryIcon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background: #00D4AA; width: 20px; height: 20px; border-radius: 50%; border: 3px solid white; box-shadow: 0 0 15px rgba(0, 212, 170, 0.6);"></div>',
+                iconSize: [20, 20],
+                iconAnchor: [10, 10]
+            });
+
+            const portIcon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background: #3B82F6; width: 16px; height: 16px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 12px rgba(59, 130, 246, 0.6);"></div>',
+                iconSize: [16, 16],
+                iconAnchor: [8, 8]
+            });
+
+            const tier2Icon = L.divIcon({
+                className: 'custom-marker',
+                html: '<div style="background: #F59E0B; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);"></div>',
+                iconSize: [14, 14],
+                iconAnchor: [7, 7]
+            });
+
+            // Primary Markets
+            L.marker([32.5149, -117.0382], { icon: primaryIcon })
+                .bindPopup('<div class="popup-title">TIJUANA</div><div class="popup-module">Módulo A: Validación Táctica</div>')
+                .addTo(map);
+
+            L.marker([20.9674, -89.5926], { icon: primaryIcon })
+                .bindPopup('<div class="popup-title">MÉRIDA</div><div class="popup-module">Módulo B: Hub Logístico Sureste</div>')
+                .addTo(map);
+
+            // Strategic Ports
+            L.marker([31.8667, -116.5964], { icon: portIcon })
+                .bindPopup('<div class="popup-title">PUERTO ENSENADA</div><div class="popup-module">Conexión logística noroeste</div>')
+                .addTo(map);
+
+            L.marker([21.2833, -89.6667], { icon: portIcon })
+                .bindPopup('<div class="popup-title">PUERTO PROGRESO</div><div class="popup-module">Conexión logística sureste</div>')
+                .addTo(map);
+
+            // Tier 2 Cities (examples)
+            L.marker([25.6866, -100.3161], { icon: tier2Icon })
+                .bindPopup('<div class="popup-title">MONTERREY</div><div class="popup-module">Mercado Tier 2</div>')
+                .addTo(map);
+
+            L.marker([19.4326, -99.1332], { icon: tier2Icon })
+                .bindPopup('<div class="popup-title">CDMX</div><div class="popup-module">Mercado Tier 2</div>')
+                .addTo(map);
+
+            L.marker([20.6597, -103.3496], { icon: tier2Icon })
+                .bindPopup('<div class="popup-title">GUADALAJARA</div><div class="popup-module">Mercado Tier 2</div>')
+                .addTo(map);
+
+            L.marker([21.1619, -86.8515], { icon: tier2Icon })
+                .bindPopup('<div class="popup-title">CANCÚN</div><div class="popup-module">Mercado Tier 2</div>')
+                .addTo(map);
+
+            // Draw connection lines
+            const connectionStyle = {
+                color: '#00D4AA',
+                weight: 2,
+                opacity: 0.4,
+                dashArray: '5, 10'
+            };
+
+            // Tijuana to Ensenada connection
+            L.polyline([[32.5149, -117.0382], [31.8667, -116.5964]], connectionStyle).addTo(map);
+
+            // Mérida to Progreso connection
+            L.polyline([[20.9674, -89.5926], [21.2833, -89.6667]], connectionStyle).addTo(map);
+
+            // Re-render map when slide becomes visible
+            Reveal.on('slidechanged', function(event) {
+                if (event.currentSlide.id === 'geographic-scope') {
+                    setTimeout(function() {
+                        map.invalidateSize();
+                    }, 300);
+                }
+            });
         });
     </script>
 
