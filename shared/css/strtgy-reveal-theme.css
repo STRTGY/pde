@@ -168,8 +168,8 @@ body,
 
 .reveal {
     font-family: var(--font-body);
-    /* Reduced from 44px to 24px for better fit on diverse screens */
-    font-size: 24px;
+    /* Reduced to 18px for optimal fit on all screens */
+    font-size: 18px;
     font-weight: 400;
     color: var(--strtgy-white);
 }
