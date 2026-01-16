@@ -168,8 +168,8 @@ body,
 
 .reveal {
     font-family: var(--font-body);
-    /* Reduced from 44px to 32px for better fit on diverse screens */
-    font-size: 32px;
+    /* Reduced from 44px to 24px for better fit on diverse screens */
+    font-size: 24px;
     font-weight: 400;
     color: var(--strtgy-white);
 }
@@ -201,11 +201,11 @@ body,
     color: var(--strtgy-white);
 }
 
-/* Proportional heading sizes - more compact for better fit */
-.reveal h1 { font-size: 2.8em; }
-.reveal h2 { font-size: 2.2em; }
-.reveal h3 { font-size: 1.8em; }
-.reveal h4 { font-size: 1.4em; }
+/* Proportional heading sizes - compact for better fit */
+.reveal h1 { font-size: 2.2em; }
+.reveal h2 { font-size: 1.8em; }
+.reveal h3 { font-size: 1.5em; }
+.reveal h4 { font-size: 1.25em; }
 
 .reveal p {
     line-height: 1.6;
@@ -298,7 +298,7 @@ body,
 }
 
 .cover-title {
-    font-size: 3.2em !important;
+    font-size: 2.5em !important;
     margin-bottom: 0.3em !important;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     line-height: 1.1 !important;
