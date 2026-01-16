@@ -25,6 +25,28 @@
     
     <style>
         /* Custom styles for this presentation - Optimizado para Meet */
+        
+        /* ═══════════════════════════════════════════════════════════════
+           HERO NUMBERS - Números grandes con gradiente STRTGY
+           ═══════════════════════════════════════════════════════════════ */
+        .hero-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4em;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #00D4AA 0%, #00ffcc 50%, #00D4AA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(0, 212, 170, 0.4));
+            animation: numberGlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes numberGlow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.3)); }
+            50% { filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.6)); }
+        }
+        
         .module-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -549,20 +571,20 @@
                 
                 <div class="metrics-grid fragment fade-up" style="margin-top: 2em;">
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm strtgy-icon--glow"></span></div>
-                        <div class="metric-label">15 Polígonos<br><span class="sublabel">clasificación A/B</span></div>
+                        <div class="metric-value hero-number">15</div>
+                        <div class="metric-label">Polígonos<br><span class="sublabel">clasificación A/B</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm strtgy-icon--glow"></span></div>
-                        <div class="metric-label">3 Semanas<br><span class="sublabel">de ejecución</span></div>
+                        <div class="metric-value hero-number">3</div>
+                        <div class="metric-label">Semanas<br><span class="sublabel">de ejecución</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm strtgy-icon--glow"></span></div>
-                        <div class="metric-label">3 Municipios<br><span class="sublabel">5 polígonos c/u</span></div>
+                        <div class="metric-value hero-number">3</div>
+                        <div class="metric-label">Municipios<br><span class="sublabel">5 polígonos c/u</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm strtgy-icon--glow"></span></div>
-                        <div class="metric-label">12 Meses<br><span class="sublabel">Plataforma EVA</span></div>
+                        <div class="metric-value hero-number">12</div>
+                        <div class="metric-label">Meses<br><span class="sublabel">Plataforma EVA</span></div>
                     </div>
                 </div>
                 
