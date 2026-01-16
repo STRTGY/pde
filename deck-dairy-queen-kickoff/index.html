@@ -47,6 +47,73 @@
             50% { filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.6)); }
         }
         
+        /* ═══════════════════════════════════════════════════════════════
+           CUSTOM ICONS - Íconos PNG personalizados
+           ═══════════════════════════════════════════════════════════════ */
+        /* ═══════════════════════════════════════════════════════════════
+           CARD CONTENT - Contenedor unificado para ícono + texto
+           ═══════════════════════════════════════════════════════════════ */
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            padding: 1em 0.5em;
+            gap: 0.6em;
+        }
+        
+        .metric-card:has(.card-content) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+        }
+        
+        .custom-icon {
+            width: 125px;
+            height: 125px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.5));
+            transition: transform 0.3s ease, filter 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .metric-card:hover .custom-icon {
+            transform: scale(1.08);
+            filter: drop-shadow(0 0 25px rgba(0, 212, 170, 0.7));
+        }
+        
+        .card-content .metric-label {
+            margin-top: 0;
+            line-height: 1.3;
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           STRTGY WATERMARK - Logo en esquina inferior izquierda
+           ═══════════════════════════════════════════════════════════════ */
+        .strtgy-watermark {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .strtgy-watermark img {
+            width: 85px;
+            height: auto;
+            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+        }
+        
+        .strtgy-watermark:hover {
+            opacity: 0.9;
+            pointer-events: auto;
+        }
+        
         .module-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -475,6 +542,12 @@
 <body>
     <!-- tsParticles Container - Data Network Background -->
     <div id="tsparticles"></div>
+    
+    <!-- STRTGY Watermark -->
+    <div class="strtgy-watermark">
+        <img src="../../strtgy_icons/logo-strtgy-white.png" alt="STRTGY">
+    </div>
+    
     <div class="reveal">
         <div class="slides">
             
@@ -583,8 +656,8 @@
                         <div class="metric-label">Municipios<br><span class="sublabel">5 polígonos c/u</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value hero-number">12</div>
-                        <div class="metric-label">Meses<br><span class="sublabel">Plataforma EVA</span></div>
+                        <div class="metric-value hero-number">1</div>
+                        <div class="metric-label">Entrega<br><span class="sublabel">Atlas + Fichas</span></div>
                     </div>
                 </div>
                 
@@ -816,20 +889,34 @@
                 
                 <div class="metrics-grid fragment fade-up">
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--rocket strtgy-icon--sm"></span></div>
-                        <div class="metric-label">Demográfico<br><span class="sublabel">30% del score</span></div>
+                        <div class="card-content">
+                            <img src="../../strtgy_icons/demographics.png" alt="Demográfico" class="custom-icon">
+                            <div class="metric-label">Demográfico<br><span class="sublabel">30% del score</span></div>
+                        </div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm strtgy-icon--glow"></span></div>
-                        <div class="metric-label">NSE / Vivienda<br><span class="sublabel">25% del score</span></div>
+                        <div class="card-content">
+                            <img src="../../strtgy_icons/nse.png" alt="NSE" class="custom-icon">
+                            <div class="metric-label">NSE<br><span class="sublabel">25% del score</span></div>
+                        </div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
-                        <div class="metric-label">Competencia<br><span class="sublabel">25% del score</span></div>
+                        <div class="card-content">
+                            <img src="../../strtgy_icons/vivienda.png" alt="Vivienda" class="custom-icon">
+                            <div class="metric-label">Vivienda<br><span class="sublabel">incluido en NSE</span></div>
+                        </div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm strtgy-icon--glow"></span></div>
-                        <div class="metric-label">Atractores<br><span class="sublabel">20% del score</span></div>
+                        <div class="card-content">
+                            <img src="../../strtgy_icons/competencia.png" alt="Competencia" class="custom-icon">
+                            <div class="metric-label">Competencia<br><span class="sublabel">25% del score</span></div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="card-content">
+                            <img src="../../strtgy_icons/atractores.png" alt="Atractores" class="custom-icon">
+                            <div class="metric-label">Atractores<br><span class="sublabel">20% del score</span></div>
+                        </div>
                     </div>
                 </div>
                 
@@ -880,11 +967,11 @@
                         </div>
                     </div>
                     <div class="deliverable-item fragment fade-up">
-                        <div class="deliverable-icon">🖥️</div>
+                        <div class="deliverable-icon">📊</div>
                         <div class="deliverable-text">
-                            <h4>Plataforma EVA (12 meses)</h4>
-                            <p>Exploración dinámica de reportes<br>
-                            Filtros, acceso móvil, exportación</p>
+                            <h4>Bases de Datos Procesadas</h4>
+                            <p>Datos SCINCE y DENUE procesados<br>
+                            Formato Excel/CSV para análisis</p>
                         </div>
                     </div>
                 </div>
@@ -893,7 +980,7 @@
                     Atlas: Para presentaciones ejecutivas y trabajo interno.
                     Fichas: Perfil detallado de cada zona recomendada.
                     Red Flags: Qué evitar y por qué.
-                    EVA: Acceso web por 12 meses para explorar los datos.
+                    Bases de Datos: Archivos procesados para análisis interno.
                 </aside>
             </section>
 
@@ -917,7 +1004,7 @@
                     <div class="week-block delivery fragment fade-up">
                         <div class="week-number" style="color: var(--strtgy-success);">3</div>
                         <div class="week-label">ENTREGA</div>
-                        <p style="font-size: 0.7em; margin-top: 0.5em;">Atlas PDF<br>Fichas Técnicas<br>Red Flags + EVA</p>
+                        <p style="font-size: 0.7em; margin-top: 0.5em;">Atlas PDF<br>Fichas Técnicas<br>Red Flags + Datos</p>
                     </div>
                 </div>
                 
@@ -940,7 +1027,7 @@
                         <div class="deliverable-icon">📦</div>
                         <div class="deliverable-text">
                             <h4>Semana 3</h4>
-                            <p>Atlas PDF + Fichas Técnicas + Red Flags + EVA</p>
+                            <p>Atlas PDF + Fichas Técnicas + Red Flags + Datos</p>
                         </div>
                     </div>
                     <div class="deliverable-item">
@@ -983,14 +1070,14 @@
                 
                 <div class="fragment fade-up" style="margin-top: 2em; padding: 1em; background: rgba(30, 58, 95, 0.3); border-radius: 12px; text-align: center;">
                     <p style="font-size: 0.9em; color: var(--strtgy-gray-300);">
-                        📦 <strong>Incluye:</strong> Atlas PDF + 15 Fichas Técnicas + Reporte Red Flags + Acceso EVA (12 meses)
+                        📦 <strong>Incluye:</strong> Atlas PDF + 15 Fichas Técnicas + Reporte Red Flags + Bases de Datos
                     </p>
                 </div>
                 
                 <aside class="notes">
                     Esquema simple 50/50.
                     Anticipo para arrancar, resto contra entrega.
-                    EVA incluye 12 meses de acceso.
+                    Incluye todos los entregables documentados.
                 </aside>
             </section>
 
