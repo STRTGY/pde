@@ -312,17 +312,7 @@
             gap: 3rem;
             max-width: 1300px;
             margin: 2rem auto;
-        }
-        
-        .demo-preview {
-            flex: 1.2;
-            position: relative;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 212, 170, 0.15),
-                        0 0 0 1px rgba(0, 212, 170, 0.2);
-            background: #1a1a2e;
-            height: 400px;
+            transition: all 0.4s ease;
         }
         
         .demo-preview iframe {
@@ -580,6 +570,389 @@
             font-weight: 600;
             font-size: 0.9em;
             color: var(--strtgy-gray-500);
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           INTERACTIVE MAP SYSTEM - PRESENTER MODE
+           Teclas: M = Fullscreen | T = Teatro | I = Info Toggle
+           ═══════════════════════════════════════════════════════════════ */
+        
+        /* Map Container Enhanced */
+        .demo-preview {
+            flex: 1.2;
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 212, 170, 0.15),
+                        0 0 0 1px rgba(0, 212, 170, 0.2);
+            background: #1a1a2e;
+            height: 400px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Teatro Mode - Map takes more space */
+        .teatro-mode .demo-cta-container {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .teatro-mode .demo-preview {
+            height: 600px;
+            flex: none;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .teatro-mode .demo-info {
+            display: flex;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .teatro-mode .demo-info h3,
+        .teatro-mode .demo-info p {
+            flex: 1;
+        }
+        
+        .teatro-mode .demo-features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 2rem;
+        }
+        
+        .teatro-mode .demo-features-list li {
+            border-bottom: none;
+            padding: 0.3rem 0;
+        }
+        
+        /* Fullscreen Map Mode */
+        .map-fullscreen-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 15, 28, 0.98);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .map-fullscreen-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .map-fullscreen-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: linear-gradient(180deg, rgba(10, 15, 28, 1) 0%, rgba(10, 15, 28, 0) 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .map-fullscreen-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .map-fullscreen-title h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            margin: 0;
+            color: var(--strtgy-white);
+        }
+        
+        .map-fullscreen-badge {
+            padding: 0.3em 0.8em;
+            background: var(--strtgy-accent-dim);
+            border: 1px solid var(--strtgy-accent);
+            border-radius: var(--radius-full);
+            font-size: 0.7em;
+            color: var(--strtgy-accent);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+        
+        .map-fullscreen-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--strtgy-white);
+            padding: 0.6em 1.2em;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        
+        .map-fullscreen-close:hover {
+            background: var(--strtgy-accent);
+            color: var(--strtgy-dark);
+            border-color: var(--strtgy-accent);
+        }
+        
+        .map-fullscreen-content {
+            flex: 1;
+            padding: 60px 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-fullscreen-iframe {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: var(--radius-md);
+            box-shadow: 0 0 60px rgba(0, 212, 170, 0.2);
+        }
+        
+        /* Floating Controls for Presenter */
+        .map-presenter-controls {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+        }
+        
+        .map-presenter-controls.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+        
+        .map-control-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            padding: 0.7em 1.2em;
+            background: rgba(30, 58, 95, 0.9);
+            border: 1px solid var(--strtgy-navy-solid);
+            color: var(--strtgy-white);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-heading);
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+            white-space: nowrap;
+        }
+        
+        .map-control-btn:hover {
+            background: var(--strtgy-accent);
+            color: var(--strtgy-dark);
+            border-color: var(--strtgy-accent);
+            transform: translateX(-5px);
+        }
+        
+        .map-control-btn .key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            padding: 0 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+        
+        .map-control-btn:hover .key {
+            background: rgba(10, 15, 28, 0.3);
+        }
+        
+        /* Slide indicator for presenter */
+        .map-slide-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 212, 170, 0.95);
+            color: var(--strtgy-dark);
+            padding: 0.5em 1.5em;
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: 0.85em;
+            font-weight: 600;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+        
+        .map-slide-indicator.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Interactive Map Layer Toggle (inside fullscreen) */
+        .map-layers-panel {
+            position: absolute;
+            left: 2rem;
+            top: 80px;
+            background: rgba(10, 15, 28, 0.95);
+            border: 1px solid var(--strtgy-navy-solid);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        
+        .map-layers-title {
+            font-family: var(--font-heading);
+            font-size: 0.8em;
+            color: var(--strtgy-gray-500);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+        }
+        
+        .map-layer-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            padding: 0.5em 0;
+            color: var(--strtgy-white);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .map-layer-item:hover {
+            color: var(--strtgy-accent);
+        }
+        
+        .map-layer-checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--strtgy-accent);
+        }
+        
+        /* Quick Info Card (inside fullscreen) */
+        .map-info-card {
+            position: absolute;
+            right: 2rem;
+            top: 80px;
+            max-width: 320px;
+            background: rgba(10, 15, 28, 0.95);
+            border: 1px solid var(--strtgy-accent);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+        }
+        
+        .map-info-card.visible {
+            transform: translateX(0);
+        }
+        
+        .map-info-card h4 {
+            font-family: var(--font-heading);
+            font-size: 1.1em;
+            margin: 0 0 0.5rem 0;
+            color: var(--strtgy-accent);
+        }
+        
+        .map-info-card p {
+            font-size: 0.95em;
+            color: var(--strtgy-gray-300);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .map-info-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--strtgy-navy-solid);
+        }
+        
+        .map-stat-item {
+            text-align: center;
+        }
+        
+        .map-stat-value {
+            font-family: var(--font-heading);
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--strtgy-accent);
+        }
+        
+        .map-stat-label {
+            font-size: 0.75em;
+            color: var(--strtgy-gray-500);
+        }
+        
+        /* Animate the embedded preview on hover */
+        .demo-preview:hover {
+            box-shadow: 0 12px 48px rgba(0, 212, 170, 0.25),
+                        0 0 0 2px rgba(0, 212, 170, 0.4);
+        }
+        
+        /* Click indicator */
+        .demo-preview::after {
+            content: '🔍 Click o presiona M para pantalla completa';
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 212, 170, 0.9);
+            color: var(--strtgy-dark);
+            padding: 0.4em 1em;
+            border-radius: var(--radius-full);
+            font-size: 0.8em;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        
+        .demo-preview:hover::after {
+            opacity: 1;
+        }
+        
+        /* Cursor interactivo */
+        .demo-preview {
+            cursor: pointer;
+        }
+        
+        .demo-preview iframe {
+            pointer-events: none;
+            transition: pointer-events 0.1s;
+        }
+        
+        .demo-preview.interactive iframe {
+            pointer-events: auto;
         }
         
         /* Responsive */
@@ -986,6 +1359,83 @@
 
         </div><!-- /slides -->
     </div><!-- /reveal -->
+    
+    <!-- ═══════════════════════════════════════════════════════════════
+         MAP FULLSCREEN OVERLAY - Interactive Presenter Mode
+         ═══════════════════════════════════════════════════════════════ -->
+    <div class="map-fullscreen-overlay" id="mapFullscreen">
+        <div class="map-fullscreen-header">
+            <div class="map-fullscreen-title">
+                <h3>🗺️ Mapa de Selección de Ubicaciones</h3>
+                <span class="map-fullscreen-badge">CASO PASTES KIKOS</span>
+            </div>
+            <button class="map-fullscreen-close" onclick="toggleMapFullscreen()">
+                <span>ESC</span> Cerrar
+            </button>
+        </div>
+        
+        <div class="map-layers-panel">
+            <div class="map-layers-title">CAPAS DEL MAPA</div>
+            <label class="map-layer-item">
+                <input type="checkbox" class="map-layer-checkbox" checked disabled> Ubicaciones Top 5
+            </label>
+            <label class="map-layer-item">
+                <input type="checkbox" class="map-layer-checkbox" checked disabled> Isócronas 15 min
+            </label>
+            <label class="map-layer-item">
+                <input type="checkbox" class="map-layer-checkbox" checked disabled> Competencia
+            </label>
+            <label class="map-layer-item">
+                <input type="checkbox" class="map-layer-checkbox" checked disabled> Demografía
+            </label>
+        </div>
+        
+        <div class="map-info-card" id="mapInfoCard">
+            <h4>📍 Houston, TX</h4>
+            <p>Análisis de soft landing para expansión de franquicia mexicana en el mercado de Texas.</p>
+            <div class="map-info-stats">
+                <div class="map-stat-item">
+                    <div class="map-stat-value">9K+</div>
+                    <div class="map-stat-label">Restaurantes</div>
+                </div>
+                <div class="map-stat-item">
+                    <div class="map-stat-value">Top 5</div>
+                    <div class="map-stat-label">Ubicaciones</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-fullscreen-content">
+            <iframe 
+                id="mapFullscreenIframe"
+                class="map-fullscreen-iframe"
+                src="about:blank"
+                title="Mapa de Selección de Ubicaciones - Modo Fullscreen"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    
+    <!-- Presenter Controls -->
+    <div class="map-presenter-controls" id="mapPresenterControls">
+        <button class="map-control-btn" onclick="toggleMapFullscreen()">
+            <span class="key">M</span> Pantalla Completa
+        </button>
+        <button class="map-control-btn" onclick="toggleTeatroMode()">
+            <span class="key">T</span> Modo Teatro
+        </button>
+        <button class="map-control-btn" onclick="toggleMapInteractive()">
+            <span class="key">I</span> Interactuar
+        </button>
+        <button class="map-control-btn" onclick="openMapExternal()">
+            <span class="key">E</span> Abrir Externo
+        </button>
+    </div>
+    
+    <!-- Slide Indicator -->
+    <div class="map-slide-indicator" id="mapSlideIndicator">
+        🗺️ Slide del Mapa — Presiona <strong>M</strong> para fullscreen
+    </div>
 
     <!-- Reveal.js Core -->
     <script src="../plan2026/reveal.js/dist/reveal.js"></script>
@@ -999,6 +1449,9 @@
     <script src="../shared/js/strtgy-particles.js"></script>
 
     <script>
+        // ═══════════════════════════════════════════════════════════════
+        // REVEAL.JS INITIALIZATION
+        // ═══════════════════════════════════════════════════════════════
         Reveal.initialize({
             hash: true,
             history: true,
@@ -1031,6 +1484,210 @@
             pdfMaxPagesPerSlide: 1,
             pdfSeparateFragments: false
         });
+
+        // ═══════════════════════════════════════════════════════════════
+        // INTERACTIVE MAP SYSTEM - PRESENTER CONTROLS
+        // ═══════════════════════════════════════════════════════════════
+        
+        const MAP_URL = 'https://strtgy.github.io/pastes-kikos-soft-landing-in-houston/pages/seleccion-ubicacion/map';
+        const MAP_SLIDE_ID = 'demo';
+        
+        // State
+        let isMapFullscreen = false;
+        let isTeatroMode = false;
+        let isMapInteractive = false;
+        
+        // DOM Elements
+        const mapFullscreen = document.getElementById('mapFullscreen');
+        const mapFullscreenIframe = document.getElementById('mapFullscreenIframe');
+        const mapPresenterControls = document.getElementById('mapPresenterControls');
+        const mapSlideIndicator = document.getElementById('mapSlideIndicator');
+        const mapInfoCard = document.getElementById('mapInfoCard');
+        const demoPreview = document.querySelector('.demo-preview');
+        const demoSlide = document.getElementById('demo');
+        
+        // ─────────────────────────────────────────────────────────────────
+        // FULLSCREEN MAP TOGGLE
+        // ─────────────────────────────────────────────────────────────────
+        function toggleMapFullscreen() {
+            isMapFullscreen = !isMapFullscreen;
+            
+            if (isMapFullscreen) {
+                // Load iframe src only when opening (performance)
+                mapFullscreenIframe.src = MAP_URL;
+                mapFullscreen.classList.add('active');
+                // Show info card with delay
+                setTimeout(() => mapInfoCard.classList.add('visible'), 500);
+                // Pause Reveal navigation
+                Reveal.configure({ keyboard: false });
+            } else {
+                mapFullscreen.classList.remove('active');
+                mapInfoCard.classList.remove('visible');
+                // Clear iframe to save memory
+                setTimeout(() => { mapFullscreenIframe.src = 'about:blank'; }, 400);
+                // Resume Reveal navigation
+                Reveal.configure({ keyboard: true });
+            }
+        }
+        
+        // ─────────────────────────────────────────────────────────────────
+        // TEATRO MODE - Map takes more visual space
+        // ─────────────────────────────────────────────────────────────────
+        function toggleTeatroMode() {
+            isTeatroMode = !isTeatroMode;
+            
+            if (demoSlide) {
+                if (isTeatroMode) {
+                    demoSlide.classList.add('teatro-mode');
+                    showNotification('🎭 Modo Teatro activado');
+                } else {
+                    demoSlide.classList.remove('teatro-mode');
+                    showNotification('📐 Modo normal');
+                }
+            }
+        }
+        
+        // ─────────────────────────────────────────────────────────────────
+        // MAP INTERACTIVE MODE - Allow direct interaction with embedded map
+        // ─────────────────────────────────────────────────────────────────
+        function toggleMapInteractive() {
+            isMapInteractive = !isMapInteractive;
+            
+            if (demoPreview) {
+                if (isMapInteractive) {
+                    demoPreview.classList.add('interactive');
+                    showNotification('🖱️ Modo interactivo — Click en el mapa');
+                    // Disable Reveal click navigation temporarily
+                    Reveal.configure({ touch: false });
+                } else {
+                    demoPreview.classList.remove('interactive');
+                    showNotification('🔒 Interacción desactivada');
+                    Reveal.configure({ touch: true });
+                }
+            }
+        }
+        
+        // ─────────────────────────────────────────────────────────────────
+        // OPEN MAP IN NEW TAB
+        // ─────────────────────────────────────────────────────────────────
+        function openMapExternal() {
+            window.open(MAP_URL, '_blank');
+            showNotification('🔗 Mapa abierto en nueva pestaña');
+        }
+        
+        // ─────────────────────────────────────────────────────────────────
+        // NOTIFICATION SYSTEM
+        // ─────────────────────────────────────────────────────────────────
+        function showNotification(message) {
+            const indicator = mapSlideIndicator;
+            indicator.innerHTML = message;
+            indicator.classList.add('visible');
+            
+            setTimeout(() => {
+                indicator.classList.remove('visible');
+                // Reset to default message after hiding
+                setTimeout(() => {
+                    indicator.innerHTML = '🗺️ Slide del Mapa — Presiona <strong>M</strong> para fullscreen';
+                }, 300);
+            }, 2000);
+        }
+        
+        // ─────────────────────────────────────────────────────────────────
+        // SLIDE CHANGE DETECTION
+        // ─────────────────────────────────────────────────────────────────
+        function updateControlsVisibility() {
+            const currentSlide = Reveal.getCurrentSlide();
+            const isMapSlide = currentSlide && currentSlide.id === MAP_SLIDE_ID;
+            
+            if (isMapSlide) {
+                mapPresenterControls.classList.add('visible');
+                // Show hint indicator briefly when arriving at map slide
+                mapSlideIndicator.classList.add('visible');
+                setTimeout(() => {
+                    if (!isMapFullscreen) {
+                        mapSlideIndicator.classList.remove('visible');
+                    }
+                }, 3000);
+            } else {
+                mapPresenterControls.classList.remove('visible');
+                mapSlideIndicator.classList.remove('visible');
+                // Reset states when leaving map slide
+                if (isTeatroMode) {
+                    demoSlide.classList.remove('teatro-mode');
+                    isTeatroMode = false;
+                }
+                if (isMapInteractive && demoPreview) {
+                    demoPreview.classList.remove('interactive');
+                    isMapInteractive = false;
+                    Reveal.configure({ touch: true });
+                }
+            }
+        }
+        
+        // Listen for slide changes
+        Reveal.on('slidechanged', updateControlsVisibility);
+        Reveal.on('ready', updateControlsVisibility);
+        
+        // ─────────────────────────────────────────────────────────────────
+        // KEYBOARD SHORTCUTS
+        // ─────────────────────────────────────────────────────────────────
+        document.addEventListener('keydown', function(e) {
+            const currentSlide = Reveal.getCurrentSlide();
+            const isMapSlide = currentSlide && currentSlide.id === MAP_SLIDE_ID;
+            
+            // ESC to close fullscreen
+            if (e.key === 'Escape' && isMapFullscreen) {
+                e.preventDefault();
+                toggleMapFullscreen();
+                return;
+            }
+            
+            // Only process map shortcuts when on map slide or in fullscreen
+            if (!isMapSlide && !isMapFullscreen) return;
+            
+            switch(e.key.toLowerCase()) {
+                case 'm':
+                    e.preventDefault();
+                    toggleMapFullscreen();
+                    break;
+                case 't':
+                    if (!isMapFullscreen) {
+                        e.preventDefault();
+                        toggleTeatroMode();
+                    }
+                    break;
+                case 'i':
+                    if (!isMapFullscreen) {
+                        e.preventDefault();
+                        toggleMapInteractive();
+                    } else {
+                        // Toggle info card in fullscreen
+                        mapInfoCard.classList.toggle('visible');
+                    }
+                    break;
+                case 'e':
+                    e.preventDefault();
+                    openMapExternal();
+                    break;
+            }
+        });
+        
+        // ─────────────────────────────────────────────────────────────────
+        // CLICK TO FULLSCREEN ON MAP PREVIEW
+        // ─────────────────────────────────────────────────────────────────
+        if (demoPreview) {
+            demoPreview.addEventListener('click', function(e) {
+                // Don't trigger if in interactive mode or clicking the link
+                if (isMapInteractive || e.target.closest('a')) return;
+                toggleMapFullscreen();
+            });
+        }
+        
+        // ─────────────────────────────────────────────────────────────────
+        // INITIALIZATION MESSAGE
+        // ─────────────────────────────────────────────────────────────────
+        console.log('🗺️ STRTGY Interactive Map System loaded');
+        console.log('   Shortcuts: M=Fullscreen, T=Teatro, I=Interactive, E=External');
     </script>
 </body>
 </html>
