@@ -94,6 +94,37 @@
             margin: 0 auto;
         }
         
+        /* Section Headers */
+        .section-header {
+            margin: 4rem 0 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+        }
+        
+        .section-header:first-of-type {
+            margin-top: 0;
+        }
+        
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--strtgy-white);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .section-title .icon {
+            font-size: 1.3rem;
+        }
+        
+        .section-subtitle {
+            color: var(--strtgy-gray);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+        
         /* Deck Gallery */
         .decks-gallery {
             display: grid;
@@ -296,6 +327,18 @@
             color: #A855F7;
         }
         
+        .badge.producto {
+            background: rgba(251, 146, 60, 0.15);
+            border: 1px solid #FB923C;
+            color: #FB923C;
+        }
+        
+        .badge.cliente {
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid #EC4899;
+            color: #EC4899;
+        }
+        
         .badge.nuevo {
             background: rgba(251, 191, 36, 0.15);
             border: 1px solid #FBBF24;
@@ -411,301 +454,458 @@
             <p class="subtitle">Decks ejecutivos, materiales de venta y documentación estratégica de STRTGY</p>
         </header>
         
-        <main class="decks-gallery">
-            <!-- Pitch Deck Ejecutivo -->
-            <a href="pitch-deck-ejecutivo/" class="deck-card">
-                <div class="deck-thumbnail pitch">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🎯</div>
-                        <div class="thumb-title">Pitch Deck Ejecutivo</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Ventas</span>
-                    </div>
-                    <div class="deck-title">Pitch Deck Ejecutivo</div>
-                    <div class="deck-desc">
-                        Presentación principal para primera reunión con prospectos enterprise. 
-                        Diferenciadores VCA, casos de éxito y llamado a la acción.
-                    </div>
-                    <div class="deck-meta">
-                        <span>📊 12 slides</span>
-                        <span>⏱️ 15-20 min</span>
-                        <span>🎯 Enterprise</span>
-                    </div>
-                </div>
-            </a>
+        <main>
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SECCIÓN: PRODUCTOS STRTGY
+                 ═══════════════════════════════════════════════════════════════ -->
+            <div class="section-header">
+                <h2 class="section-title"><span class="icon">📦</span> Productos STRTGY</h2>
+                <p class="section-subtitle">Decks comerciales de nuestros 6 productos principales</p>
+            </div>
             
-            <!-- FCarnes - Censo Estratégico Nacional -->
-            <a href="deck-fcarnes/" class="deck-card">
-                <div class="deck-thumbnail" style="background: linear-gradient(135deg, #1a0a0e 0%, #2d1015 50%, #1E3A5F 100%);">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🥩</div>
-                        <div class="thumb-title">FCarnes | Censo Estratégico</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <div class="decks-gallery">
+                <!-- Pitch Deck Ejecutivo -->
+                <a href="pitch-deck-ejecutivo/" class="deck-card">
+                    <div class="deck-thumbnail pitch">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🎯</div>
+                            <div class="thumb-title">Pitch Deck Ejecutivo</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Cliente</span>
-                        <span class="badge nuevo">✨ Nuevo</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Overview</span>
+                        </div>
+                        <div class="deck-title">Pitch Deck Ejecutivo</div>
+                        <div class="deck-desc">
+                            Presentación principal para primera reunión con prospectos enterprise. 
+                            Diferenciadores VCA, casos de éxito y llamado a la acción.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 12 slides</span>
+                            <span>⏱️ 15-20 min</span>
+                            <span>🎯 Enterprise</span>
+                        </div>
                     </div>
-                    <div class="deck-title">FCarnes | Censo Estratégico Nacional</div>
-                    <div class="deck-desc">
-                        Inteligencia geoespacial para expansión nacional. 
-                        8,761 prospectos verificados con análisis GPT-4o Vision.
-                    </div>
-                    <div class="deck-meta">
-                        <span>📊 14 slides</span>
-                        <span>⏱️ 25-30 min</span>
-                        <span>🗺️ Geoespacial</span>
-                    </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Dairy Queen - Kick-off -->
-            <a href="deck-dairy-queen-kickoff/" class="deck-card">
-                <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0ea5e9 100%);">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🍦</div>
-                        <div class="thumb-title">Dairy Queen | Kick-off 2026</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <!-- Análisis de Vocación -->
+                <a href="deck-analisis-vocacion/" class="deck-card">
+                    <div class="deck-thumbnail vocacion">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">📍</div>
+                            <div class="thumb-title">Análisis de Vocación</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Cliente</span>
-                        <span class="badge estrategia">Kick-off</span>
-                        <span class="badge nuevo">✨ Nuevo</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Producto</span>
+                        </div>
+                        <div class="deck-title">Análisis de Vocación Geoestadístico</div>
+                        <div class="deck-desc">
+                            Ubicación óptima con IA geoestadística. INEGI, DENUE, HERE, isócronas y matriz de oportunidad.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 20-30 min</span>
+                            <span>📍 Ubicaciones</span>
+                        </div>
                     </div>
-                    <div class="deck-title">Dairy Queen | Plan Maestro de Expansión</div>
-                    <div class="deck-desc">
-                        Sesión de arranque del plan 2026 con módulos críticos, roadmap y entregables.
-                    </div>
-                    <div class="deck-meta">
-                        <span>📊 14 slides</span>
-                        <span>⏱️ 45-60 min</span>
-                        <span>🚀 Expansión</span>
-                    </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Quality Outdoor - Kick-off -->
-            <a href="deck-quality-outdoor-kickoff/" class="deck-card">
-                <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0b1220 0%, #1f2937 50%, #14b8a6 100%);">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">📡</div>
-                        <div class="thumb-title">Quality Outdoor | Kick-off 2026</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <!-- Inteligencia Comercial -->
+                <a href="deck-inteligencia-comercial/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">📊</div>
+                            <div class="thumb-title">Inteligencia Comercial</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Cliente</span>
-                        <span class="badge estrategia">Kick-off</span>
-                        <span class="badge nuevo">✨ Nuevo</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Producto</span>
+                            <span class="badge nuevo">✨ Nuevo</span>
+                        </div>
+                        <div class="deck-title">Inteligencia Comercial</div>
+                        <div class="deck-desc">
+                            Plataformas que convierten datos en decisiones. Dashboards, modelos predictivos y recomendaciones.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 20-30 min</span>
+                            <span>📈 Analytics</span>
+                        </div>
                     </div>
-                    <div class="deck-title">Quality Outdoor | Plan Maestro de Expansión</div>
-                    <div class="deck-desc">
-                        Arranque del programa QLT-2026-GROWTH-IMP con módulos, timeline y KPIs.
-                    </div>
-                    <div class="deck-meta">
-                        <span>📊 14 slides</span>
-                        <span>⏱️ 45-60 min</span>
-                        <span>🛰️ Growth</span>
-                    </div>
-                </div>
-            </a>
+                </a>
 
-            <!-- Geoanálisis - Onepager -->
-            <a href="deck-geoanalisis-onepager/" class="deck-card">
-                <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0b1b2a 0%, #12304a 50%, #00d4aa 100%);">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🧭</div>
-                        <div class="thumb-title">Geoanálisis | Onepager</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <!-- Lanzamiento de Productos -->
+                <a href="deck-lanzamiento-productos/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #1a1f35 0%, #2d1f5f 100%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🚀</div>
+                            <div class="thumb-title">Lanzamiento de Productos</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Ventas</span>
-                        <span class="badge estrategia">Onepager</span>
-                        <span class="badge nuevo">✨ Nuevo</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Producto</span>
+                            <span class="badge nuevo">✨ Nuevo</span>
+                        </div>
+                        <div class="deck-title">Lanzamiento de Productos</div>
+                        <div class="deck-desc">
+                            Validamos antes de que inviertas. Buyer personas, pricing óptimo y playbook Go-to-Market de 90 días.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 20-30 min</span>
+                            <span>🎯 GTM</span>
+                        </div>
                     </div>
-                    <div class="deck-title">Inteligencia Geoestadística</div>
-                    <div class="deck-desc">
-                        Onepager comercial para retailers, franquicias e inmobiliarias.
+                </a>
+
+                <!-- Softlanding Internacional -->
+                <a href="deck-softlanding/" class="deck-card">
+                    <div class="deck-thumbnail softlanding">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🌎</div>
+                            <div class="thumb-title">Softlanding Internacional</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="deck-meta">
-                        <span>📊 8 slides</span>
-                        <span>⏱️ 10-15 min</span>
-                        <span>📍 Ubicaciones</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Producto</span>
+                        </div>
+                        <div class="deck-title">Softlanding Internacional</div>
+                        <div class="deck-desc">
+                            Expansión internacional sin operar a ciegas. Blindaje regulatorio, radar competitivo y playbook de 90 días.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 10+ slides</span>
+                            <span>⏱️ 20-30 min</span>
+                            <span>✈️ Global</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+
+                <!-- EVA Pronósticos -->
+                <a href="deck-eva-pronosticos/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 50%, #00d4aa 150%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">📈</div>
+                            <div class="thumb-title">EVA Pronósticos</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Producto</span>
+                            <span class="badge nuevo">✨ Nuevo</span>
+                        </div>
+                        <div class="deck-title">EVA - Pronósticos de Demanda</div>
+                        <div class="deck-desc">
+                            Plataforma de forecasting con IA. Precisión >85% a nivel SKU-Ubicación. ROI medible en semanas.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 20-30 min</span>
+                            <span>🤖 IA</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- CRM & RevOps -->
+                <a href="deck-crm-revops/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #1f2937 0%, #374151 50%, #3B82F6 150%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">💼</div>
+                            <div class="thumb-title">CRM & RevOps</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge producto">Producto</span>
+                            <span class="badge nuevo">✨ Nuevo</span>
+                        </div>
+                        <div class="deck-title">CRM & RevOps</div>
+                        <div class="deck-desc">
+                            Infraestructura comercial para ventas B2B. HubSpot, automatizaciones, playbook y dashboards RevOps.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 20-30 min</span>
+                            <span>⚙️ HubSpot</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Geoanálisis - Onepager -->
+                <a href="deck-geoanalisis-onepager/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0b1b2a 0%, #12304a 50%, #00d4aa 100%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🧭</div>
+                            <div class="thumb-title">Geoanálisis | Onepager</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge ventas">Ventas</span>
+                            <span class="badge estrategia">Onepager</span>
+                        </div>
+                        <div class="deck-title">Inteligencia Geoestadística</div>
+                        <div class="deck-desc">
+                            Onepager comercial compacto para retailers, franquicias e inmobiliarias.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 8 slides</span>
+                            <span>⏱️ 10-15 min</span>
+                            <span>📍 Quick</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SECCIÓN: INTERNO STRTGY
+                 ═══════════════════════════════════════════════════════════════ -->
+            <div class="section-header">
+                <h2 class="section-title"><span class="icon">🏢</span> Interno STRTGY</h2>
+                <p class="section-subtitle">Plan estratégico, operación y documentación interna</p>
+            </div>
             
-            <!-- Content Engine -->
-            <a href="deck-content-engine/" class="deck-card">
-                <div class="deck-thumbnail engine">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🤖</div>
-                        <div class="thumb-title">STRTGY Content Engine</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <div class="decks-gallery">
+                <!-- Plan 2026 -->
+                <a href="plan2026/" class="deck-card">
+                    <div class="deck-thumbnail plan2026">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">📋</div>
+                            <div class="thumb-title">Plan Estratégico 2026</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge interno">Interno</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge interno">Interno</span>
+                            <span class="badge estrategia">Estrategia</span>
+                        </div>
+                        <div class="deck-title">Plan Estratégico 2026</div>
+                        <div class="deck-desc">
+                            Visión, objetivos y roadmap de STRTGY para 2026. 
+                            Programas de alianzas, white-label y expansión de servicios.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 15+ slides</span>
+                            <span>⏱️ 30-40 min</span>
+                            <span>📋 Roadmap</span>
+                        </div>
                     </div>
-                    <div class="deck-title">Content Engine</div>
-                    <div class="deck-desc">
-                        Sistema multiagente de generación de contenido con Gemini 3. 
-                        Guía operativa para Mariana, Arturo y Jacky.
+                </a>
+                
+                <!-- Content Engine -->
+                <a href="deck-content-engine/" class="deck-card">
+                    <div class="deck-thumbnail engine">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🤖</div>
+                            <div class="thumb-title">STRTGY Content Engine</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="deck-meta">
-                        <span>📊 15 slides</span>
-                        <span>⏱️ 15-20 min</span>
-                        <span>🛠️ Operación</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge interno">Interno</span>
+                        </div>
+                        <div class="deck-title">Content Engine</div>
+                        <div class="deck-desc">
+                            Sistema multiagente de generación de contenido con Gemini 3. 
+                            Guía operativa para el equipo de marketing.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 15 slides</span>
+                            <span>⏱️ 15-20 min</span>
+                            <span>🛠️ Operación</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SECCIÓN: PROYECTOS DE CLIENTES
+                 ═══════════════════════════════════════════════════════════════ -->
+            <div class="section-header">
+                <h2 class="section-title"><span class="icon">🤝</span> Proyectos de Clientes</h2>
+                <p class="section-subtitle">Kick-offs, resultados y entregables para clientes específicos</p>
+            </div>
             
-            <!-- Análisis de Vocación -->
-            <a href="deck-analisis-vocacion/" class="deck-card">
-                <div class="deck-thumbnail vocacion">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🔬</div>
-                        <div class="thumb-title">Análisis de Vocación</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <div class="decks-gallery">
+                <!-- FCarnes -->
+                <a href="deck-fcarnes/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #1a0a0e 0%, #2d1015 50%, #1E3A5F 100%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🥩</div>
+                            <div class="thumb-title">FCarnes | Censo Estratégico</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Ventas</span>
-                        <span class="badge estrategia">Estrategia</span>
-                    </div>
-                    <div class="deck-title">Análisis de Vocación</div>
-                    <div class="deck-desc">
-                        Metodología STRTGY para identificar la vocación estratégica de territorios 
-                        y mercados. Diagnóstico basado en datos.
-                    </div>
-                    <div class="deck-meta">
-                        <span>📊 10+ slides</span>
-                        <span>⏱️ 20-30 min</span>
-                        <span>🌎 Territorial</span>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Softlanding Internacional -->
-            <a href="deck-softlanding/" class="deck-card">
-                <div class="deck-thumbnail softlanding">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">🌎</div>
-                        <div class="thumb-title">Softlanding Internacional</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge cliente">Cliente</span>
+                        </div>
+                        <div class="deck-title">FCarnes | Censo Estratégico Nacional</div>
+                        <div class="deck-desc">
+                            Inteligencia geoespacial para expansión nacional. 
+                            8,761 prospectos verificados con análisis GPT-4o Vision.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 25-30 min</span>
+                            <span>🗺️ Geoespacial</span>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge ventas">Ventas</span>
-                        <span class="badge estrategia">Expansión</span>
-                    </div>
-                    <div class="deck-title">Softlanding Internacional</div>
-                    <div class="deck-desc">
-                        Programa de aterrizaje suave para expansión internacional. 
-                        Inteligencia de mercado y validación de oportunidades.
-                    </div>
-                    <div class="deck-meta">
-                        <span>📊 10+ slides</span>
-                        <span>⏱️ 20-30 min</span>
-                        <span>✈️ Global</span>
-                    </div>
-                </div>
-            </a>
-            
-            <!-- Plan 2026 -->
-            <a href="plan2026/" class="deck-card">
-                <div class="deck-thumbnail plan2026">
-                    <div class="preview-decoration circles"></div>
-                    <div class="preview-decoration lines"></div>
-                    <div class="deck-thumbnail-content">
-                        <div class="thumb-icon">📈</div>
-                        <div class="thumb-title">Plan Estratégico 2026</div>
-                    </div>
-                    <div class="deck-thumbnail-overlay">
-                        <div class="play-icon">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </a>
+
+                <!-- Dairy Queen -->
+                <a href="deck-dairy-queen-kickoff/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0ea5e9 100%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">🍦</div>
+                            <div class="thumb-title">Dairy Queen | Kick-off 2026</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="deck-content">
-                    <div class="deck-badges">
-                        <span class="badge interno">Interno</span>
-                        <span class="badge estrategia">Estrategia</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge cliente">Cliente</span>
+                            <span class="badge estrategia">Kick-off</span>
+                        </div>
+                        <div class="deck-title">Dairy Queen | Plan Maestro de Expansión</div>
+                        <div class="deck-desc">
+                            Sesión de arranque del plan 2026 con módulos críticos, roadmap y entregables.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 45-60 min</span>
+                            <span>🚀 Expansión</span>
+                        </div>
                     </div>
-                    <div class="deck-title">Plan Estratégico 2026</div>
-                    <div class="deck-desc">
-                        Visión, objetivos y roadmap de STRTGY para 2026. 
-                        Programas de alianzas, white-label y expansión de servicios.
+                </a>
+
+                <!-- Quality Outdoor -->
+                <a href="deck-quality-outdoor-kickoff/" class="deck-card">
+                    <div class="deck-thumbnail" style="background: linear-gradient(135deg, #0b1220 0%, #1f2937 50%, #14b8a6 100%);">
+                        <div class="preview-decoration circles"></div>
+                        <div class="preview-decoration lines"></div>
+                        <div class="deck-thumbnail-content">
+                            <div class="thumb-icon">📡</div>
+                            <div class="thumb-title">Quality Outdoor | Kick-off 2026</div>
+                        </div>
+                        <div class="deck-thumbnail-overlay">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
                     </div>
-                    <div class="deck-meta">
-                        <span>📊 15+ slides</span>
-                        <span>⏱️ 30-40 min</span>
-                        <span>📋 Roadmap</span>
+                    <div class="deck-content">
+                        <div class="deck-badges">
+                            <span class="badge cliente">Cliente</span>
+                            <span class="badge estrategia">Kick-off</span>
+                        </div>
+                        <div class="deck-title">Quality Outdoor | Plan Maestro de Expansión</div>
+                        <div class="deck-desc">
+                            Arranque del programa QLT-2026-GROWTH-IMP con módulos, timeline y KPIs.
+                        </div>
+                        <div class="deck-meta">
+                            <span>📊 14 slides</span>
+                            <span>⏱️ 45-60 min</span>
+                            <span>🛰️ Growth</span>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </main>
         
         <footer>

@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>STRTGY | EVA - Pronósticos de Demanda</title>
+    <meta name="description" content="De los datos a la certeza operativa">
+    <meta name="author" content="STRTGY">
+
+    <!-- Reveal.js CSS -->
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reset.css">
+    <link rel="stylesheet" href="../plan2026/reveal.js/dist/reveal.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- STRTGY Theme -->
+    <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
+</head>
+<body>
+    <!-- tsParticles Container -->
+    <div id="tsparticles"></div>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 1: PORTADA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cover" data-background-gradient="radial-gradient(ellipse at center, #1E3A5F 0%, #0A0F1C 70%)">
+                <div class="cover-content">
+                    <div class="cover-badge">PRODUCTO STRTGY</div>
+                    <h1 class="cover-title"><span class="accent">EVA</span> PRONÓSTICOS DE DEMANDA</h1>
+                    <p class="cover-subtitle">De los datos a la certeza operativa</p>
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cover-logo">
+                </div>
+                <div class="grid-background"></div>
+                <aside class="notes">
+                    <strong>APERTURA:</strong><br>
+                    "¿Cuánto dinero pierden por errores en el pronóstico de demanda?"<br>
+                    EVA es nuestra plataforma de forecasting con IA.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 2: EL PROBLEMA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="problem" data-background-color="#0A0F1C">
+                <h2>EL COSTO DEL <span class="danger">ERROR</span></h2>
+                
+                <div class="problem-grid">
+                    <div class="problem-card fragment zoom-in">
+                        <div class="problem-icon">📦</div>
+                        <div class="problem-stat danger">$$$</div>
+                        <div class="problem-label">en inventario muerto<br>por sobrestock</div>
+                    </div>
+                    <div class="problem-card fragment zoom-in">
+                        <div class="problem-icon">🚫</div>
+                        <div class="problem-stat danger">-15%</div>
+                        <div class="problem-label">ventas perdidas<br>por desabasto</div>
+                    </div>
+                </div>
+                
+                <blockquote class="problem-quote fragment fade-up">
+                    "El pronóstico tradicional en Excel tiene<br>
+                    un error promedio de <span class="danger">30-40%</span>."
+                </blockquote>
+                
+                <aside class="notes">
+                    <strong>AGITAR EL DOLOR:</strong><br>
+                    "¿Cuál es su error de pronóstico actual?"<br>
+                    "¿Cuánto capital tienen inmovilizado en inventario excesivo?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 3: LA PROMESA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="promise" data-background-color="#0A0F1C">
+                <blockquote class="impact-quote">
+                    <p class="fragment fade-in">"<span class="accent">EVA</span> reduce el error de pronóstico<br>a <span class="accent">menos del 15%</span><br>a nivel SKU-Ubicación."</p>
+                </blockquote>
+                <p class="fragment fade-up quote-attribution">
+                    Modelos que se re-entrenan solos.<br>
+                    ROI medible en <span class="accent">semanas</span>, no años.
+                </p>
+                <aside class="notes">
+                    <strong>LA PROMESA:</strong><br>
+                    EVA = Estimación de Ventas Automatizada. Precisión que impacta el P&L.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 4: DIFERENCIADORES VCA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="differentiators" data-background-color="#0A0F1C">
+                <h2>¿POR QUÉ <span class="accent">EVA</span>?</h2>
+                
+                <div class="differentiators-grid">
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm"></span></div>
+                        <h3>VELOCIDAD</h3>
+                        <p>Implementación en <strong>4-8 semanas</strong>. Primeros resultados en días.</p>
+                    </div>
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
+                        <h3>CERTEZA</h3>
+                        <p><strong>Precisión >85%</strong> con modelos que mejoran automáticamente.</p>
+                    </div>
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--predictive strtgy-icon--sm"></span></div>
+                        <h3>ACTIVOS</h3>
+                        <p><strong>Plataforma propia</strong> con dashboards, alertas y API para integración.</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>FRAMEWORK VCA:</strong><br>
+                    Velocidad en implementación, Certeza en predicción, Activos que entregan valor continuo.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 5: CÓMO FUNCIONA EVA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="how-it-works" data-background-color="#0A0F1C">
+                <h2>CÓMO FUNCIONA <span class="accent">EVA</span></h2>
+                
+                <div class="methodology-flow">
+                    <div class="method-step fragment zoom-in">
+                        <div class="method-number">01</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
+                        <div class="method-title">INGESTA</div>
+                        <div class="method-desc">Conectamos tus datos de ventas e inventario</div>
+                    </div>
+                    <div class="method-arrow fragment">→</div>
+                    <div class="method-step fragment zoom-in">
+                        <div class="method-number">02</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm"></span></div>
+                        <div class="method-title">ENTRENAMIENTO</div>
+                        <div class="method-desc">IA aprende patrones de tu negocio</div>
+                    </div>
+                    <div class="method-arrow fragment">→</div>
+                    <div class="method-step fragment zoom-in">
+                        <div class="method-number">03</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--predictive strtgy-icon--sm"></span></div>
+                        <div class="method-title">PREDICCIÓN</div>
+                        <div class="method-desc">Pronósticos automáticos diarios/semanales</div>
+                    </div>
+                    <div class="method-arrow fragment">→</div>
+                    <div class="method-step fragment zoom-in">
+                        <div class="method-number">04</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
+                        <div class="method-title">ACCIÓN</div>
+                        <div class="method-desc">Alertas y recomendaciones de compra</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>4 ETAPAS:</strong><br>
+                    Ingesta → Entrenamiento → Predicción → Acción. Ciclo continuo.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 6: VARIABLES QUE CONSIDERA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="variables" data-background-color="#0A0F1C">
+                <h2>VARIABLES QUE <span class="accent">CONSIDERA</span></h2>
+                <p class="slide-subtitle">No solo histórico de ventas</p>
+                
+                <div class="capabilities-grid">
+                    <div class="capability-card fragment fade-up">
+                        <div class="capability-icon">📈</div>
+                        <div class="capability-title">Histórico de Ventas</div>
+                        <div class="capability-desc">Por SKU, ubicación, canal</div>
+                    </div>
+                    <div class="capability-card fragment fade-up">
+                        <div class="capability-icon">📅</div>
+                        <div class="capability-title">Estacionalidad</div>
+                        <div class="capability-desc">Días festivos, eventos, temporadas</div>
+                    </div>
+                    <div class="capability-card fragment fade-up">
+                        <div class="capability-icon">🏷️</div>
+                        <div class="capability-title">Promociones</div>
+                        <div class="capability-desc">Impacto de descuentos y campañas</div>
+                    </div>
+                    <div class="capability-card fragment fade-up">
+                        <div class="capability-icon">🌤️</div>
+                        <div class="capability-title">Clima</div>
+                        <div class="capability-desc">Correlación clima-demanda</div>
+                    </div>
+                    <div class="capability-card fragment fade-up">
+                        <div class="capability-icon">📊</div>
+                        <div class="capability-title">Tendencias</div>
+                        <div class="capability-desc">Crecimiento de categoría</div>
+                    </div>
+                    <div class="capability-card fragment fade-up">
+                        <div class="capability-icon">🔗</div>
+                        <div class="capability-title">Variables Custom</div>
+                        <div class="capability-desc">Cualquier driver de tu negocio</div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>VARIABLES:</strong><br>
+                    "¿Qué variables consideran hoy en sus pronósticos?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 7: GRANULARIDAD
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="granularity" data-background-color="#0A0F1C">
+                <h2>PRONÓSTICO A <span class="accent">NIVEL SKU</span></h2>
+                
+                <div class="differentiators-grid">
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon">📦</div>
+                        <h3>POR PRODUCTO</h3>
+                        <p>Pronóstico individual para cada SKU, no agregados</p>
+                    </div>
+                    <div class="diff-card fragment fade-up" style="border-color: var(--strtgy-accent);">
+                        <div class="diff-icon">📍</div>
+                        <h3>POR UBICACIÓN</h3>
+                        <p>CEDIS, tienda, región o cualquier punto de venta</p>
+                    </div>
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon">📅</div>
+                        <h3>POR PERÍODO</h3>
+                        <p>Diario, semanal, mensual según tu operación</p>
+                    </div>
+                </div>
+                
+                <p class="fragment fade-up" style="margin-top: 2em; font-size: 1.3em;">
+                    <span class="accent">SKU × Ubicación × Tiempo</span> = Precisión operativa real
+                </p>
+                
+                <aside class="notes">
+                    <strong>GRANULARIDAD:</strong><br>
+                    "¿A qué nivel de detalle necesitan los pronósticos?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 8: CASO DE ÉXITO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="case-study" data-background-color="#0A0F1C">
+                <div class="case-study">
+                    <div class="case-header">
+                        <div class="case-badge">CASO DE ÉXITO</div>
+                        <h2>DISTRIBUIDOR DE ALIMENTOS</h2>
+                        <p class="case-context">Transformación de planeación de demanda</p>
+                    </div>
+                    
+                    <div class="case-grid">
+                        <div class="case-visual fragment fade-right">
+                            <div class="case-stat">-60%</div>
+                            <div class="case-stat-label">reducción en<br>error de pronóstico</div>
+                        </div>
+                        
+                        <div class="case-content fragment fade-left">
+                            <div class="case-section">
+                                <h4>⚠️ EL RETO</h4>
+                                <p>2,500+ SKUs, 45 CEDIS, error de pronóstico del 35%</p>
+                            </div>
+                            <div class="case-section">
+                                <h4>💡 LA SOLUCIÓN</h4>
+                                <p>EVA con modelos personalizados por categoría y región</p>
+                            </div>
+                            <div class="case-section">
+                                <h4>🎯 EL RESULTADO</h4>
+                                <p>Error reducido a 14%, $8M MXN liberados de inventario</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>CASO REAL:</strong><br>
+                    "$8M liberados de capital de trabajo. ROI en 4 meses."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 9: ROI TÍPICO
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="roi" data-background-color="#0A0F1C">
+                <h2>ROI <span class="accent">MEDIBLE</span></h2>
+                <p class="slide-subtitle">Impacto directo en el P&L</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card fragment zoom-in">
+                        <div class="metric-value accent">-30%</div>
+                        <div class="metric-label">Reducción de<br><span class="metric-sublabel">inventario excedente</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value">+8%</div>
+                        <div class="metric-label">Incremento en<br><span class="metric-sublabel">fill rate</span></div>
+                    </div>
+                    <div class="metric-card fragment fade-up">
+                        <div class="metric-value">-50%</div>
+                        <div class="metric-label">Reducción de<br><span class="metric-sublabel">mermas</span></div>
+                    </div>
+                </div>
+                
+                <p class="fragment fade-up" style="margin-top: 2em; font-size: 1.2em; color: var(--strtgy-text-secondary);">
+                    ROI típico: <span class="accent">3-6 meses</span> para recuperar inversión
+                </p>
+                
+                <aside class="notes">
+                    <strong>ROI:</strong><br>
+                    "¿Cuánto capital tienen en inventario hoy? Un 30% de reducción es..."
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 10: PLATAFORMA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="platform" data-background-color="#0A0F1C">
+                <h2>PLATAFORMA <span class="accent">EVA</span></h2>
+                
+                <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="service-card fragment fade-up">
+                        <div class="service-icon">📊</div>
+                        <h4>Dashboard de Pronósticos</h4>
+                        <p>Visualización por SKU, ubicación, tiempo</p>
+                    </div>
+                    <div class="service-card fragment fade-up">
+                        <div class="service-icon">⚠️</div>
+                        <h4>Alertas de Riesgo</h4>
+                        <p>Desabasto o sobrestock próximo</p>
+                    </div>
+                    <div class="service-card fragment fade-up">
+                        <div class="service-icon">📋</div>
+                        <h4>Sugerencias de Compra</h4>
+                        <p>Cantidades óptimas por proveedor</p>
+                    </div>
+                    <div class="service-card fragment fade-up">
+                        <div class="service-icon">📈</div>
+                        <h4>Accuracy Tracking</h4>
+                        <p>Medición continua de precisión</p>
+                    </div>
+                    <div class="service-card fragment fade-up">
+                        <div class="service-icon">🔌</div>
+                        <h4>API de Integración</h4>
+                        <p>Conecta con tu ERP/WMS</p>
+                    </div>
+                    <div class="service-card fragment fade-up">
+                        <div class="service-icon">📥</div>
+                        <h4>Exportación</h4>
+                        <p>Excel, CSV, conexión directa</p>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>PLATAFORMA:</strong><br>
+                    No es solo un modelo. Es una plataforma completa.
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 11: PAQUETES Y PRECIOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="pricing" data-background-color="#0A0F1C">
+                <h2>PAQUETES Y <span class="accent">PRECIOS</span></h2>
+                <p class="slide-subtitle">Según complejidad del catálogo</p>
+                
+                <div class="differentiators-grid">
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
+                        <h3>STARTER</h3>
+                        <p><strong>Hasta 500 SKUs</strong><br>1-3 ubicaciones<br>Modelos base + dashboard</p>
+                        <div class="product-pricing" style="margin-top: 1em;">
+                            <span class="price-range">$80K - $120K</span>
+                            <span class="price-divider">|</span>
+                            <span class="timeline">4-6 sem</span>
+                        </div>
+                    </div>
+                    <div class="diff-card fragment fade-up" style="border-color: var(--strtgy-accent);">
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--predictive strtgy-icon--sm"></span></div>
+                        <h3>PRO</h3>
+                        <p><strong>500-2,000 SKUs</strong><br>Multi-ubicación + alertas<br>+ Re-entrenamiento mensual</p>
+                        <div class="product-pricing" style="margin-top: 1em;">
+                            <span class="price-range">$150K - $250K</span>
+                            <span class="price-divider">|</span>
+                            <span class="timeline">6-8 sem</span>
+                        </div>
+                    </div>
+                    <div class="diff-card fragment fade-up">
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
+                        <h3>ENTERPRISE</h3>
+                        <p><strong>2,000+ SKUs</strong><br>+ API + integraciones<br>+ Soporte dedicado</p>
+                        <div class="product-pricing" style="margin-top: 1em;">
+                            <span class="price-range">$300K - $500K</span>
+                            <span class="price-divider">|</span>
+                            <span class="timeline">8-12 sem</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="fragment fade-up" style="margin-top: 1.5em; font-size: 1em; color: var(--strtgy-text-secondary);">
+                    + Fee mensual de mantenimiento y re-entrenamiento: <span class="accent">$15K - $50K/mes</span>
+                </p>
+                
+                <aside class="notes">
+                    <strong>PRICING:</strong><br>
+                    "¿Cuántos SKUs activos tienen? ¿Cuántas ubicaciones?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 12: COMPARATIVA
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="comparison" data-background-color="#0A0F1C">
+                <h2>EVA vs <span class="muted">MÉTODOS TRADICIONALES</span></h2>
+                
+                <div class="comparison-table">
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">❌ Excel con promedios móviles</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">🤖 <span class="accent">IA</span> con 20+ variables</div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">❌ Error 30-40%</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">🎯 Precisión <span class="accent">>85%</span></div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">❌ Actualización manual mensual</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">⚡ <span class="accent">Re-entrenamiento automático</span></div>
+                    </div>
+                    <div class="comparison-row fragment fade-in">
+                        <div class="comparison-old">❌ 1 analista dedicado full time</div>
+                        <div class="comparison-arrow">→</div>
+                        <div class="comparison-new">🔄 <span class="accent">100% automatizado</span></div>
+                    </div>
+                </div>
+                
+                <aside class="notes">
+                    <strong>DIFERENCIACIÓN:</strong><br>
+                    "¿Cuántas personas tienen dedicadas a pronósticos hoy?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 13: PRÓXIMOS PASOS
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="next-steps" data-background-color="#0A0F1C">
+                <h2>¿CÓMO <span class="accent">EMPEZAMOS</span>?</h2>
+                
+                <div class="process-timeline">
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle">1</div>
+                        <h4>Diagnóstico</h4>
+                        <p>Evaluamos tus datos<br>y proceso actual</p>
+                    </div>
+                    <div class="process-connector fragment"></div>
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle accent-bg">2</div>
+                        <h4>Prueba de Concepto</h4>
+                        <p>Piloto con subset<br>de SKUs (opcional)</p>
+                    </div>
+                    <div class="process-connector fragment"></div>
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle">3</div>
+                        <h4>Implementación</h4>
+                        <p>Integración y<br>entrenamiento completo</p>
+                    </div>
+                    <div class="process-connector fragment"></div>
+                    <div class="process-step fragment fade-up">
+                        <div class="step-circle">4</div>
+                        <h4>Go-Live</h4>
+                        <p>Capacitación y<br>operación continua</p>
+                    </div>
+                </div>
+                
+                <div class="process-guarantee fragment fade-up">
+                    <p>💡 Ofrecemos PoC de 4 semanas con 100 SKUs para validar precisión</p>
+                </div>
+                
+                <aside class="notes">
+                    <strong>PROCESO:</strong><br>
+                    "¿Les interesa hacer un piloto con un subset de productos?"
+                </aside>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 SLIDE 14: CTA FINAL
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section id="cta" data-background-gradient="radial-gradient(ellipse at center, rgba(0,212,170,0.15) 0%, #0A0F1C 70%)">
+                <div class="cta-slide">
+                    <img src="../plan2026/assets/logo-strtgy-white.png" alt="STRTGY" class="cta-logo">
+                    <h1 class="cta-title">¿LISTO PARA <span class="accent">PREDECIR CON CERTEZA</span>?</h1>
+                    <p class="cta-subtitle">"Deja que EVA haga los números por ti."</p>
+                    
+                    <div class="cta-contact fragment fade-up">
+                        <a href="mailto:arturo@strtgy.com" class="cta-button">SOLICITA TU DIAGNÓSTICO</a>
+                        <p class="cta-email">arturo@strtgy.com | strtgy.com</p>
+                    </div>
+                </div>
+                <div class="grid-background"></div>
+                
+                <aside class="notes">
+                    <strong>CIERRE:</strong><br>
+                    "¿Cuánto podrían mejorar su P&L si redujeran el error a la mitad?"
+                </aside>
+            </section>
+
+        </div><!-- /slides -->
+    </div><!-- /reveal -->
+
+    <!-- Reveal.js Core -->
+    <script src="../plan2026/reveal.js/dist/reveal.js"></script>
+    <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
+    <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: true, zIndex: -1 },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 80, density: { enable: true, area: 900 } },
+                color: { value: ["#00D4AA", "#1E3A5F", "#0ea5e9"] },
+                shape: { type: "circle" },
+                opacity: { value: { min: 0.2, max: 0.6 }, animation: { enable: true, speed: 0.8, minimumValue: 0.15 } },
+                size: { value: { min: 1, max: 3 } },
+                links: { enable: true, distance: 150, color: "#00D4AA", opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 0.5, direction: "none", random: true }
+            },
+            interactivity: {
+                events: { onHover: { enable: true, mode: "grab" } },
+                modes: { grab: { distance: 180, links: { opacity: 0.4 } } }
+            },
+            detectRetina: true,
+            background: { color: "transparent" }
+        });
+    </script>
+
+    <script>
+        Reveal.initialize({
+            hash: true,
+            history: true,
+            center: true,
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            showSlideNumber: 'speaker',
+            transition: 'fade',
+            transitionSpeed: 'default',
+            backgroundTransition: 'fade',
+            autoAnimate: true,
+            autoAnimateEasing: 'ease-in-out',
+            autoAnimateDuration: 0.8,
+            width: 1920,
+            height: 1080,
+            margin: 0.04,
+            plugins: [RevealNotes, RevealZoom]
+        });
+
+        Reveal.addKeyBinding({ keyCode: 66, key: 'B' }, () => {
+            document.body.classList.toggle('blackout');
+        });
+    </script>
+</body>
+</html>

@@ -116,6 +116,8 @@
     </style>
 </head>
 <body>
+    <!-- tsParticles Container - Data Network Background -->
+    <div id="tsparticles"></div>
     <div class="reveal">
         <div class="slides">
             
@@ -193,17 +195,17 @@
                 
                 <div class="differentiators-grid">
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">⚡</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm"></span></div>
                         <h3>VELOCIDAD</h3>
                         <p>Análisis completo en <strong>2-6 semanas</strong>, no meses de estudios tradicionales.</p>
                     </div>
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">🎯</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <h3>CERTEZA</h3>
                         <p><strong>INEGI + DENUE + HERE + Google Maps</strong> + fuentes satelitales procesadas con IA.</p>
                     </div>
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">🛠️</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
                         <h3>ACTIVOS</h3>
                         <p><strong>Mapas interactivos</strong> y dashboards, no PDFs estáticos que nadie usa.</p>
                     </div>
@@ -260,28 +262,28 @@
                 <div class="methodology-flow">
                     <div class="method-step fragment zoom-in">
                         <div class="method-number">01</div>
-                        <div class="method-icon">🧬</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
                         <div class="method-title">ADN COMERCIAL</div>
                         <div class="method-desc">Perfil demográfico y comercial de cada zona</div>
                     </div>
                     <div class="method-arrow fragment">→</div>
                     <div class="method-step fragment zoom-in">
                         <div class="method-number">02</div>
-                        <div class="method-icon">⏱️</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <div class="method-title">ISÓCRONAS</div>
                         <div class="method-desc">Áreas de influencia por tiempo de traslado</div>
                     </div>
                     <div class="method-arrow fragment">→</div>
                     <div class="method-step fragment zoom-in">
                         <div class="method-number">03</div>
-                        <div class="method-icon">🎯</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <div class="method-title">PRECISION<br>AUDIENCE</div>
                         <div class="method-desc">Segmentos de clientes potenciales</div>
                     </div>
                     <div class="method-arrow fragment">→</div>
                     <div class="method-step fragment zoom-in">
                         <div class="method-number">04</div>
-                        <div class="method-icon">📊</div>
+                        <div class="method-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
                         <div class="method-title">MATRIZ<br>OPORTUNIDAD</div>
                         <div class="method-desc">Scoring vs saturación competitiva</div>
                     </div>
@@ -484,7 +486,7 @@
                 
                 <div class="differentiators-grid">
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">📍</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <h3>ESTÁNDAR</h3>
                         <p><strong>1 ubicación</strong><br>ADN Comercial + Isócronas<br>Scoring + Mapa básico</p>
                         <div class="product-pricing" style="margin-top: 1em;">
@@ -494,7 +496,7 @@
                         </div>
                     </div>
                     <div class="diff-card fragment fade-up" style="border-color: var(--strtgy-accent);">
-                        <div class="diff-icon">📊</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
                         <h3>PRO</h3>
                         <p><strong>3-5 ubicaciones</strong><br>+ Precision Audience<br>+ Matriz comparativa</p>
                         <div class="product-pricing" style="margin-top: 1em;">
@@ -504,7 +506,7 @@
                         </div>
                     </div>
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">🏢</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
                         <h3>ENTERPRISE</h3>
                         <p><strong>10+ ubicaciones</strong><br>+ Modelos predictivos<br>+ Canibalización + Portal</p>
                         <div class="product-pricing" style="margin-top: 1em;">
@@ -662,6 +664,133 @@
     <script src="../plan2026/reveal.js/dist/reveal.js"></script>
     <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
     <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <!-- tsParticles - Data Network Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // STRTGY Data Network Particles - Elegant Background Effect
+        // ═══════════════════════════════════════════════════════════════
+        tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1
+            },
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        area: 900
+                    }
+                },
+                color: {
+                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: {
+                        min: 0.2,
+                        max: 0.7
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 0.8,
+                        minimumValue: 0.15,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: {
+                        min: 1,
+                        max: 4
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 0.5,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 180,
+                    color: "#00D4AA",
+                    opacity: 0.25,
+                    width: 1,
+                    triangles: {
+                        enable: true,
+                        opacity: 0.05
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 0.6,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: "out"
+                    },
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: ["grab", "connect"],
+                        parallax: {
+                            enable: true,
+                            force: 30,
+                            smooth: 20
+                        }
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        links: {
+                            opacity: 0.5,
+                            color: "#00D4AA"
+                        }
+                    },
+                    connect: {
+                        distance: 100,
+                        links: {
+                            opacity: 0.3
+                        },
+                        radius: 150
+                    },
+                    push: {
+                        quantity: 4
+                    },
+                    repulse: {
+                        distance: 120,
+                        duration: 0.4
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent"
+            }
+        });
+    </script>
 
     <script>
         Reveal.initialize({

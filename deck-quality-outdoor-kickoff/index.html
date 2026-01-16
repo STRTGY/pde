@@ -346,6 +346,8 @@
     </style>
 </head>
 <body>
+    <!-- tsParticles Container - Data Network Background -->
+    <div id="tsparticles"></div>
     <div class="reveal">
         <div class="slides">
             
@@ -442,20 +444,20 @@
                 
                 <div class="metrics-grid fragment fade-up" style="margin-top: 2em;">
                     <div class="metric-card">
-                        <div class="metric-value">3</div>
-                        <div class="metric-label">Módulos<br><span class="sublabel">de análisis</span></div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm strtgy-icon--glow"></span></div>
+                        <div class="metric-label">3 Módulos<br><span class="sublabel">de análisis</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value accent">6</div>
-                        <div class="metric-label">Semanas<br><span class="sublabel">de ejecución</span></div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm strtgy-icon--glow"></span></div>
+                        <div class="metric-label">6 Semanas<br><span class="sublabel">de ejecución</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">5</div>
-                        <div class="metric-label">Business Cases<br><span class="sublabel">nacionales</span></div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm strtgy-icon--glow"></span></div>
+                        <div class="metric-label">5 Business Cases<br><span class="sublabel">nacionales</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value accent">12</div>
-                        <div class="metric-label">Meses<br><span class="sublabel">Dashboard Pro</span></div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm strtgy-icon--glow"></span></div>
+                        <div class="metric-label">12 Meses<br><span class="sublabel">Dashboard Pro</span></div>
                     </div>
                 </div>
                 
@@ -638,19 +640,19 @@
                 
                 <div class="metrics-grid fragment fade-up">
                     <div class="metric-card">
-                        <div class="metric-value">📦</div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--rocket strtgy-icon--sm"></span></div>
                         <div class="metric-label">Identificación<br><span class="sublabel">de importadores</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value accent">🔍</div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm strtgy-icon--glow"></span></div>
                         <div class="metric-label">Volúmenes<br><span class="sublabel">de importación</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">🌍</div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <div class="metric-label">Orígenes<br><span class="sublabel">China, USA, Europa</span></div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value accent">📊</div>
+                        <div class="metric-value"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm strtgy-icon--glow"></span></div>
                         <div class="metric-label">Capacidad<br><span class="sublabel">de inventario</span></div>
                     </div>
                 </div>
@@ -970,6 +972,133 @@
     <script src="../plan2026/reveal.js/dist/reveal.js"></script>
     <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
     <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <!-- tsParticles - Data Network Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // STRTGY Data Network Particles - Elegant Background Effect
+        // ═══════════════════════════════════════════════════════════════
+        tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1
+            },
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        area: 900
+                    }
+                },
+                color: {
+                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: {
+                        min: 0.2,
+                        max: 0.7
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 0.8,
+                        minimumValue: 0.15,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: {
+                        min: 1,
+                        max: 4
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 0.5,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 180,
+                    color: "#00D4AA",
+                    opacity: 0.25,
+                    width: 1,
+                    triangles: {
+                        enable: true,
+                        opacity: 0.05
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 0.6,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: "out"
+                    },
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: ["grab", "connect"],
+                        parallax: {
+                            enable: true,
+                            force: 30,
+                            smooth: 20
+                        }
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        links: {
+                            opacity: 0.5,
+                            color: "#00D4AA"
+                        }
+                    },
+                    connect: {
+                        distance: 100,
+                        links: {
+                            opacity: 0.3
+                        },
+                        radius: 150
+                    },
+                    push: {
+                        quantity: 4
+                    },
+                    repulse: {
+                        distance: 120,
+                        duration: 0.4
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent"
+            }
+        });
+    </script>
 
     <script>
         Reveal.initialize({

@@ -419,17 +419,17 @@
                 
                 <div class="differentiators-grid">
                     <div class="diff-card fragment fade-up" data-fragment-index="1">
-                        <div class="diff-icon">🤖</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
                         <h3>IA MULTIAGENTE</h3>
                         <p>Agentes especializados: Planner, Writer, Critic, Visual</p>
                     </div>
                     <div class="diff-card fragment fade-up" data-fragment-index="2">
-                        <div class="diff-icon">⚡</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm"></span></div>
                         <h3>VELOCIDAD</h3>
                         <p>Borradores completos en <strong>minutos</strong>, no horas</p>
                     </div>
                     <div class="diff-card fragment fade-up" data-fragment-index="3">
-                        <div class="diff-icon">🎨</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--rocket strtgy-icon--sm"></span></div>
                         <h3>VISUAL + TEXTO</h3>
                         <p>Genera contenido <strong>e imágenes</strong> con Imagen 4.0</p>
                     </div>
@@ -492,7 +492,7 @@
                 
                 <div class="agents-grid">
                     <div class="agent-card fragment fade-up">
-                        <div class="agent-icon">🎯</div>
+                        <div class="agent-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <div class="agent-name">Orchestrator</div>
                         <div class="agent-desc">Coordina el flujo y asigna tareas a cada equipo</div>
                     </div>
@@ -507,7 +507,7 @@
                         <div class="agent-desc">Genera el contenido siguiendo el plan</div>
                     </div>
                     <div class="agent-card fragment fade-up">
-                        <div class="agent-icon">🔍</div>
+                        <div class="agent-icon"><span class="strtgy-icon strtgy-icon--warning strtgy-icon--sm"></span></div>
                         <div class="agent-name">Critic</div>
                         <div class="agent-desc">Evalúa calidad y sugiere mejoras</div>
                     </div>
@@ -517,7 +517,7 @@
                         <div class="agent-desc">Crea prompts y genera imágenes</div>
                     </div>
                     <div class="agent-card fragment fade-up">
-                        <div class="agent-icon">📊</div>
+                        <div class="agent-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
                         <div class="agent-name">Strategy</div>
                         <div class="agent-desc">Research y contexto de mercado</div>
                     </div>
@@ -838,17 +838,17 @@ Notas: _____________</pre>
                 
                 <div class="differentiators-grid fragment fade-up" style="margin-top: 2em;">
                     <div class="diff-card">
-                        <div class="diff-icon">📈</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--predictive strtgy-icon--sm"></span></div>
                         <h3>5X MÁS CONTENIDO</h3>
                         <p>Mismo tiempo, más output</p>
                     </div>
                     <div class="diff-card">
-                        <div class="diff-icon">🎯</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <h3>CONSISTENCIA</h3>
                         <p>Tono STRTGY siempre</p>
                     </div>
                     <div class="diff-card">
-                        <div class="diff-icon">🔄</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--rocket strtgy-icon--sm"></span></div>
                         <h3>ESCALABLE</h3>
                         <p>Crece sin contratar</p>
                     </div>
@@ -999,7 +999,7 @@ Notas: _____________</pre>
 
     <script>
         // ═══════════════════════════════════════════════════════════════
-        // STRTGY Data Network Particles - AI Theme
+        // STRTGY Data Network Particles - Elegant Background Effect
         // ═══════════════════════════════════════════════════════════════
         tsParticles.load("tsparticles", {
             fullScreen: {
@@ -1009,7 +1009,7 @@ Notas: _____________</pre>
             fpsLimit: 60,
             particles: {
                 number: {
-                    value: 80,
+                    value: 100,
                     density: {
                         enable: true,
                         area: 900
@@ -1024,40 +1024,51 @@ Notas: _____________</pre>
                 opacity: {
                     value: {
                         min: 0.2,
-                        max: 0.6
+                        max: 0.7
                     },
                     animation: {
                         enable: true,
-                        speed: 0.5,
-                        minimumValue: 0.1,
+                        speed: 0.8,
+                        minimumValue: 0.15,
                         sync: false
                     }
                 },
                 size: {
                     value: {
                         min: 1,
-                        max: 3
+                        max: 4
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 0.5,
+                        sync: false
                     }
                 },
                 links: {
                     enable: true,
-                    distance: 150,
+                    distance: 180,
                     color: "#00D4AA",
-                    opacity: 0.2,
+                    opacity: 0.25,
                     width: 1,
                     triangles: {
                         enable: true,
-                        opacity: 0.03
+                        opacity: 0.05
                     }
                 },
                 move: {
                     enable: true,
-                    speed: 0.4,
+                    speed: 0.6,
                     direction: "none",
                     random: true,
                     straight: false,
                     outModes: {
                         default: "out"
+                    },
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
                     }
                 }
             },
@@ -1066,22 +1077,40 @@ Notas: _____________</pre>
                 events: {
                     onHover: {
                         enable: true,
-                        mode: "grab",
+                        mode: ["grab", "connect"],
                         parallax: {
                             enable: true,
-                            force: 20,
-                            smooth: 15
+                            force: 30,
+                            smooth: 20
                         }
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
                     },
                     resize: true
                 },
                 modes: {
                     grab: {
-                        distance: 180,
+                        distance: 200,
                         links: {
-                            opacity: 0.4,
+                            opacity: 0.5,
                             color: "#00D4AA"
                         }
+                    },
+                    connect: {
+                        distance: 100,
+                        links: {
+                            opacity: 0.3
+                        },
+                        radius: 150
+                    },
+                    push: {
+                        quantity: 4
+                    },
+                    repulse: {
+                        distance: 120,
+                        duration: 0.4
                     }
                 }
             },

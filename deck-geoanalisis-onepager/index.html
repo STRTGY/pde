@@ -641,6 +641,8 @@
     </style>
 </head>
 <body>
+    <!-- tsParticles Container - Data Network Background -->
+    <div id="tsparticles"></div>
     <div class="reveal">
         <div class="slides">
             
@@ -839,7 +841,7 @@
                 <div class="methodology-visual">
                     <div class="method-card">
                         <div class="method-card-number">01</div>
-                        <div class="method-card-icon">🧬</div>
+                        <div class="method-card-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
                         <div class="method-card-title">ADN Comercial</div>
                         <div class="method-card-desc">Perfil demográfico, poder adquisitivo y actividad económica de cada zona</div>
                     </div>
@@ -848,7 +850,7 @@
                     
                     <div class="method-card">
                         <div class="method-card-number">02</div>
-                        <div class="method-card-icon">⏱️</div>
+                        <div class="method-card-icon"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <div class="method-card-title">Isócronas</div>
                         <div class="method-card-desc">Áreas de influencia por tiempo de traslado (5, 10, 15 min) en auto o a pie</div>
                     </div>
@@ -857,7 +859,7 @@
                     
                     <div class="method-card">
                         <div class="method-card-number">03</div>
-                        <div class="method-card-icon">🎯</div>
+                        <div class="method-card-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <div class="method-card-title">Precision Audience</div>
                         <div class="method-card-desc">Segmentos específicos de clientes potenciales basados en tu perfil ideal</div>
                     </div>
@@ -866,7 +868,7 @@
                     
                     <div class="method-card">
                         <div class="method-card-number">04</div>
-                        <div class="method-card-icon">📊</div>
+                        <div class="method-card-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
                         <div class="method-card-title">Matriz Oportunidad</div>
                         <div class="method-card-desc">Scoring vs saturación competitiva para identificar "sweet spots"</div>
                     </div>
@@ -918,21 +920,21 @@
                 
                 <div class="pricing-quick">
                     <div class="pricing-card">
-                        <div class="pricing-tier">📍 ESTÁNDAR</div>
+                        <div class="pricing-tier"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm" style="vertical-align: middle;"></span> ESTÁNDAR</div>
                         <div class="pricing-scope">1 ubicación</div>
                         <div class="pricing-amount">$40K - $60K</div>
                         <div class="pricing-timeline">Entrega: 2-3 semanas</div>
                     </div>
                     
                     <div class="pricing-card featured">
-                        <div class="pricing-tier">📊 PRO</div>
+                        <div class="pricing-tier"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm" style="vertical-align: middle;"></span> PRO</div>
                         <div class="pricing-scope">3-5 ubicaciones</div>
                         <div class="pricing-amount">$80K - $120K</div>
                         <div class="pricing-timeline">Entrega: 3-4 semanas</div>
                     </div>
                     
                     <div class="pricing-card">
-                        <div class="pricing-tier">🏢 ENTERPRISE</div>
+                        <div class="pricing-tier"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm" style="vertical-align: middle;"></span> ENTERPRISE</div>
                         <div class="pricing-scope">10+ ubicaciones</div>
                         <div class="pricing-amount">$150K - $250K</div>
                         <div class="pricing-timeline">Entrega: 4-6 semanas</div>
@@ -987,6 +989,133 @@
 
     <!-- Reveal.js Core -->
     <script src="../plan2026/reveal.js/dist/reveal.js"></script>
+
+    <!-- tsParticles - Data Network Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // STRTGY Data Network Particles - Elegant Background Effect
+        // ═══════════════════════════════════════════════════════════════
+        tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1
+            },
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        area: 900
+                    }
+                },
+                color: {
+                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: {
+                        min: 0.2,
+                        max: 0.7
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 0.8,
+                        minimumValue: 0.15,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: {
+                        min: 1,
+                        max: 4
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 0.5,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 180,
+                    color: "#00D4AA",
+                    opacity: 0.25,
+                    width: 1,
+                    triangles: {
+                        enable: true,
+                        opacity: 0.05
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 0.6,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: "out"
+                    },
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: ["grab", "connect"],
+                        parallax: {
+                            enable: true,
+                            force: 30,
+                            smooth: 20
+                        }
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        links: {
+                            opacity: 0.5,
+                            color: "#00D4AA"
+                        }
+                    },
+                    connect: {
+                        distance: 100,
+                        links: {
+                            opacity: 0.3
+                        },
+                        radius: 150
+                    },
+                    push: {
+                        quantity: 4
+                    },
+                    repulse: {
+                        distance: 120,
+                        duration: 0.4
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent"
+            }
+        });
+    </script>
 
     <script>
         Reveal.initialize({

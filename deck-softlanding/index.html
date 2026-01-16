@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="../shared/css/strtgy-reveal-theme.css">
 </head>
 <body>
+    <!-- tsParticles Container - Data Network Background -->
+    <div id="tsparticles"></div>
     <div class="reveal">
         <div class="slides">
             
@@ -97,22 +99,22 @@
                 
                 <div class="capabilities-grid">
                     <div class="capability-card fragment fade-up">
-                        <div class="capability-icon">🛡️</div>
+                        <div class="capability-icon"><span class="strtgy-icon strtgy-icon--warning strtgy-icon--sm"></span></div>
                         <div class="capability-title">BLINDAJE REGULATORIO</div>
                         <div class="capability-desc">Leyes, impuestos, barreras. Qué necesitas para operar desde el día 1.</div>
                     </div>
                     <div class="capability-card fragment fade-up">
-                        <div class="capability-icon">📍</div>
+                        <div class="capability-icon"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <div class="capability-title">UBICACIÓN ALTO POTENCIAL</div>
                         <div class="capability-desc">Análisis geoestadístico del mercado destino. Dónde exactamente ubicarte.</div>
                     </div>
                     <div class="capability-card fragment fade-up">
-                        <div class="capability-icon">🎯</div>
+                        <div class="capability-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <div class="capability-title">RADAR DE COMPETENCIA</div>
                         <div class="capability-desc">Análisis de miles de competidores con IA. Precios, menús, debilidades.</div>
                     </div>
                     <div class="capability-card fragment fade-up">
-                        <div class="capability-icon">🚀</div>
+                        <div class="capability-icon"><span class="strtgy-icon strtgy-icon--rocket strtgy-icon--sm"></span></div>
                         <div class="capability-title">PROTOCOLO DE DESPLIEGUE</div>
                         <div class="capability-desc">Go-to-Market táctico. Playbook de 90 días con acciones concretas.</div>
                     </div>
@@ -338,7 +340,7 @@
                 
                 <div class="differentiators-grid" style="max-width: 800px; margin: 0 auto;">
                     <div class="diff-card fragment fade-up" style="grid-column: span 2; border-color: var(--strtgy-accent);">
-                        <div class="diff-icon">🌎</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--md strtgy-icon--glow"></span></div>
                         <h3>SOFTLANDING COMPLETO</h3>
                         <p>4 componentes: Blindaje + Ubicación + Radar + Protocolo<br>
                         Playbook de 90 días. Portal de cliente.</p>
@@ -435,6 +437,133 @@
     <script src="../plan2026/reveal.js/dist/reveal.js"></script>
     <script src="../plan2026/reveal.js/plugin/notes/notes.js"></script>
     <script src="../plan2026/reveal.js/plugin/zoom/zoom.js"></script>
+
+    <!-- tsParticles - Data Network Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // STRTGY Data Network Particles - Elegant Background Effect
+        // ═══════════════════════════════════════════════════════════════
+        tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: true,
+                zIndex: -1
+            },
+            fpsLimit: 60,
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        area: 900
+                    }
+                },
+                color: {
+                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: {
+                        min: 0.2,
+                        max: 0.7
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 0.8,
+                        minimumValue: 0.15,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: {
+                        min: 1,
+                        max: 4
+                    },
+                    animation: {
+                        enable: true,
+                        speed: 2,
+                        minimumValue: 0.5,
+                        sync: false
+                    }
+                },
+                links: {
+                    enable: true,
+                    distance: 180,
+                    color: "#00D4AA",
+                    opacity: 0.25,
+                    width: 1,
+                    triangles: {
+                        enable: true,
+                        opacity: 0.05
+                    }
+                },
+                move: {
+                    enable: true,
+                    speed: 0.6,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    outModes: {
+                        default: "out"
+                    },
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detectsOn: "window",
+                events: {
+                    onHover: {
+                        enable: true,
+                        mode: ["grab", "connect"],
+                        parallax: {
+                            enable: true,
+                            force: 30,
+                            smooth: 20
+                        }
+                    },
+                    onClick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        links: {
+                            opacity: 0.5,
+                            color: "#00D4AA"
+                        }
+                    },
+                    connect: {
+                        distance: 100,
+                        links: {
+                            opacity: 0.3
+                        },
+                        radius: 150
+                    },
+                    push: {
+                        quantity: 4
+                    },
+                    repulse: {
+                        distance: 120,
+                        duration: 0.4
+                    }
+                }
+            },
+            detectRetina: true,
+            background: {
+                color: "transparent"
+            }
+        });
+    </script>
 
     <script>
         Reveal.initialize({

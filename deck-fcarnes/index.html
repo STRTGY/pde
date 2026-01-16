@@ -427,22 +427,22 @@
                 
                 <div class="source-grid">
                     <div class="source-card fragment fade-up">
-                        <div class="source-icon">🏛️</div>
+                        <div class="source-icon"><span class="strtgy-icon strtgy-icon--portal strtgy-icon--sm"></span></div>
                         <h4>DENUE INEGI</h4>
                         <p>79,620 unidades económicas<br>Códigos SCIAN de carnes</p>
                     </div>
                     <div class="source-card fragment fade-up">
-                        <div class="source-icon">📍</div>
+                        <div class="source-icon"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <h4>Google Places API</h4>
                         <p>Rating, reseñas, horarios<br>Teléfonos verificados</p>
                     </div>
                     <div class="source-card fragment fade-up">
-                        <div class="source-icon">🚛</div>
+                        <div class="source-icon"><span class="strtgy-icon strtgy-icon--rocket strtgy-icon--sm"></span></div>
                         <h4>HERE + Sakbe</h4>
                         <p>Rutas, tiempos, casetas<br>Costos logísticos reales</p>
                     </div>
                     <div class="source-card fragment fade-up">
-                        <div class="source-icon">🤖</div>
+                        <div class="source-icon"><span class="strtgy-icon strtgy-icon--lightning strtgy-icon--sm"></span></div>
                         <h4>GPT-4o Vision</h4>
                         <p>22,286 fachadas analizadas<br>Vitalidad comercial</p>
                     </div>
@@ -452,7 +452,7 @@
                         <p>Links directos a fachada<br>Validación visual</p>
                     </div>
                     <div class="source-card fragment fade-up">
-                        <div class="source-icon">📊</div>
+                        <div class="source-icon"><span class="strtgy-icon strtgy-icon--dashboard strtgy-icon--sm"></span></div>
                         <h4>Base Clientes</h4>
                         <p>3,368 clientes actuales<br>4.2% penetración</p>
                     </div>
@@ -784,17 +784,17 @@
                 
                 <div class="differentiators-grid">
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">👁️</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--predictive strtgy-icon--sm"></span></div>
                         <h3>VITALIDAD COMERCIAL</h3>
                         <p>Score 1-10 de actividad en la zona basado en imagen Street View</p>
                     </div>
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">🏪</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--location strtgy-icon--sm"></span></div>
                         <h3>CONDICIÓN DE FACHADA</h3>
                         <p>Estado del local, visibilidad, accesibilidad para clientes</p>
                     </div>
                     <div class="diff-card fragment fade-up">
-                        <div class="diff-icon">✅</div>
+                        <div class="diff-icon"><span class="strtgy-icon strtgy-icon--target strtgy-icon--sm"></span></div>
                         <h3>TARGET ENCONTRADO</h3>
                         <p>Confirmación visual de que es una carnicería/obrador real</p>
                     </div>
@@ -907,14 +907,14 @@
             fpsLimit: 60,
             particles: {
                 number: {
-                    value: 80,
+                    value: 100,
                     density: {
                         enable: true,
                         area: 900
                     }
                 },
                 color: {
-                    value: ["#00D4AA", "#1E3A5F", "#C41E3A", "#00ffcc"]
+                    value: ["#00D4AA", "#1E3A5F", "#0ea5e9", "#00ffcc"]
                 },
                 shape: {
                     type: "circle"
@@ -922,7 +922,7 @@
                 opacity: {
                     value: {
                         min: 0.2,
-                        max: 0.6
+                        max: 0.7
                     },
                     animation: {
                         enable: true,
@@ -934,7 +934,7 @@
                 size: {
                     value: {
                         min: 1,
-                        max: 3
+                        max: 4
                     },
                     animation: {
                         enable: true,
@@ -945,18 +945,18 @@
                 },
                 links: {
                     enable: true,
-                    distance: 160,
+                    distance: 180,
                     color: "#00D4AA",
-                    opacity: 0.2,
+                    opacity: 0.25,
                     width: 1,
                     triangles: {
                         enable: true,
-                        opacity: 0.04
+                        opacity: 0.05
                     }
                 },
                 move: {
                     enable: true,
-                    speed: 0.5,
+                    speed: 0.6,
                     direction: "none",
                     random: true,
                     straight: false,
@@ -975,10 +975,10 @@
                 events: {
                     onHover: {
                         enable: true,
-                        mode: ["grab"],
+                        mode: ["grab", "connect"],
                         parallax: {
                             enable: true,
-                            force: 20,
+                            force: 30,
                             smooth: 20
                         }
                     },
@@ -990,14 +990,25 @@
                 },
                 modes: {
                     grab: {
-                        distance: 180,
+                        distance: 200,
                         links: {
-                            opacity: 0.4,
+                            opacity: 0.5,
                             color: "#00D4AA"
                         }
                     },
+                    connect: {
+                        distance: 100,
+                        links: {
+                            opacity: 0.3
+                        },
+                        radius: 150
+                    },
                     push: {
-                        quantity: 3
+                        quantity: 4
+                    },
+                    repulse: {
+                        distance: 120,
+                        duration: 0.4
                     }
                 }
             },
