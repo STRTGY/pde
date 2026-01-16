@@ -38,22 +38,27 @@
             box-sizing: border-box;
         }
         
-        /* Override metrics-grid para 5 elementos */
+        /* Override metrics-grid - FORZAR layouts específicos */
+        
+        /* Grid de 4 elementos (Objetivo del Proyecto) */
         .reveal .metrics-grid {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: stretch;
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr);
             gap: 1em;
             margin: 1.5em auto;
-            flex-wrap: wrap;
             width: 100%;
+            max-width: 900px;
+        }
+        
+        /* Grid de 5 elementos (Clasificación A/B con íconos) */
+        .reveal .metrics-grid:has(.card-content) {
+            grid-template-columns: repeat(5, 1fr) !important;
             max-width: 1100px;
         }
         
         .reveal .metric-card {
-            min-width: 160px;
-            max-width: 200px;
-            flex: 1 1 160px;
+            min-width: unset;
+            max-width: unset;
         }
         
         /* ═══════════════════════════════════════════════════════════════
@@ -98,12 +103,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 220px;
+            min-height: 180px;
         }
         
         .custom-icon {
-            width: 125px;
-            height: 125px;
+            width: 90px;
+            height: 90px;
             object-fit: contain;
             filter: drop-shadow(0 0 15px rgba(0, 212, 170, 0.5));
             transition: transform 0.3s ease, filter 0.3s ease;
@@ -188,24 +193,20 @@
         }
         
         .timeline-visual {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center;
-            gap: 1em;
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5em;
             margin: 1.5em auto;
-            flex-wrap: wrap;
             width: 100%;
-            max-width: 800px;
+            max-width: 700px;
         }
         
         .week-block {
             background: rgba(30, 58, 95, 0.3);
             border: 1px solid rgba(30, 58, 95, 0.5);
             border-radius: 10px;
-            padding: 1em 1.5em;
+            padding: 1.2em 1em;
             text-align: center;
-            min-width: 140px;
-            flex: 0 1 auto;
         }
         
         .week-block.active {
