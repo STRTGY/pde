@@ -8,9 +8,9 @@
  * - 'lite': Reduced particles, no animations (for screenshare/video calls)
  * - 'static': CSS gradient only, no particles
  * 
- * Keyboard shortcuts:
- * - 'P': Toggle pause/resume particles
- * - 'Shift+P': Cycle performance modes (full → lite → static → full)
+ * Keyboard shortcuts (changed from P to avoid RevealJS conflict):
+ * - ']': Toggle pause/resume particles
+ * - '[': Cycle performance modes (full → lite → static → full)
  * 
  * URL Parameters:
  * - ?particles=lite : Start in lite mode
@@ -181,7 +181,7 @@
         if (mode === 'static') {
             // Just hide the particles, show CSS gradient background
             container.style.display = 'none';
-            showIndicator('⚡ Partículas desactivadas (Shift+P para ciclar)');
+            showIndicator('⚡ Partículas desactivadas ([ para ciclar)');
             return;
         }
 
@@ -207,7 +207,7 @@
         if (particlesInstance) {
             if (isPaused) {
                 particlesInstance.pause();
-                showIndicator('⏸️ Partículas pausadas (P para reanudar)');
+                showIndicator('⏸️ Partículas pausadas (] para reanudar)');
             } else {
                 particlesInstance.play();
                 showIndicator('▶️ Partículas activas');
@@ -240,12 +240,12 @@
     // ═══════════════════════════════════════════════════════════════
 
     function handleKeyPress(e) {
-        // 'P' key - toggle pause
-        if (e.key === 'p' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
+        // ']' key - toggle pause (avoids RevealJS 'P' conflict)
+        if (e.key === ']' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
             togglePause();
         }
-        // 'Shift+P' - cycle modes
-        else if (e.key === 'P' && e.shiftKey && !e.ctrlKey && !e.altKey) {
+        // '[' key - cycle modes
+        else if (e.key === '[' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
             cycleMode();
         }
     }
