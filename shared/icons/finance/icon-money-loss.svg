@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Dollar sign with downward arrow indicating loss -->
+  <!-- Main dollar sign -->
+  <path d="M512 160 L512 864" stroke="#FFFFFF" stroke-width="48" stroke-linecap="round"/>
+  <path d="M400 320 Q400 240 512 240 Q624 240 624 320 Q624 400 512 400 Q400 400 400 480 Q400 560 512 560 Q624 560 624 480" 
+        fill="none" stroke="#FFFFFF" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Downward arrow indicating loss -->
+  <path d="M760 400 L760 700 M760 700 L660 600 M760 700 L860 600" 
+        stroke="#FF6B6B" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small coins falling -->
+  <circle cx="820" cy="280" r="30" fill="#FF6B6B" opacity="0.6"/>
+  <circle cx="880" cy="350" r="24" fill="#FF6B6B" opacity="0.4"/>
+</svg>

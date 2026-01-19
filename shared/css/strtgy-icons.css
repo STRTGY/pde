@@ -125,6 +125,74 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
+   TIME ICONS
+   Reloj, temporizador, cronología
+   ═══════════════════════════════════════════════════════════════ */
+
+.strtgy-icon--clock {
+    background-image: url('../icons/time/icon-clock.svg');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FINANCE ICONS
+   Dinero, inversión, pérdidas, ganancias
+   ═══════════════════════════════════════════════════════════════ */
+
+.strtgy-icon--money-loss {
+    background-image: url('../icons/finance/icon-money-loss.svg');
+}
+
+.strtgy-icon--money-bag {
+    background-image: url('../icons/finance/icon-money-bag.svg');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   STATUS ICONS
+   Estados, validación, errores
+   ═══════════════════════════════════════════════════════════════ */
+
+.strtgy-icon--cross {
+    background-image: url('../icons/status/icon-cross.svg');
+}
+
+.strtgy-icon--check {
+    background-image: url('../icons/status/icon-check.svg');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   IDEAS ICONS
+   Innovación, soluciones, creatividad
+   ═══════════════════════════════════════════════════════════════ */
+
+.strtgy-icon--lightbulb {
+    background-image: url('../icons/ideas/icon-lightbulb.svg');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   MEDIA ICONS
+   Podcast, audio, video, contenido
+   ═══════════════════════════════════════════════════════════════ */
+
+.strtgy-icon--microphone {
+    background-image: url('../icons/media/icon-microphone.svg');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   ADDITIONAL ANALYTICS ICONS
+   Cálculos, metodologías, métricas
+   ═══════════════════════════════════════════════════════════════ */
+
+.strtgy-icon--calculator {
+    background-image: url('../icons/analytics/icon-calculator.svg');
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
    ANIMATION MODIFIERS
    ═══════════════════════════════════════════════════════════════ */
 

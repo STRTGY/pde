@@ -12,14 +12,27 @@ icons/
 ├── analytics/          # Análisis y datos
 │   ├── icon-dashboard.svg
 │   ├── icon-dashboard-vector.svg
-│   └── icon-predictive-wave.svg
+│   ├── icon-predictive-wave.svg
+│   └── icon-calculator.svg         # NUEVO
 ├── growth/             # Crecimiento e innovación
 │   ├── icon-rocket.svg
 │   └── icon-lightning-network.svg
 ├── risk/               # Gestión de riesgos
 │   └── icon-warning.svg
-└── positioning/        # Posicionamiento geográfico
-    └── icon-location-pin.svg
+├── positioning/        # Posicionamiento geográfico
+│   └── icon-location-pin.svg
+├── time/               # Tiempo y cronología    # NUEVO
+│   └── icon-clock.svg
+├── finance/            # Finanzas y dinero      # NUEVO
+│   ├── icon-money-bag.svg
+│   └── icon-money-loss.svg
+├── status/             # Estados y validación   # NUEVO
+│   ├── icon-check.svg
+│   └── icon-cross.svg
+├── ideas/              # Ideas y soluciones     # NUEVO
+│   └── icon-lightbulb.svg
+└── media/              # Podcast y contenido    # NUEVO
+    └── icon-microphone.svg
 ```
 
 ## Uso Básico
@@ -46,10 +59,18 @@ icons/
 | `strtgy-icon--dashboard` | Dashboard modular | `analytics/icon-dashboard.svg` |
 | `strtgy-icon--dashboard-vector` | Dashboard vectorial | `analytics/icon-dashboard-vector.svg` |
 | `strtgy-icon--predictive` | Ondas predictivas | `analytics/icon-predictive-wave.svg` |
+| `strtgy-icon--calculator` | Calculadora/Metodología | `analytics/icon-calculator.svg` |
 | `strtgy-icon--rocket` | Cohete/Lanzamiento | `growth/icon-rocket.svg` |
 | `strtgy-icon--lightning` | Red eléctrica | `growth/icon-lightning-network.svg` |
 | `strtgy-icon--warning` | Alerta/Riesgo | `risk/icon-warning.svg` |
 | `strtgy-icon--location` | Pin de ubicación | `positioning/icon-location-pin.svg` |
+| `strtgy-icon--clock` | Reloj/Tiempo | `time/icon-clock.svg` |
+| `strtgy-icon--money-bag` | Bolsa de dinero | `finance/icon-money-bag.svg` |
+| `strtgy-icon--money-loss` | Pérdida de dinero | `finance/icon-money-loss.svg` |
+| `strtgy-icon--check` | Verificación/Correcto | `status/icon-check.svg` |
+| `strtgy-icon--cross` | Error/Incorrecto | `status/icon-cross.svg` |
+| `strtgy-icon--lightbulb` | Idea/Solución | `ideas/icon-lightbulb.svg` |
+| `strtgy-icon--microphone` | Podcast/Audio | `media/icon-microphone.svg` |
 
 ### Tamaños
 
@@ -100,8 +121,32 @@ icons/
 | **EVA Pronósticos** | `strtgy-icon--predictive` |
 | **Gestión de Riesgos** | `strtgy-icon--warning` |
 | **Softlanding / Expansión** | `strtgy-icon--location` |
+| **Tiempo/Delay** | `strtgy-icon--clock` |
+| **Pérdida/Costo** | `strtgy-icon--money-loss` |
+| **Precio/Inversión** | `strtgy-icon--money-bag` |
+| **Idea/Solución** | `strtgy-icon--lightbulb` |
+| **Metodología/Cálculo** | `strtgy-icon--calculator` |
+| **Podcast/El Brieff** | `strtgy-icon--microphone` |
+| **Comparativa: Malo** | `strtgy-icon--cross` |
+| **Comparativa: Bueno** | `strtgy-icon--check` |
 
 ## Ejemplo: Reemplazar Emojis
+
+### Reemplazo de Emojis → Íconos SVG
+
+| Emoji | Clase CSS | Uso |
+|-------|-----------|-----|
+| ⏱️ | `strtgy-icon--clock` | Tiempo, duración |
+| 💸 | `strtgy-icon--money-loss` | Pérdidas, costos |
+| 💰 | `strtgy-icon--money-bag` | Precios, inversión |
+| ❌ | `strtgy-icon--cross` | Error, malo, no |
+| ✅ | `strtgy-icon--check` | Correcto, bueno, sí |
+| 💡 | `strtgy-icon--lightbulb` | Idea, solución |
+| 🧮 | `strtgy-icon--calculator` | Metodología, cálculo |
+| 🎙️ | `strtgy-icon--microphone` | Podcast, audio |
+| ⚠️ | `strtgy-icon--warning` | Alerta, reto |
+| 🎯 | `strtgy-icon--target` | Objetivo, resultado |
+| ⚡ | `strtgy-icon--lightning` | Velocidad, rapidez |
 
 **Antes (emoji):**
 ```html
@@ -118,6 +163,26 @@ icons/
     <div class="strtgy-icon strtgy-icon--lightning strtgy-icon--lg strtgy-icon--mb"></div>
     <h3>VELOCIDAD RADICAL</h3>
     <p>Estrategias completas en 2-4 semanas</p>
+</div>
+```
+
+### Uso Inline en Textos
+
+```html
+<!-- Ícono pequeño junto a texto -->
+<h4><span class="strtgy-icon strtgy-icon--warning" 
+          style="width:20px;height:20px;vertical-align:middle;margin-right:6px;"></span>EL RETO</h4>
+
+<!-- En comparativas -->
+<div class="comparison-old">
+    <span class="strtgy-icon strtgy-icon--cross" 
+          style="width:24px;height:24px;vertical-align:middle;margin-right:8px;"></span>
+    PDFs de 200 páginas
+</div>
+<div class="comparison-new">
+    <span class="strtgy-icon strtgy-icon--dashboard" 
+          style="width:24px;height:24px;vertical-align:middle;margin-right:8px;"></span>
+    Dashboards en vivo
 </div>
 ```
 
@@ -147,11 +212,13 @@ icons/
 
 Los iconos utilizan colores coherentes con la marca STRTGY:
 
+- **Turquesa/Teal STRTGY**: `#04BFA2`, `#00D4AA` (Target, Clock, Lightbulb, Check, Calculator)
 - **Azul STRTGY**: `#066FD1` (Lightning Network)
-- **Turquesa/Teal**: `#04BFA2`, `#0CC2A9` (Target, Dashboard)
 - **Cian**: `#5EC2C6`, `#59D3DD` (Predictive Wave)
 - **Verde Crecimiento**: `#AADCA8`, `#A6E885` (Rocket)
 - **Naranja/Amarillo**: `#EB8D24`, `#FFD02D` (Location Pin)
+- **Rojo/Danger**: `#FF6B6B` (Cross, Money Loss)
+- **Blanco**: `#FFFFFF` (Trazos principales para fondos oscuros)
 - **Neutros**: `#E2E2E1` (Warning, fondos)
 
 ## Notas Técnicas

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Money bag shape -->
+  <path d="M512 200 
+           C420 200 360 160 360 160 
+           L380 240 
+           C280 300 200 420 200 560 
+           C200 760 340 880 512 880 
+           C684 880 824 760 824 560 
+           C824 420 744 300 644 240 
+           L664 160 
+           C664 160 604 200 512 200 Z" 
+        fill="none" stroke="#FFFFFF" stroke-width="48" stroke-linejoin="round"/>
+  <!-- Bag tie/knot -->
+  <ellipse cx="512" cy="260" rx="100" ry="40" fill="none" stroke="#FFFFFF" stroke-width="32"/>
+  <!-- Dollar sign on bag -->
+  <path d="M512 400 L512 720" stroke="#04BFA2" stroke-width="36" stroke-linecap="round"/>
+  <path d="M440 480 Q440 420 512 420 Q584 420 584 480 Q584 540 512 540 Q440 540 440 600 Q440 660 512 660 Q584 660 584 600" 
+        fill="none" stroke="#04BFA2" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Lightbulb glass part -->
+  <path d="M512 120 
+           C320 120 200 280 200 440 
+           C200 560 280 660 380 720 
+           L380 800 
+           L644 800 
+           L644 720 
+           C744 660 824 560 824 440 
+           C824 280 704 120 512 120 Z" 
+        fill="none" stroke="#FFFFFF" stroke-width="48" stroke-linejoin="round"/>
+  <!-- Bulb base lines -->
+  <line x1="400" y1="840" x2="624" y2="840" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
+  <line x1="420" y1="880" x2="604" y2="880" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
+  <line x1="460" y1="920" x2="564" y2="920" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
+  <!-- Light rays -->
+  <line x1="512" y1="320" x2="512" y2="480" stroke="#04BFA2" stroke-width="40" stroke-linecap="round"/>
+  <line x1="380" y1="440" x2="480" y2="440" stroke="#04BFA2" stroke-width="32" stroke-linecap="round"/>
+  <line x1="544" y1="440" x2="644" y2="440" stroke="#04BFA2" stroke-width="32" stroke-linecap="round"/>
+  <!-- Inner glow circle -->
+  <circle cx="512" cy="400" r="60" fill="#04BFA2" opacity="0.3"/>
+</svg>
