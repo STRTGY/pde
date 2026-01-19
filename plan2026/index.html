@@ -902,12 +902,12 @@
             autoAnimateDuration: 0.8,
             autoAnimateUnmatched: false,
             
-            // View Settings
+            // View Settings - Optimizado para mejor legibilidad
             width: 1920,
             height: 1080,
-            margin: 0.04,
-            minScale: 0.2,
-            maxScale: 2.0,
+            margin: 0.08,      // Mayor espacio de respiración (antes: 0.04)
+            minScale: 0.5,     // No reducir demasiado (antes: 0.2)
+            maxScale: 1.2,     // CRÍTICO: evita texto gigante (antes: 2.0)
             
             // Touch & Navigation
             touch: true,

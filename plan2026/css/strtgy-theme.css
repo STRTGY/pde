@@ -58,9 +58,16 @@
     margin-bottom: 0.8em;
 }
 
-.reveal h1 { font-size: 3.2em; }
-.reveal h2 { font-size: 2.4em; }
-.reveal h3 { font-size: 1.8em; }
+/* ESCALA REDUCIDA ~40% para mejor legibilidad */
+.reveal h1 { font-size: 1.6em; }
+.reveal h2 { font-size: 1.3em; }
+.reveal h3 { font-size: 1.0em; }
+.reveal h4 { font-size: 0.85em; }
+
+.reveal p {
+    font-size: 0.75em;
+    line-height: 1.5;
+}
 
 .reveal .accent {
     color: var(--strtgy-accent);
@@ -114,15 +121,15 @@
 }
 
 .cover-title {
-    font-size: 4.5em !important;
+    font-size: 1.8em !important;
     margin-bottom: 0.3em !important;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .cover-subtitle {
-    font-size: 1.5em;
+    font-size: 0.95em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     font-weight: 400;
 }
 
@@ -149,13 +156,13 @@
    ═══════════════════════════════════════════════════════════════ */
 
 .section-title {
-    font-size: 3.5em !important;
+    font-size: 1.6em !important;
     text-align: center;
     margin-bottom: 0.3em !important;
 }
 
 .section-subtitle {
-    font-size: 1.4em;
+    font-size: 0.9em;
     color: var(--strtgy-text-secondary);
     text-align: center;
     font-weight: 400;
@@ -175,17 +182,17 @@
 
 .big-quote p {
     font-family: var(--font-heading);
-    font-size: 2.8em;
+    font-size: 1.4em;
     font-weight: 700;
     line-height: 1.3;
     text-align: center;
 }
 
 .quote-tagline {
-    font-size: 1.5em;
+    font-size: 0.95em;
     color: var(--strtgy-text-secondary);
     text-align: center;
-    margin-top: 1.5em;
+    margin-top: 1.2em;
     line-height: 1.5;
 }
 
@@ -229,7 +236,7 @@
 
 .metric-value {
     font-family: var(--font-heading);
-    font-size: 4em;
+    font-size: 1.8em;
     font-weight: 700;
     line-height: 1;
     margin-bottom: 0.2em;
@@ -241,7 +248,7 @@
 }
 
 .metric-label {
-    font-size: 1.1em;
+    font-size: 0.75em;
     color: var(--strtgy-text);
     line-height: 1.4;
 }
@@ -252,9 +259,9 @@
 }
 
 .conclusion-text {
-    font-size: 1.4em;
+    font-size: 0.9em;
     color: var(--strtgy-text-secondary);
-    margin-top: 1.5em;
+    margin-top: 1.2em;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -287,19 +294,19 @@
 }
 
 .client-icon {
-    font-size: 2.5em;
+    font-size: 1.6em;
     margin-bottom: 0.3em;
 }
 
 .client-name {
     font-family: var(--font-heading);
-    font-size: 1.6em;
+    font-size: 1.0em;
     font-weight: 600;
     margin-bottom: 0.3em;
 }
 
 .client-amount {
-    font-size: 1.3em;
+    font-size: 0.85em;
     color: var(--strtgy-text);
     margin-bottom: 0.5em;
 }
@@ -331,20 +338,20 @@
 }
 
 .alert-icon {
-    font-size: 3em;
+    font-size: 1.8em;
     margin-bottom: 0.3em;
 }
 
 .alert-title {
-    font-size: 2.5em !important;
+    font-size: 1.5em !important;
     color: var(--strtgy-danger);
     margin-bottom: 0.3em !important;
 }
 
 .alert-subtitle {
-    font-size: 1.3em;
+    font-size: 0.85em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 1.5em;
+    margin-bottom: 1.2em;
 }
 
 .alert-metric {
@@ -356,14 +363,14 @@
 
 .alert-value {
     font-family: var(--font-heading);
-    font-size: 5em;
+    font-size: 2.5em;
     font-weight: 700;
     color: var(--strtgy-danger);
     text-shadow: 0 0 60px rgba(255, 107, 107, 0.4);
 }
 
 .alert-label {
-    font-size: 1.2em;
+    font-size: 0.8em;
     color: var(--strtgy-text-secondary);
 }
 
@@ -394,19 +401,19 @@
 }
 
 .capability-icon {
-    font-size: 2em;
+    font-size: 1.4em;
     margin-bottom: 0.4em;
 }
 
 .capability-title {
     font-family: var(--font-heading);
-    font-size: 1.3em;
+    font-size: 0.9em;
     font-weight: 600;
     margin-bottom: 0.3em;
 }
 
 .capability-desc {
-    font-size: 1em;
+    font-size: 0.7em;
     color: var(--strtgy-text-secondary);
 }
 
@@ -435,19 +442,19 @@
 .comparison-old {
     flex: 1;
     text-align: right;
-    font-size: 1.2em;
+    font-size: 0.8em;
     color: var(--strtgy-text-secondary);
 }
 
 .comparison-arrow {
-    font-size: 1.5em;
+    font-size: 1.0em;
     color: var(--strtgy-accent);
 }
 
 .comparison-new {
     flex: 1;
     text-align: left;
-    font-size: 1.2em;
+    font-size: 0.8em;
     color: var(--strtgy-text);
 }
 
@@ -463,7 +470,7 @@
 
 .product-number {
     font-family: var(--font-heading);
-    font-size: 5em;
+    font-size: 2.2em;
     font-weight: 700;
     color: var(--strtgy-accent);
     opacity: 0.3;
@@ -472,14 +479,14 @@
 }
 
 .product-slide h2 {
-    font-size: 2.2em !important;
+    font-size: 1.4em !important;
     margin-bottom: 0.2em !important;
 }
 
 .product-tagline {
-    font-size: 1.3em;
+    font-size: 0.85em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 1.2em;
+    margin-bottom: 1em;
     font-style: italic;
 }
 
@@ -491,9 +498,9 @@
 
 .product-features li {
     position: relative;
-    padding-left: 1.8em;
-    margin-bottom: 0.8em;
-    font-size: 1.2em;
+    padding-left: 1.5em;
+    margin-bottom: 0.6em;
+    font-size: 0.8em;
     line-height: 1.4;
 }
 
@@ -518,7 +525,7 @@
 
 .price-range {
     font-family: var(--font-heading);
-    font-size: 1.3em;
+    font-size: 0.85em;
     font-weight: 600;
     color: var(--strtgy-accent);
 }
@@ -528,7 +535,7 @@
 }
 
 .timeline {
-    font-size: 1.1em;
+    font-size: 0.75em;
     color: var(--strtgy-text);
 }
 
@@ -556,18 +563,18 @@
 }
 
 .channel-icon {
-    font-size: 1.5em;
-    margin-right: 1em;
+    font-size: 1.1em;
+    margin-right: 0.8em;
 }
 
 .channel-name {
     flex: 1;
-    font-size: 1.2em;
+    font-size: 0.8em;
 }
 
 .channel-leads {
     font-family: var(--font-heading);
-    font-size: 1.1em;
+    font-size: 0.75em;
     font-weight: 600;
     color: var(--strtgy-text);
 }
@@ -601,19 +608,19 @@
 
 .funnel-stage {
     font-family: var(--font-heading);
-    font-size: 1.1em;
+    font-size: 0.8em;
     font-weight: 600;
     letter-spacing: 0.1em;
     margin-bottom: 0.3em;
 }
 
 .funnel-detail {
-    font-size: 1.05em;
+    font-size: 0.7em;
     color: var(--strtgy-text-secondary);
 }
 
 .funnel-arrow {
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: var(--strtgy-accent);
     margin: 0.2em 0;
 }
@@ -672,19 +679,19 @@
 }
 
 .member-role {
-    font-size: 1.5em;
+    font-size: 1.1em;
     margin-bottom: 0.2em;
 }
 
 .member-name {
     font-family: var(--font-heading);
-    font-size: 1.1em;
+    font-size: 0.8em;
     font-weight: 600;
     margin-bottom: 0.2em;
 }
 
 .member-focus {
-    font-size: 0.9em;
+    font-size: 0.65em;
     color: var(--strtgy-text-secondary);
 }
 
@@ -726,9 +733,9 @@
 }
 
 .quarter-meta {
-    font-size: 1.4em;
+    font-size: 0.9em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 1.2em;
+    margin-bottom: 1em;
 }
 
 .quarter-goals {
@@ -738,8 +745,8 @@
 }
 
 .quarter-goals li {
-    padding: 0.6em 0;
-    font-size: 1.2em;
+    padding: 0.5em 0;
+    font-size: 0.8em;
     border-bottom: 1px solid rgba(30, 58, 95, 0.2);
 }
 
@@ -752,10 +759,10 @@
    ═══════════════════════════════════════════════════════════════ */
 
 .slide-subtitle {
-    font-size: 1.2em;
+    font-size: 0.85em;
     color: var(--strtgy-text-secondary);
-    margin-top: -0.5em;
-    margin-bottom: 1.5em;
+    margin-top: -0.4em;
+    margin-bottom: 1.2em;
 }
 
 .risks-list {
@@ -786,18 +793,18 @@
 }
 
 .risk-level {
-    font-size: 1.3em;
-    margin-right: 1em;
+    font-size: 0.9em;
+    margin-right: 0.8em;
 }
 
 .risk-text {
     flex: 1;
-    font-size: 1.15em;
+    font-size: 0.8em;
     font-weight: 500;
 }
 
 .risk-mitigation {
-    font-size: 1em;
+    font-size: 0.7em;
     color: var(--strtgy-accent);
 }
 
@@ -822,13 +829,13 @@
 }
 
 .action-check {
-    font-size: 1.2em;
-    margin-right: 0.8em;
+    font-size: 0.85em;
+    margin-right: 0.6em;
     opacity: 0.7;
 }
 
 .action-text {
-    font-size: 1.15em;
+    font-size: 0.8em;
     line-height: 1.4;
 }
 
@@ -861,14 +868,14 @@
 }
 
 .cta-title {
-    font-size: 4em !important;
+    font-size: 1.8em !important;
     margin-bottom: 0.3em !important;
 }
 
 .cta-subtitle {
-    font-size: 1.5em;
+    font-size: 0.95em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 .cta-tagline {
@@ -877,7 +884,7 @@
 
 .tagline-text {
     font-family: var(--font-heading);
-    font-size: 1.8em;
+    font-size: 1.1em;
     font-weight: 500;
     color: var(--strtgy-text);
 }
@@ -988,7 +995,7 @@ body.blackout .reveal .slides {
 
 .history-year {
     font-family: var(--font-heading);
-    font-size: 6em;
+    font-size: 2.5em;
     font-weight: 700;
     color: var(--strtgy-accent);
     opacity: 0.25;
@@ -997,31 +1004,31 @@ body.blackout .reveal .slides {
 }
 
 .history-tagline {
-    font-size: 1.4em;
+    font-size: 0.9em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 1.5em;
+    margin-bottom: 1.2em;
     font-style: italic;
 }
 
 .history-content {
-    margin-top: 1.5em;
+    margin-top: 1.2em;
 }
 
 .history-content p {
-    font-size: 1.3em;
+    font-size: 0.85em;
     color: var(--strtgy-text-secondary);
-    margin-bottom: 1em;
+    margin-bottom: 0.8em;
 }
 
 .history-quote {
     border: none;
-    padding: 1.5em 2em;
+    padding: 1em 1.5em;
     background: rgba(30, 58, 95, 0.2);
     border-left: 4px solid var(--strtgy-accent);
     border-radius: 0 16px 16px 0;
-    margin: 1em auto;
+    margin: 0.8em auto;
     max-width: 800px;
-    font-size: 1.2em;
+    font-size: 0.8em;
     font-style: normal;
     color: var(--strtgy-text);
     text-align: left;
@@ -1053,12 +1060,12 @@ body.blackout .reveal .slides {
 }
 
 .evolution-icon {
-    font-size: 1.8em;
+    font-size: 1.3em;
 }
 
 .evolution-name {
     font-family: var(--font-heading);
-    font-size: 1.1em;
+    font-size: 0.75em;
     font-weight: 500;
 }
 
@@ -1099,29 +1106,29 @@ body.blackout .reveal .slides {
 }
 
 .method-icon {
-    font-size: 2.2em;
+    font-size: 1.5em;
     margin-bottom: 0.4em;
 }
 
 .method-title {
     font-family: var(--font-heading);
-    font-size: 1em;
+    font-size: 0.75em;
     font-weight: 600;
     margin-bottom: 0.4em;
     letter-spacing: 0.05em;
 }
 
 .method-desc {
-    font-size: 0.85em;
+    font-size: 0.6em;
     color: var(--strtgy-text-secondary);
     line-height: 1.4;
 }
 
 .method-arrow {
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: var(--strtgy-accent);
     align-self: center;
-    padding-top: 1.5em;
+    padding-top: 1.2em;
 }
 
 /* IA Products Grid */
@@ -1148,19 +1155,19 @@ body.blackout .reveal .slides {
 }
 
 .ia-icon {
-    font-size: 2em;
-    margin-bottom: 0.5em;
+    font-size: 1.4em;
+    margin-bottom: 0.4em;
 }
 
 .ia-name {
     font-family: var(--font-heading);
-    font-size: 1.2em;
+    font-size: 0.85em;
     font-weight: 600;
     margin-bottom: 0.3em;
 }
 
 .ia-desc {
-    font-size: 1em;
+    font-size: 0.7em;
     color: var(--strtgy-text-secondary);
     line-height: 1.4;
 }
@@ -1231,14 +1238,14 @@ body.blackout .reveal .slides {
 .point-year {
     display: block;
     font-family: var(--font-heading);
-    font-size: 1.4em;
+    font-size: 0.95em;
     font-weight: 700;
     margin-bottom: 0.3em;
 }
 
 .point-label {
     display: block;
-    font-size: 0.9em;
+    font-size: 0.65em;
     color: var(--strtgy-text-secondary);
     line-height: 1.3;
 }
@@ -1253,15 +1260,15 @@ body.blackout .reveal .slides {
    ═══════════════════════════════════════════════════════════════ */
 
 @media screen and (max-width: 1400px) {
-    .reveal h1 { font-size: 2.8em; }
-    .reveal h2 { font-size: 2em; }
+    .reveal h1 { font-size: 1.5em; }
+    .reveal h2 { font-size: 1.2em; }
     
-    .cover-title { font-size: 3.5em !important; }
-    .metric-value { font-size: 3.2em; }
-    .alert-value { font-size: 4em; }
+    .cover-title { font-size: 1.6em !important; }
+    .metric-value { font-size: 1.6em; }
+    .alert-value { font-size: 2em; }
     
     .capabilities-grid {
-        gap: 1.5em;
+        gap: 1em;
     }
     
     .team-row.operations {
