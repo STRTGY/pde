@@ -22,32 +22,32 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SIZE MODIFIERS
+   SIZE MODIFIERS (50% larger for better visibility)
    ═══════════════════════════════════════════════════════════════ */
 
 .strtgy-icon--sm {
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
 }
 
 .strtgy-icon--md {
-    width: 80px;
-    height: 80px;
-}
-
-.strtgy-icon--lg {
     width: 120px;
     height: 120px;
 }
 
-.strtgy-icon--xl {
+.strtgy-icon--lg {
     width: 180px;
     height: 180px;
 }
 
+.strtgy-icon--xl {
+    width: 270px;
+    height: 270px;
+}
+
 .strtgy-icon--hero {
-    width: 280px;
-    height: 280px;
+    width: 420px;
+    height: 420px;
 }
 
 /* Tamaño responsivo (se ajusta al contenedor) */
