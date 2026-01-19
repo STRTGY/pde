@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <!-- Lightbulb glass part -->
-  <path d="M512 120 
-           C320 120 200 280 200 440 
-           C200 560 280 660 380 720 
-           L380 800 
-           L644 800 
-           L644 720 
-           C744 660 824 560 824 440 
-           C824 280 704 120 512 120 Z" 
-        fill="none" stroke="#FFFFFF" stroke-width="48" stroke-linejoin="round"/>
-  <!-- Bulb base lines -->
-  <line x1="400" y1="840" x2="624" y2="840" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
-  <line x1="420" y1="880" x2="604" y2="880" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
-  <line x1="460" y1="920" x2="564" y2="920" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round"/>
+  <!-- Lightbulb - Bold and clear for solutions/ideas -->
+  <!-- Outer glow -->
+  <circle cx="512" cy="400" r="280" fill="#00D4AA" opacity="0.1"/>
+  <!-- Bulb glass -->
+  <path d="M512 100 
+           C300 100 180 280 180 440 
+           C180 580 280 680 400 760 
+           L400 820 
+           L624 820 
+           L624 760 
+           C744 680 844 580 844 440 
+           C844 280 724 100 512 100 Z" 
+        fill="none" stroke="#FFFFFF" stroke-width="52" stroke-linejoin="round"/>
+  <!-- Base ridges -->
+  <line x1="400" y1="860" x2="624" y2="860" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round"/>
+  <line x1="420" y1="910" x2="604" y2="910" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round"/>
+  <!-- Screw tip -->
+  <path d="M460 910 L512 980 L564 910" fill="none" stroke="#FFFFFF" stroke-width="32" stroke-linejoin="round"/>
+  <!-- Inner filament glow -->
+  <ellipse cx="512" cy="440" rx="120" ry="160" fill="#00D4AA" opacity="0.25"/>
+  <!-- Filament -->
+  <path d="M420 520 Q480 360 512 520 Q544 360 604 520" 
+        fill="none" stroke="#00D4AA" stroke-width="36" stroke-linecap="round"/>
   <!-- Light rays -->
-  <line x1="512" y1="320" x2="512" y2="480" stroke="#04BFA2" stroke-width="40" stroke-linecap="round"/>
-  <line x1="380" y1="440" x2="480" y2="440" stroke="#04BFA2" stroke-width="32" stroke-linecap="round"/>
-  <line x1="544" y1="440" x2="644" y2="440" stroke="#04BFA2" stroke-width="32" stroke-linecap="round"/>
-  <!-- Inner glow circle -->
-  <circle cx="512" cy="400" r="60" fill="#04BFA2" opacity="0.3"/>
+  <line x1="120" y1="400" x2="60" y2="400" stroke="#00D4AA" stroke-width="28" stroke-linecap="round"/>
+  <line x1="904" y1="400" x2="964" y2="400" stroke="#00D4AA" stroke-width="28" stroke-linecap="round"/>
+  <line x1="200" y1="200" x2="140" y2="140" stroke="#00D4AA" stroke-width="28" stroke-linecap="round"/>
+  <line x1="824" y1="200" x2="884" y2="140" stroke="#00D4AA" stroke-width="28" stroke-linecap="round"/>
 </svg>
