@@ -8,9 +8,9 @@
  * - 'lite': Reduced particles, no animations (for screenshare/video calls)
  * - 'static': CSS gradient only, no particles
  * 
- * Keyboard shortcuts (changed from P to avoid RevealJS conflict):
- * - ']': Toggle pause/resume particles
- * - '[': Cycle performance modes (full → lite → static → full)
+ * Keyboard shortcuts (M key to avoid RevealJS conflicts):
+ * - 'M': Cycle performance modes (full → lite → static → full)
+ * - 'Shift+M': Toggle pause/resume particles
  * 
  * URL Parameters:
  * - ?particles=lite : Start in lite mode
@@ -181,7 +181,7 @@
         if (mode === 'static') {
             // Just hide the particles, show CSS gradient background
             container.style.display = 'none';
-            showIndicator('⚡ Partículas desactivadas ([ para ciclar)');
+            showIndicator('⚡ Partículas desactivadas (M para ciclar)');
             return;
         }
 
@@ -207,7 +207,7 @@
         if (particlesInstance) {
             if (isPaused) {
                 particlesInstance.pause();
-                showIndicator('⏸️ Partículas pausadas (] para reanudar)');
+                showIndicator('⏸️ Partículas pausadas (Shift+M para reanudar)');
             } else {
                 particlesInstance.play();
                 showIndicator('▶️ Partículas activas');
@@ -240,13 +240,13 @@
     // ═══════════════════════════════════════════════════════════════
 
     function handleKeyPress(e) {
-        // ']' key - toggle pause (avoids RevealJS 'P' conflict)
-        if (e.key === ']' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
-            togglePause();
-        }
-        // '[' key - cycle modes
-        else if (e.key === '[' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
+        // 'M' key - cycle modes (avoids all RevealJS shortcuts)
+        if (e.key === 'm' && !e.shiftKey && !e.ctrlKey && !e.altKey) {
             cycleMode();
+        }
+        // 'Shift+M' - toggle pause
+        else if (e.key === 'M' && e.shiftKey && !e.ctrlKey && !e.altKey) {
+            togglePause();
         }
     }
 
