@@ -912,21 +912,24 @@ body,
 
 .cta-button {
     display: inline-block;
-    padding: 0.8em 2em;
-    background: var(--gradient-accent);
-    color: var(--strtgy-dark);
+    padding: 1em 2.5em;
+    background: transparent;
+    color: var(--strtgy-accent);
     font-family: var(--font-heading);
-    font-size: 0.95em;
-    font-weight: 700;
+    font-size: 0.9em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     text-decoration: none;
+    border: 2px solid var(--strtgy-accent);
     border-radius: var(--radius-md);
     transition: all var(--transition-fast);
-    box-shadow: var(--shadow-glow);
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 212, 170, 0.4);
+    background: var(--strtgy-accent);
+    color: var(--strtgy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
 }
 
 .cta-email {
