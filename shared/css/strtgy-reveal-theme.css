@@ -705,6 +705,22 @@ body,
     color: var(--strtgy-white);
 }
 
+.client-logo img {
+    max-width: 100%;
+    max-height: 60px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(1.5);
+    opacity: 0.8;
+    transition: all var(--transition-fast);
+}
+
+.client-logo:hover img {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+}
+
 .clients-summary {
     text-align: center;
     font-size: 1.2em;
