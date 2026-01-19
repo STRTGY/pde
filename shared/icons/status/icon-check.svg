@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
-  <!-- Circle background -->
-  <circle cx="512" cy="512" r="380" fill="none" stroke="#04BFA2" stroke-width="48"/>
-  <!-- Check mark -->
-  <path d="M300 520 L440 660 L724 376" 
-        fill="none" stroke="#04BFA2" stroke-width="64" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Check/Success - Bold and clear for comparisons -->
+  <!-- Circle background with fill for better visibility -->
+  <circle cx="512" cy="512" r="400" fill="#00D4AA" opacity="0.15"/>
+  <circle cx="512" cy="512" r="400" fill="none" stroke="#00D4AA" stroke-width="56"/>
+  <!-- Bold check mark -->
+  <path d="M280 520 L440 680 L744 360" 
+        fill="none" stroke="#00D4AA" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
