@@ -682,43 +682,41 @@ body,
 .clients-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.2em;
-    max-width: 1100px;
+    gap: 1.5em;
+    max-width: 1000px;
     margin: 2em auto;
-    justify-items: center;
 }
 
 .client-logo {
-    background: rgba(30, 58, 95, 0.4);
-    border: 1px solid rgba(30, 58, 95, 0.6);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: var(--radius-md);
-    padding: 1.2em 1.5em;
+    padding: 1.5em 2em;
     width: 100%;
-    min-height: 90px;
+    min-height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all var(--transition-fast);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .client-logo:hover {
-    border-color: var(--strtgy-accent);
-    background: rgba(30, 58, 95, 0.6);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .client-logo img {
-    max-width: 140px;
-    max-height: 50px;
+    max-width: 160px;
+    max-height: 55px;
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1) opacity(0.7);
+    opacity: 0.85;
     transition: all var(--transition-fast);
 }
 
 .client-logo:hover img {
-    filter: brightness(0) invert(1) opacity(1);
+    opacity: 1;
 }
 
 .clients-summary {
